@@ -1,0 +1,368 @@
+{
+  "productVersion": "0.2.0",
+  "measuredAt": "2026-10-16T18:46:51.992Z",
+  "runtime": {
+    "deno": "2.9.7",
+    "v8": "15.0.245.2-rusty",
+    "typescript": "6.0.3"
+  },
+  "platform": {
+    "target": "x86_64-pc-windows-msvc",
+    "arch": "x86_64",
+    "os": "windows",
+    "vendor": "pc",
+    "env": "msvc",
+    "standalone": false
+  },
+  "size": {
+    "unit": "UTF-8 source bytes",
+    "before": 106463,
+    "after": 102306,
+    "saved": 4157,
+    "reductionPercent": 3.904642927589863,
+    "targetBytes": 20000,
+    "targetReached": false
+  },
+  "baselineSha256": "e000c84e037c9ed58937ebac83160c03eb22c483152da72473b2ae2295f47f30",
+  "productSha256": "f5cab88607a16020f81fa6c355b69faf03fed4242ebaf578c200622ac1dcc651",
+  "originalSource": {
+    "sha256": "7fe5158d98e3ed668de247c35e3d809d63605c58f0e0c48b3df9a2784e5fdb0b",
+    "bytes": 109496,
+    "totalSavedBytes": 7190,
+    "totalReductionPercent": 6.566449915978668
+  },
+  "compatibility": {
+    "matchingExportsAndPublicSignatures": true,
+    "nativeStoreRoundTrips": 2,
+    "exactHitScoresIdsAndCitationsPreserved": true,
+    "unchangedExtractionAndEmbeddingReuse": true,
+    "sharedMetadataUpdatedWithoutReextraction": true
+  },
+  "changes": [
+    "One per-instance provider replaces separate ingestion, query and direct-provider objects; mutable native resources remain local to calls.",
+    "Native EventTarget and events.once replace the custom waiter subscription, abort and listener-cleanup protocol.",
+    "Explicit async disposable operation lifetimes replace public-method callback wrappers and track queued work through failures and close.",
+    "FTS and metadata share native IN-subquery scope filtering and one JavaScript score order; no separate global FTS/JavaScript visibility pass or eligible-chunk Set remains.",
+    "Ranking happens once, before fetching only final-hit text and citations.",
+    "Watch events use the same hash reconciliation as search/index rather than updating stale and queues independently.",
+    "Source globs are compiled at registration; configuration is copied once and validated once.",
+    "One Xberg input/result boundary serves OCR, extraction and embeddings; Paddle/Tesseract configuration is shared.",
+    "Counts use one native query; GC uses the native mutation count."
+  ],
+  "dependencies": {
+    "turso": "0.8.3",
+    "xberg": "1.3.10",
+    "nodeAv": "6.1.1"
+  },
+  "checks": {
+    "core": {
+      "passed": 24,
+      "failed": 0
+    },
+    "native": [
+      {
+        "provider": "xberg-paddle",
+        "searchableChannels": [
+          "document",
+          "audio",
+          "video-ocr"
+        ],
+        "durationLimit": {
+          "skipped": 1,
+          "errors": [
+            "MAX_DURATION"
+          ]
+        },
+        "elementaryVideo": {
+          "indexed": true,
+          "durationEvidence": "packet-timestamps",
+          "seconds": 12,
+          "searchableOcr": true
+        },
+        "sharedProviderIsolation": {
+          "blockedNativePdfOcr": true,
+          "concurrentDirectOcrNext": true,
+          "concurrentDirectEmbedding": true,
+          "documentContextPreserved": true
+        }
+      },
+      {
+        "provider": "xberg-tesseract",
+        "searchableChannels": [
+          "document",
+          "audio",
+          "video-ocr"
+        ],
+        "durationLimit": {
+          "skipped": 1,
+          "errors": [
+            "MAX_DURATION"
+          ]
+        },
+        "elementaryVideo": {
+          "indexed": true,
+          "durationEvidence": "packet-timestamps",
+          "seconds": 12,
+          "searchableOcr": true
+        }
+      }
+    ],
+    "archives": [
+      {
+        "nestedEntryProvenance": true,
+        "persisted": true,
+        "entryLimitRejected": true
+      }
+    ],
+    "pdfOcrRouting": [
+      {
+        "fixture": "native.pdf",
+        "ocrCalls": 0
+      },
+      {
+        "fixture": "overlay.pdf",
+        "ocrCalls": 0
+      },
+      {
+        "fixture": "scan.pdf",
+        "ocrCalls": 1
+      },
+      {
+        "fixture": "mixed.pdf",
+        "ocrCalls": 1
+      },
+      {
+        "fixture": "small.pdf",
+        "ocrCalls": 1
+      }
+    ],
+    "storage": [
+      {
+        "documents": 1000,
+        "indexMs": 11131.9344,
+        "unchangedMs": 794.9126000000015,
+        "oneChanged": {
+          "ms": 19.370699999999488,
+          "extractionCalls": 1,
+          "embeddingInputs": 1
+        },
+        "independentCosineQueries": 3,
+        "search": [
+          {
+            "mode": "fulltext",
+            "n": 12,
+            "medianMs": 20.292100000000573,
+            "p95Ms": 36.244699999999284,
+            "minMs": 18.63169999999991,
+            "maxMs": 36.244699999999284
+          },
+          {
+            "mode": "vector",
+            "n": 12,
+            "medianMs": 18.42150000000038,
+            "p95Ms": 24.043900000000576,
+            "minMs": 16.983500000000276,
+            "maxMs": 24.043900000000576
+          },
+          {
+            "mode": "hybrid",
+            "n": 12,
+            "medianMs": 24.516200000000026,
+            "p95Ms": 34.07800000000134,
+            "minMs": 22.498199999999997,
+            "maxMs": 34.07800000000134
+          }
+        ]
+      }
+    ],
+    "pairedStorage": [
+      {
+        "documents": 1000,
+        "dimensions": 768,
+        "before": {
+          "indexMs": 10840.6301,
+          "oneChangedMs": 22.015199999999822,
+          "search": [
+            {
+              "mode": "fulltext",
+              "n": 12,
+              "medianMs": 20.68419999999969,
+              "p95Ms": 32.629000000000815,
+              "minMs": 17.37829999999849,
+              "maxMs": 32.629000000000815
+            },
+            {
+              "mode": "vector",
+              "n": 12,
+              "medianMs": 20.45050000000083,
+              "p95Ms": 23.11119999999937,
+              "minMs": 18.801300000000992,
+              "maxMs": 23.11119999999937
+            },
+            {
+              "mode": "hybrid",
+              "n": 12,
+              "medianMs": 23.16489999999976,
+              "p95Ms": 41.69510000000082,
+              "minMs": 21.6150000000016,
+              "maxMs": 41.69510000000082
+            }
+          ]
+        },
+        "after": {
+          "indexMs": 11131.9344,
+          "oneChangedMs": 19.370699999999488,
+          "search": [
+            {
+              "mode": "fulltext",
+              "n": 12,
+              "medianMs": 20.292100000000573,
+              "p95Ms": 36.244699999999284,
+              "minMs": 18.63169999999991,
+              "maxMs": 36.244699999999284
+            },
+            {
+              "mode": "vector",
+              "n": 12,
+              "medianMs": 18.42150000000038,
+              "p95Ms": 24.043900000000576,
+              "minMs": 16.983500000000276,
+              "maxMs": 24.043900000000576
+            },
+            {
+              "mode": "hybrid",
+              "n": 12,
+              "medianMs": 24.516200000000026,
+              "p95Ms": 34.07800000000134,
+              "minMs": 22.498199999999997,
+              "maxMs": 34.07800000000134
+            }
+          ]
+        }
+      }
+    ],
+    "multilingualQuality": {
+      "documents": 16,
+      "queries": 24,
+      "earlierMetricsSourceSha256": "34f932409d0a53394e3c1c5355e935926b0e0f96f85d8cfc0f56d6f514e447d9",
+      "metricsAndLanguageBreakdownsMatchEarlierFixture": true,
+      "rows": [
+        {
+          "mode": "fulltext",
+          "metrics": {
+            "hit1": 0.25,
+            "hit5": 0.4583333333333333,
+            "reciprocalRank": 0.3263888888888889,
+            "recall5": 0.25,
+            "ndcg5": 0.23642297582601193
+          },
+          "byLanguage": {
+            "it": {
+              "n": 8,
+              "hit1": 0.25,
+              "hit5": 0.625,
+              "mrr5": 0.38541666666666663
+            },
+            "en": {
+              "n": 8,
+              "hit1": 0.5,
+              "hit5": 0.75,
+              "mrr5": 0.59375
+            },
+            "ru": {
+              "n": 4,
+              "hit1": 0,
+              "hit5": 0,
+              "mrr5": 0
+            },
+            "zh": {
+              "n": 4,
+              "hit1": 0,
+              "hit5": 0,
+              "mrr5": 0
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "metrics": {
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.9837294697074715
+          },
+          "byLanguage": {
+            "it": {
+              "n": 8,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "en": {
+              "n": 8,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "ru": {
+              "n": 4,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "zh": {
+              "n": 4,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "metrics": {
+            "hit1": 0.8333333333333334,
+            "hit5": 0.9583333333333334,
+            "reciprocalRank": 0.8784722222222222,
+            "recall5": 0.7708333333333334,
+            "ndcg5": 0.7515732210384013
+          },
+          "byLanguage": {
+            "it": {
+              "n": 8,
+              "hit1": 0.625,
+              "hit5": 0.875,
+              "mrr5": 0.71875
+            },
+            "en": {
+              "n": 8,
+              "hit1": 0.875,
+              "hit5": 1,
+              "mrr5": 0.9166666666666666
+            },
+            "ru": {
+              "n": 4,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "zh": {
+              "n": 4,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            }
+          }
+        }
+      ]
+    }
+  },
+  "limits": [
+    "Windows x64 execution only; no new Linux or macOS execution evidence.",
+    "This pass preserves existing features and existing documented limitations; it does not implement previously deferred features.",
+    "The private 2.51 GB corpus and optional experimental providers were not rebenchmarked.",
+    "The 20 KB source target is not reached. This is a modest simplification pass, not evidence that the remaining design is irreducible.",
+    "The paired storage experiment uses one 1000-document public synthetic workload and 12 searches per mode in fresh processes. It is a regression check, not a general performance guarantee."
+  ]
+}

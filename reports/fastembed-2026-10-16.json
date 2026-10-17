@@ -1,0 +1,1161 @@
+{
+  "measuredAt": "2026-10-16T17:22:07.078Z",
+  "platform": {
+    "target": "x86_64-pc-windows-msvc",
+    "arch": "x86_64",
+    "os": "windows",
+    "vendor": "pc",
+    "env": "msvc",
+    "standalone": false
+  },
+  "runtime": {
+    "deno": "2.9.7",
+    "v8": "15.0.245.2-rusty",
+    "typescript": "6.0.3"
+  },
+  "cpu": "11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+  "logicalCpus": 16,
+  "totalMemoryBytes": 16889516032,
+  "productSha256": "7fe5158d98e3ed668de247c35e3d809d63605c58f0e0c48b3df9a2784e5fdb0b",
+  "experimentSha256": {
+    "tests/benchmark_fastembed.js": "9d39bae836c91c181a48819711f4a4282fa63d5ac500dfcd9fad217a26ea0e79",
+    "tests/fastembed.js": "b72384b5d2933bafbf103bfe5407f23ac9ad682534cdd5e933b984213c297f0e",
+    "tests/embedding-fixtures.js": "7b75b4ec2a4904364b06c24ca0cb77adcf38ecdbd6e2a4902865039d54685d87"
+  },
+  "dependencies": {
+    "version": "3.0.0",
+    "onnxruntime": "1.21.0",
+    "tokenizer": "@anush008/tokenizers@0.0.0",
+    "baseRevision": "4b127809f88a5aa1569d1238032b5ff40e5879bc",
+    "bgeRevision": "aa8f8b060edb00e03bfdd08813a2949946c8ba55"
+  },
+  "modelFiles": {
+    "model.onnx": {
+      "sha256": "84a4d426f7e87a6bf5bf195f0bae2c4a7d15f675b23ca96f42fab8326d7a77aa",
+      "bytes": 1110059084
+    },
+    "config.json": {
+      "sha256": "9dab198f24c8c0879e481cf7822005d5ecbceedbacb390ffafa594e28d31bac4",
+      "bytes": 694
+    },
+    "tokenizer.json": {
+      "sha256": "62c24cdc13d4c9952d63718d6c9fa4c287974249e16b7ade6d5a85e7bbb75626",
+      "bytes": 17082660
+    },
+    "tokenizer_config.json": {
+      "sha256": "efb5c0d09722e5fe59a462cd2a9976ee216d55b037597d997cd3fe833216da15",
+      "bytes": 418
+    },
+    "special_tokens_map.json": {
+      "sha256": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f",
+      "bytes": 280
+    }
+  },
+  "prepareModelsMs": 8711.0668,
+  "documents": 28,
+  "queries": 54,
+  "parity": [
+    {
+      "kind": "documentVectors",
+      "n": 28,
+      "minCosine": 0.9999999999999936,
+      "meanCosine": 0.9999999999999962
+    },
+    {
+      "kind": "queryVectors",
+      "n": 54,
+      "minCosine": 0.9999999999999942,
+      "meanCosine": 0.9999999999999983
+    }
+  ],
+  "results": [
+    {
+      "profile": "xberg",
+      "firstInferenceMs": 3963.6771,
+      "setupThroughFirstInferenceMs": 5074.5621,
+      "documentEmbeddingMs": 1097.9822999999997,
+      "queryEmbeddingMs": 1606.317500000001,
+      "batches": [
+        {
+          "workload": "short",
+          "texts": 16,
+          "batch": 1,
+          "repeat": 0,
+          "ms": 641.8555999999999,
+          "textsPerSecond": 24.92772517681548
+        },
+        {
+          "workload": "short",
+          "texts": 16,
+          "batch": 8,
+          "repeat": 0,
+          "ms": 542.5177000000003,
+          "textsPerSecond": 29.49212532604925
+        },
+        {
+          "workload": "short",
+          "texts": 16,
+          "batch": 8,
+          "repeat": 1,
+          "ms": 531.9324999999999,
+          "textsPerSecond": 30.079004384954864
+        },
+        {
+          "workload": "short",
+          "texts": 16,
+          "batch": 1,
+          "repeat": 1,
+          "ms": 512.8246000000008,
+          "textsPerSecond": 31.199751337981787
+        },
+        {
+          "workload": "long",
+          "texts": 8,
+          "batch": 1,
+          "repeat": 0,
+          "ms": 2801.789099999999,
+          "textsPerSecond": 2.855318410654108
+        },
+        {
+          "workload": "long",
+          "texts": 8,
+          "batch": 8,
+          "repeat": 0,
+          "ms": 2798.1587,
+          "textsPerSecond": 2.8590229710702255
+        },
+        {
+          "workload": "long",
+          "texts": 8,
+          "batch": 8,
+          "repeat": 1,
+          "ms": 2815.9195,
+          "textsPerSecond": 2.840990305298145
+        },
+        {
+          "workload": "long",
+          "texts": 8,
+          "batch": 1,
+          "repeat": 1,
+          "ms": 2798.3931999999986,
+          "textsPerSecond": 2.8587833904113276
+        }
+      ],
+      "peakRssBytes": 1873031168,
+      "indexed": {
+        "ms": 1512.8035999999993,
+        "report": {
+          "scanned": 28,
+          "unchanged": 0,
+          "updated": 28,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 28,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": []
+        },
+        "calls": 28,
+        "embeddedTexts": 28
+      },
+      "retrieval": [
+        {
+          "mode": "fulltext",
+          "metrics": {
+            "n": 54,
+            "hit1": 0.2962962962962963,
+            "hit5": 0.3888888888888889,
+            "mrr5": 0.3333333333333333
+          },
+          "latency": {
+            "n": 54,
+            "medianMs": 2.878899999999703,
+            "p95Ms": 5.606700000000274
+          },
+          "byLanguage": {
+            "it": {
+              "n": 14,
+              "hit1": 0.5,
+              "hit5": 0.7142857142857143,
+              "mrr5": 0.5833333333333333
+            },
+            "en": {
+              "n": 14,
+              "hit1": 0.5714285714285714,
+              "hit5": 0.7142857142857143,
+              "mrr5": 0.6309523809523808
+            },
+            "ru": {
+              "n": 10,
+              "hit1": 0.1,
+              "hit5": 0.1,
+              "mrr5": 0.1
+            },
+            "zh": {
+              "n": 10,
+              "hit1": 0,
+              "hit5": 0,
+              "mrr5": 0
+            },
+            "ja": {
+              "n": 6,
+              "hit1": 0,
+              "hit5": 0,
+              "mrr5": 0
+            }
+          },
+          "bySet": {
+            "baseline": {
+              "n": 24,
+              "hit1": 0.20833333333333334,
+              "hit5": 0.375,
+              "mrr5": 0.2708333333333333
+            },
+            "holdout": {
+              "n": 30,
+              "hit1": 0.36666666666666664,
+              "hit5": 0.4,
+              "mrr5": 0.38333333333333336
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "metrics": {
+            "n": 54,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "latency": {
+            "n": 54,
+            "medianMs": 35.439299999998184,
+            "p95Ms": 42.224600000001374
+          },
+          "byLanguage": {
+            "it": {
+              "n": 14,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "en": {
+              "n": 14,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "ru": {
+              "n": 10,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "zh": {
+              "n": 10,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "ja": {
+              "n": 6,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            }
+          },
+          "bySet": {
+            "baseline": {
+              "n": 24,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "holdout": {
+              "n": 30,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "metrics": {
+            "n": 54,
+            "hit1": 0.8888888888888888,
+            "hit5": 0.9629629629629629,
+            "mrr5": 0.9197530864197531
+          },
+          "latency": {
+            "n": 54,
+            "medianMs": 36.77260000000024,
+            "p95Ms": 45.18989999999758
+          },
+          "byLanguage": {
+            "it": {
+              "n": 14,
+              "hit1": 0.7857142857142857,
+              "hit5": 0.8571428571428571,
+              "mrr5": 0.8214285714285714
+            },
+            "en": {
+              "n": 14,
+              "hit1": 0.7857142857142857,
+              "hit5": 1,
+              "mrr5": 0.869047619047619
+            },
+            "ru": {
+              "n": 10,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "zh": {
+              "n": 10,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "ja": {
+              "n": 6,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            }
+          },
+          "bySet": {
+            "baseline": {
+              "n": 24,
+              "hit1": 0.75,
+              "hit5": 0.9166666666666666,
+              "mrr5": 0.8194444444444443
+            },
+            "holdout": {
+              "n": 30,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "profile": "same-model",
+      "firstInferenceMs": 281.57410000000004,
+      "setupThroughFirstInferenceMs": 2144.3478,
+      "documentEmbeddingMs": 8783.021699999998,
+      "queryEmbeddingMs": 17234.516600000003,
+      "batches": [
+        {
+          "workload": "short",
+          "texts": 16,
+          "batch": 1,
+          "repeat": 0,
+          "ms": 4293.1973,
+          "textsPerSecond": 3.726826158210805
+        },
+        {
+          "workload": "short",
+          "texts": 16,
+          "batch": 8,
+          "repeat": 0,
+          "ms": 4832.559499999999,
+          "textsPerSecond": 3.3108749100761203
+        },
+        {
+          "workload": "short",
+          "texts": 16,
+          "batch": 8,
+          "repeat": 1,
+          "ms": 4946.781799999999,
+          "textsPerSecond": 3.234426066660147
+        },
+        {
+          "workload": "short",
+          "texts": 16,
+          "batch": 1,
+          "repeat": 1,
+          "ms": 4418.902900000001,
+          "textsPerSecond": 3.6208082327403024
+        },
+        {
+          "workload": "long",
+          "texts": 8,
+          "batch": 1,
+          "repeat": 0,
+          "ms": 2141.7104999999974,
+          "textsPerSecond": 3.7353321095451557
+        },
+        {
+          "workload": "long",
+          "texts": 8,
+          "batch": 8,
+          "repeat": 0,
+          "ms": 2398.8333999999995,
+          "textsPerSecond": 3.3349543990841553
+        },
+        {
+          "workload": "long",
+          "texts": 8,
+          "batch": 8,
+          "repeat": 1,
+          "ms": 2416.4367999999995,
+          "textsPerSecond": 3.310659728406719
+        },
+        {
+          "workload": "long",
+          "texts": 8,
+          "batch": 1,
+          "repeat": 1,
+          "ms": 2137.6033000000025,
+          "textsPerSecond": 3.742509192421246
+        }
+      ],
+      "peakRssBytes": 1953103872,
+      "indexed": {
+        "ms": 8416.2362,
+        "report": {
+          "scanned": 28,
+          "unchanged": 0,
+          "updated": 28,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 28,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": []
+        },
+        "calls": 28,
+        "embeddedTexts": 28
+      },
+      "retrieval": [
+        {
+          "mode": "fulltext",
+          "metrics": {
+            "n": 54,
+            "hit1": 0.2962962962962963,
+            "hit5": 0.3888888888888889,
+            "mrr5": 0.3333333333333333
+          },
+          "latency": {
+            "n": 54,
+            "medianMs": 2.6445000000021537,
+            "p95Ms": 4.597900000000664
+          },
+          "byLanguage": {
+            "it": {
+              "n": 14,
+              "hit1": 0.5,
+              "hit5": 0.7142857142857143,
+              "mrr5": 0.5833333333333333
+            },
+            "en": {
+              "n": 14,
+              "hit1": 0.5714285714285714,
+              "hit5": 0.7142857142857143,
+              "mrr5": 0.6309523809523808
+            },
+            "ru": {
+              "n": 10,
+              "hit1": 0.1,
+              "hit5": 0.1,
+              "mrr5": 0.1
+            },
+            "zh": {
+              "n": 10,
+              "hit1": 0,
+              "hit5": 0,
+              "mrr5": 0
+            },
+            "ja": {
+              "n": 6,
+              "hit1": 0,
+              "hit5": 0,
+              "mrr5": 0
+            }
+          },
+          "bySet": {
+            "baseline": {
+              "n": 24,
+              "hit1": 0.20833333333333334,
+              "hit5": 0.375,
+              "mrr5": 0.2708333333333333
+            },
+            "holdout": {
+              "n": 30,
+              "hit1": 0.36666666666666664,
+              "hit5": 0.4,
+              "mrr5": 0.38333333333333336
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "metrics": {
+            "n": 54,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "latency": {
+            "n": 54,
+            "medianMs": 281.38829999999143,
+            "p95Ms": 286.94719999999506
+          },
+          "byLanguage": {
+            "it": {
+              "n": 14,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "en": {
+              "n": 14,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "ru": {
+              "n": 10,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "zh": {
+              "n": 10,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "ja": {
+              "n": 6,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            }
+          },
+          "bySet": {
+            "baseline": {
+              "n": 24,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "holdout": {
+              "n": 30,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "metrics": {
+            "n": 54,
+            "hit1": 0.8888888888888888,
+            "hit5": 0.9629629629629629,
+            "mrr5": 0.9197530864197531
+          },
+          "latency": {
+            "n": 54,
+            "medianMs": 282.700800000006,
+            "p95Ms": 302.570000000007
+          },
+          "byLanguage": {
+            "it": {
+              "n": 14,
+              "hit1": 0.7857142857142857,
+              "hit5": 0.8571428571428571,
+              "mrr5": 0.8214285714285714
+            },
+            "en": {
+              "n": 14,
+              "hit1": 0.7857142857142857,
+              "hit5": 1,
+              "mrr5": 0.869047619047619
+            },
+            "ru": {
+              "n": 10,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "zh": {
+              "n": 10,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "ja": {
+              "n": 6,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            }
+          },
+          "bySet": {
+            "baseline": {
+              "n": 24,
+              "hit1": 0.75,
+              "hit5": 0.9166666666666666,
+              "mrr5": 0.8194444444444443
+            },
+            "holdout": {
+              "n": 30,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "profile": "default",
+      "firstInferenceMs": 155.09229999999997,
+      "setupThroughFirstInferenceMs": 430.42049999999995,
+      "documentEmbeddingMs": 4476.183799999999,
+      "queryEmbeddingMs": 8761.0363,
+      "batches": [
+        {
+          "workload": "short",
+          "texts": 16,
+          "batch": 1,
+          "repeat": 0,
+          "ms": 2201.7393,
+          "textsPerSecond": 7.266982062771918
+        },
+        {
+          "workload": "short",
+          "texts": 16,
+          "batch": 8,
+          "repeat": 0,
+          "ms": 2870.0172999999995,
+          "textsPerSecond": 5.574879287313008
+        },
+        {
+          "workload": "short",
+          "texts": 16,
+          "batch": 8,
+          "repeat": 1,
+          "ms": 2763.0299000000014,
+          "textsPerSecond": 5.790744428788118
+        },
+        {
+          "workload": "short",
+          "texts": 16,
+          "batch": 1,
+          "repeat": 1,
+          "ms": 2154.437899999999,
+          "textsPerSecond": 7.426531068730275
+        },
+        {
+          "workload": "long",
+          "texts": 8,
+          "batch": 1,
+          "repeat": 0,
+          "ms": 958.0909999999985,
+          "textsPerSecond": 8.34993753202985
+        },
+        {
+          "workload": "long",
+          "texts": 8,
+          "batch": 8,
+          "repeat": 0,
+          "ms": 1260.1062999999995,
+          "textsPerSecond": 6.348670743095248
+        },
+        {
+          "workload": "long",
+          "texts": 8,
+          "batch": 8,
+          "repeat": 1,
+          "ms": 1261.9459000000006,
+          "textsPerSecond": 6.339415976548596
+        },
+        {
+          "workload": "long",
+          "texts": 8,
+          "batch": 1,
+          "repeat": 1,
+          "ms": 955.5010999999995,
+          "textsPerSecond": 8.372570162399608
+        }
+      ],
+      "peakRssBytes": 599687168,
+      "indexed": {
+        "ms": 4425.393499999998,
+        "report": {
+          "scanned": 28,
+          "unchanged": 0,
+          "updated": 28,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 28,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": []
+        },
+        "calls": 28,
+        "embeddedTexts": 28
+      },
+      "retrieval": [
+        {
+          "mode": "fulltext",
+          "metrics": {
+            "n": 54,
+            "hit1": 0.2962962962962963,
+            "hit5": 0.3888888888888889,
+            "mrr5": 0.3333333333333333
+          },
+          "latency": {
+            "n": 54,
+            "medianMs": 2.5657999999966705,
+            "p95Ms": 3.752599999999802
+          },
+          "byLanguage": {
+            "it": {
+              "n": 14,
+              "hit1": 0.5,
+              "hit5": 0.7142857142857143,
+              "mrr5": 0.5833333333333333
+            },
+            "en": {
+              "n": 14,
+              "hit1": 0.5714285714285714,
+              "hit5": 0.7142857142857143,
+              "mrr5": 0.6309523809523808
+            },
+            "ru": {
+              "n": 10,
+              "hit1": 0.1,
+              "hit5": 0.1,
+              "mrr5": 0.1
+            },
+            "zh": {
+              "n": 10,
+              "hit1": 0,
+              "hit5": 0,
+              "mrr5": 0
+            },
+            "ja": {
+              "n": 6,
+              "hit1": 0,
+              "hit5": 0,
+              "mrr5": 0
+            }
+          },
+          "bySet": {
+            "baseline": {
+              "n": 24,
+              "hit1": 0.20833333333333334,
+              "hit5": 0.375,
+              "mrr5": 0.2708333333333333
+            },
+            "holdout": {
+              "n": 30,
+              "hit1": 0.36666666666666664,
+              "hit5": 0.4,
+              "mrr5": 0.38333333333333336
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "metrics": {
+            "n": 54,
+            "hit1": 0.5185185185185185,
+            "hit5": 0.7037037037037037,
+            "mrr5": 0.5808641975308642
+          },
+          "latency": {
+            "n": 54,
+            "medianMs": 138.4300000000003,
+            "p95Ms": 144.53130000000237
+          },
+          "byLanguage": {
+            "it": {
+              "n": 14,
+              "hit1": 0.42857142857142855,
+              "hit5": 0.7142857142857143,
+              "mrr5": 0.5238095238095238
+            },
+            "en": {
+              "n": 14,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "ru": {
+              "n": 10,
+              "hit1": 0.1,
+              "hit5": 0.4,
+              "mrr5": 0.20833333333333331
+            },
+            "zh": {
+              "n": 10,
+              "hit1": 0.4,
+              "hit5": 0.6,
+              "mrr5": 0.445
+            },
+            "ja": {
+              "n": 6,
+              "hit1": 0.5,
+              "hit5": 0.6666666666666666,
+              "mrr5": 0.5833333333333334
+            }
+          },
+          "bySet": {
+            "baseline": {
+              "n": 24,
+              "hit1": 0.375,
+              "hit5": 0.5416666666666666,
+              "mrr5": 0.4284722222222222
+            },
+            "holdout": {
+              "n": 30,
+              "hit1": 0.6333333333333333,
+              "hit5": 0.8333333333333334,
+              "mrr5": 0.7027777777777777
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "metrics": {
+            "n": 54,
+            "hit1": 0.4444444444444444,
+            "hit5": 0.7407407407407407,
+            "mrr5": 0.5537037037037037
+          },
+          "latency": {
+            "n": 54,
+            "medianMs": 139.39280000000144,
+            "p95Ms": 153.35710000000108
+          },
+          "byLanguage": {
+            "it": {
+              "n": 14,
+              "hit1": 0.42857142857142855,
+              "hit5": 0.8571428571428571,
+              "mrr5": 0.5857142857142856
+            },
+            "en": {
+              "n": 14,
+              "hit1": 0.7142857142857143,
+              "hit5": 1,
+              "mrr5": 0.8333333333333333
+            },
+            "ru": {
+              "n": 10,
+              "hit1": 0.1,
+              "hit5": 0.4,
+              "mrr5": 0.20833333333333331
+            },
+            "zh": {
+              "n": 10,
+              "hit1": 0.4,
+              "hit5": 0.6,
+              "mrr5": 0.445
+            },
+            "ja": {
+              "n": 6,
+              "hit1": 0.5,
+              "hit5": 0.6666666666666666,
+              "mrr5": 0.5833333333333334
+            }
+          },
+          "bySet": {
+            "baseline": {
+              "n": 24,
+              "hit1": 0.20833333333333334,
+              "hit5": 0.625,
+              "mrr5": 0.3569444444444445
+            },
+            "holdout": {
+              "n": 30,
+              "hit1": 0.6333333333333333,
+              "hit5": 0.8333333333333334,
+              "mrr5": 0.711111111111111
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Same-model comparison uses identical Xberg multilingual-e5-base ONNX/tokenizer files, CPU, 512 token limit, mean pooling, normalization and query:/passage: prefixes. Different runtime/thread/padding defaults remain part of the comparison.",
+    "Stock FastEmbed BGE-small-en-v1.5 is a different quantized English 384-dimensional model; its speed is not solely a library improvement over E5-base FP32 768 dimensions.",
+    "28 public EN/IT topic documents; 24 earlier IT/EN/RU/ZH questions plus 30 new close-domain questions in IT/EN/RU/ZH/JA. Relevance is authored by topic before evaluation; no tuning. Small diagnostic set, not a human-labelled private-corpus benchmark.",
+    "Indexing uses actual Xberg plain-text extraction, embeddings and native Turso publication. Live vector/hybrid queries include actual model inference. No OCR/ASR or private 2.51GB corpus in these timings.",
+    "FastEmbed tensor batching is measured separately. Current Rag worker embeds per document, so cross-document batch throughput is not automatically an indexing gain.",
+    "Fixed FastEmbed maxLength512 padding performs extra work on short text; Xberg may use shorter dynamic inputs. Long-input runs are truncated to each engine's configured window.",
+    "Native providers run in separate sequential child processes; FastEmbed 3.0.0 has no public resource close API. Warm OS caches, no cache eviction. RSS includes each worker's model/native allocations; GPU measurements are attached separately.",
+    "Direct FastEmbed dependency @anush008/tokenizers0.0.0 is archived and publishes Winx64/Linuxx64-gnu/macOS-universal prebuilds, but no Linux ARM64 prebuild. Other OS runtime not tested.",
+    "GPU warm tensor shapes were prepared before batch timings. ORT warns that some nodes remain on CPU; no all-GPU placement claim.",
+    "Setup-through-first-inference includes baseline model-cache copying and is not a fair cold-download/startup comparison.",
+    "Long-file ingestion uses default1200-character chunks, producing32 vectors on16 files for both engines;512-token boundary probes have equivalent truncation."
+  ],
+  "defaultPresetFiles": {
+    "model_optimized.onnx": {
+      "sha256": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+      "bytes": 66465124
+    },
+    "config.json": {
+      "sha256": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+      "bytes": 706
+    },
+    "tokenizer.json": {
+      "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "bytes": 711396
+    },
+    "tokenizer_config.json": {
+      "sha256": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+      "bytes": 1242
+    },
+    "special_tokens_map.json": {
+      "sha256": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+      "bytes": 695
+    }
+  },
+  "gpu": {
+    "platform": {
+      "target": "x86_64-pc-windows-msvc",
+      "arch": "x86_64",
+      "os": "windows",
+      "vendor": "pc",
+      "env": "msvc",
+      "standalone": false
+    },
+    "runtime": {
+      "deno": "2.9.7",
+      "v8": "15.0.245.2-rusty",
+      "typescript": "6.0.3"
+    },
+    "requested": "dml",
+    "available": [
+      {
+        "name": "cpu",
+        "bundled": true
+      },
+      {
+        "name": "dml",
+        "bundled": true
+      }
+    ],
+    "success": true,
+    "setupMs": 2882.6546,
+    "rows": [
+      {
+        "ms": 228.61279999999988,
+        "dimensions": 768,
+        "finite": true,
+        "norm": 1.0000000000000009
+      },
+      {
+        "ms": 53.42059999999992,
+        "dimensions": 768,
+        "finite": true,
+        "norm": 1.0000000000000009
+      },
+      {
+        "ms": 53.76669999999967,
+        "dimensions": 768,
+        "finite": true,
+        "norm": 1.0000000000000009
+      },
+      {
+        "ms": 53.20080000000007,
+        "dimensions": 768,
+        "finite": true,
+        "norm": 1.0000000000000009
+      }
+    ],
+    "batches": [
+      {
+        "workload": "short",
+        "batch": 1,
+        "repeat": 0,
+        "texts": 16,
+        "ms": 853.2523000000001,
+        "textsPerSecond": 18.7517806866738
+      },
+      {
+        "workload": "short",
+        "batch": 8,
+        "repeat": 0,
+        "texts": 16,
+        "ms": 883.3386,
+        "textsPerSecond": 18.11309955208569
+      },
+      {
+        "workload": "short",
+        "batch": 8,
+        "repeat": 1,
+        "texts": 16,
+        "ms": 886.4137999999994,
+        "textsPerSecond": 18.050260499103253
+      },
+      {
+        "workload": "short",
+        "batch": 1,
+        "repeat": 1,
+        "texts": 16,
+        "ms": 862.4098000000004,
+        "textsPerSecond": 18.552664869995674
+      },
+      {
+        "workload": "long",
+        "batch": 1,
+        "repeat": 0,
+        "texts": 8,
+        "ms": 431.2993000000006,
+        "textsPerSecond": 18.54860418275659
+      },
+      {
+        "workload": "long",
+        "batch": 8,
+        "repeat": 0,
+        "texts": 8,
+        "ms": 446.7626999999993,
+        "textsPerSecond": 17.906597842657884
+      },
+      {
+        "workload": "long",
+        "batch": 8,
+        "repeat": 1,
+        "texts": 8,
+        "ms": 448.1967999999997,
+        "textsPerSecond": 17.849301913802165
+      },
+      {
+        "workload": "long",
+        "batch": 1,
+        "repeat": 1,
+        "texts": 8,
+        "ms": 441.72600000000057,
+        "textsPerSecond": 18.110774552550655
+      }
+    ],
+    "minQueryCosineVsCpu": 0.9999999999961129,
+    "indexed": {
+      "ms": 1915.1929999999993,
+      "report": {
+        "scanned": 28,
+        "unchanged": 0,
+        "updated": 28,
+        "removed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "embeddingsGenerated": 28,
+        "embeddingsReused": 0,
+        "complete": true,
+        "errors": []
+      }
+    },
+    "retrieval": [
+      {
+        "mode": "vector",
+        "hit1": 1,
+        "hit5": 1,
+        "latency": {
+          "n": 54,
+          "medianMs": 58.661800000001676,
+          "p95Ms": 62.7573999999986
+        }
+      },
+      {
+        "mode": "hybrid",
+        "hit1": 0.8888888888888888,
+        "hit5": 0.9629629629629629,
+        "latency": {
+          "n": 54,
+          "medianMs": 59.550899999998364,
+          "p95Ms": 64.45919999999751
+        }
+      }
+    ],
+    "scriptSha256": "47d83a8498393bfbdad0c33fc69459536999c2bc1f2d438a91929b0ee218f9d9"
+  },
+  "longIngestion": {
+    "results": [
+      {
+        "profile": "xberg",
+        "indexMs": 5937.860699999999,
+        "report": {
+          "scanned": 16,
+          "unchanged": 0,
+          "updated": 16,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 32,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": []
+        },
+        "counts": {
+          "documents": 16,
+          "extractions": 16,
+          "chunks": 32,
+          "occurrences": 32,
+          "userMeta": 0,
+          "contents": 16,
+          "embeddings": 32,
+          "stale": 0,
+          "sources": 1
+        }
+      },
+      {
+        "profile": "dml",
+        "indexMs": 1876.5913,
+        "report": {
+          "scanned": 16,
+          "unchanged": 0,
+          "updated": 16,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 32,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": []
+        },
+        "counts": {
+          "documents": 16,
+          "extractions": 16,
+          "chunks": 32,
+          "occurrences": 32,
+          "userMeta": 0,
+          "contents": 16,
+          "embeddings": 32,
+          "stale": 0,
+          "sources": 1
+        }
+      }
+    ],
+    "sourceSha256": "8d73548a6a87f8ae066f1fdfa5235b2bcc7a2372ea81326bc1560e29e500174d",
+    "boundary": {
+      "characters": 9246,
+      "minCrossProviderCosine": 0.9999999999956872,
+      "cpuTailCosine": 1,
+      "gpuTailCosine": 1
+    },
+    "notes": [
+      "Sixteen public longer text files. Actual extraction, chunking at1200/overlap0, live E5 inference and Turso publication, warm models. No OCR/ASR.",
+      "Boundary inputs exceed512 tokens. Tail differences after the retained window should not change embeddings; this is not long-context support."
+    ]
+  },
+  "decision": {
+    "default": "Xberg multilingual-e5-base",
+    "reason": "Same-model FastEmbed CPU is slower on short queries/ingestion. Its English default loses multilingual relevance. DirectML helps long-file ingestion but is slower on short requests.",
+    "gpuOpportunity": "Public DirectML path shows a useful full-ingestion gain on the long-text fixture. Keep experimental until supported-target native tokenizers and public resource disposal are addressed.",
+    "limits": "No private-corpus reindex, GPU node-placement profile or non-Windows execution. No claim that the smaller English preset and FP32 multilingual E5 are equivalent models."
+  }
+}

@@ -1,0 +1,6314 @@
+{
+  "metadata": {
+    "kind": "storage",
+    "label": "validated",
+    "time": "2026-10-15T17:28:31.220Z",
+    "deno": {
+      "deno": "2.9.7",
+      "v8": "15.0.245.2-rusty",
+      "typescript": "6.0.3"
+    },
+    "platform": {
+      "target": "x86_64-pc-windows-msvc",
+      "arch": "x86_64",
+      "os": "windows",
+      "vendor": "pc",
+      "env": "msvc",
+      "standalone": false
+    },
+    "cpu": "11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz",
+    "logicalCpus": 16,
+    "totalMemoryBytes": 16889516032,
+    "productSha256": "c953cf7b0d7e88f5825730122c9e1825a6a5f3145a91c63ad7af8473ab23c26b",
+    "conditions": "Sequential single client; warm filesystem/model caches, no OS cache eviction; downloads may run concurrently. Stage timings overlap where a provider delegates. RSS is process-wide, not per database.",
+    "packages": {
+      "xberg": "1.3.10",
+      "turso": "0.8.3",
+      "lancedb": "0.40.0",
+      "nodeAv": "6.1.1"
+    },
+    "contractTestsPassed": 7,
+    "note": "All final benchmark suites ran sequentially. Network corpus downloads may overlap. Baseline was recorded before optimization with 12 samples per mode/scope; final storage has 40. Current source reproduces final behavior; no VCS baseline checkout is available."
+  },
+  "baseline": {
+    "metadata": {
+      "kind": "storage",
+      "label": "baseline",
+      "time": "2026-10-15T14:35:57.773Z",
+      "deno": {
+        "deno": "2.9.7",
+        "v8": "15.0.245.2-rusty",
+        "typescript": "6.0.3"
+      },
+      "platform": {
+        "target": "x86_64-pc-windows-msvc",
+        "arch": "x86_64",
+        "os": "windows",
+        "vendor": "pc",
+        "env": "msvc",
+        "standalone": false
+      },
+      "cpu": "11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz",
+      "logicalCpus": 16,
+      "totalMemoryBytes": 16889516032,
+      "productSha256": "311e0403d414ea3cb57e6532515577cadadb51eefdf7d36da3d9294de04a9e72",
+      "conditions": "Sequential single client; warm filesystem/model caches, no OS cache eviction; downloads may run concurrently. Stage timings overlap where a provider delegates. RSS is process-wide, not per database."
+    },
+    "results": [
+      {
+        "driver": "turso",
+        "uniqueChunks": 100,
+        "documents": 110,
+        "dimensions": 768,
+        "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+        "openMs": 31.0197,
+        "reopenMs": 13.433700000000044,
+        "initial": {
+          "ms": 704.1793,
+          "documentsPerSecond": 156.2102152108135,
+          "report": {
+            "scanned": 110,
+            "unchanged": 0,
+            "updated": 110,
+            "removed": 0,
+            "skipped": 0,
+            "failed": 0,
+            "embeddingsGenerated": 100,
+            "embeddingsReused": 10,
+            "complete": true,
+            "errors": [],
+            "generation": 2
+          },
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 3.2180999999999926
+            },
+            "classify": {
+              "calls": 110,
+              "ms": 14.149599999999566
+            },
+            "extract": {
+              "calls": 100,
+              "ms": 8.839299999999923
+            },
+            "embed": {
+              "calls": 100,
+              "ms": 7.588500000000636
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 579.2116000000001
+            }
+          }
+        },
+        "unchanged": {
+          "ms": 116.64889999999991,
+          "report": {
+            "scanned": 110,
+            "unchanged": 110,
+            "updated": 0,
+            "removed": 0,
+            "skipped": 0,
+            "failed": 0,
+            "embeddingsGenerated": 0,
+            "embeddingsReused": 110,
+            "complete": true,
+            "errors": [],
+            "generation": 3
+          },
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 2.9267999999999574
+            },
+            "classify": {
+              "calls": 110,
+              "ms": 12.297899999999345
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 39.932199999999966
+            }
+          }
+        },
+        "incremental": {
+          "ms": 121.36530000000016,
+          "changed": 1,
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 3.1245000000001255
+            },
+            "classify": {
+              "calls": 110,
+              "ms": 14.18280000000027
+            },
+            "extract": {
+              "calls": 1,
+              "ms": 0.1067000000000462
+            },
+            "embed": {
+              "calls": 1,
+              "ms": 0.066899999999805
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 40.04020000000014
+            }
+          }
+        },
+        "search": [
+          {
+            "mode": "fulltext",
+            "scoped": false,
+            "firstObservedMs": 2.304300000000012,
+            "n": 12,
+            "medianMs": 0.5401000000001659,
+            "p95Ms": 8.201500000000124,
+            "minMs": 0.21709999999984575,
+            "maxMs": 8.201500000000124,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 0.5355000000001837
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 12.14229999999975
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "scoped": false,
+            "firstObservedMs": 1.3748000000000502,
+            "n": 12,
+            "medianMs": 0.6661000000001422,
+            "p95Ms": 0.8215000000000146,
+            "minMs": 0.5751000000000204,
+            "maxMs": 0.8215000000000146,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 0.3010999999999058
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.6055999999998676
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 5.382500000000391
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "scoped": false,
+            "firstObservedMs": 1.011199999999917,
+            "n": 12,
+            "medianMs": 1.0694999999998345,
+            "p95Ms": 1.3748000000000502,
+            "minMs": 0.7784999999998945,
+            "maxMs": 1.3748000000000502,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 0.5380000000000109
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 5.140100000000075
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.2926999999995132
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 5.444000000000415
+              }
+            }
+          },
+          {
+            "mode": "fulltext",
+            "scoped": true,
+            "firstObservedMs": 0.9435000000000855,
+            "n": 12,
+            "medianMs": 0.9059999999999491,
+            "p95Ms": 1.1825999999998658,
+            "minMs": 0.7200000000000273,
+            "maxMs": 1.1825999999998658,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 7.0353999999999814
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 3.3360000000000127
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "scoped": true,
+            "firstObservedMs": 1.1031000000000404,
+            "n": 12,
+            "medianMs": 1.050799999999981,
+            "p95Ms": 1.8263999999999214,
+            "minMs": 0.9460999999998876,
+            "maxMs": 1.8263999999999214,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 7.68730000000005
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 0.9381000000000768
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 4.533300000000509
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "scoped": true,
+            "firstObservedMs": 0.9824000000000979,
+            "n": 12,
+            "medianMs": 1.0552000000000135,
+            "p95Ms": 10.995100000000093,
+            "minMs": 0.8590999999998985,
+            "maxMs": 10.995100000000093,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 13.734399999999823
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 3.1681999999998425
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 0.8219999999996617
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 3.545899999999847
+              }
+            }
+          }
+        ],
+        "exactCosineTop5Verified": true,
+        "catalogJsonBytes": 1877971,
+        "catalogVectorJsonBytes": 1563739,
+        "float32VectorsBytes": 307200,
+        "diskBytes": 4361403,
+        "processMemory": {
+          "rss": 108306432,
+          "heapTotal": 37343232,
+          "heapUsed": 24375216,
+          "external": 4774563
+        }
+      },
+      {
+        "driver": "lancedb",
+        "uniqueChunks": 100,
+        "documents": 110,
+        "dimensions": 768,
+        "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+        "openMs": 168.11059999999998,
+        "reopenMs": 9.815800000000309,
+        "initial": {
+          "ms": 187.3297,
+          "documentsPerSecond": 587.200000854109,
+          "report": {
+            "scanned": 110,
+            "unchanged": 0,
+            "updated": 110,
+            "removed": 0,
+            "skipped": 0,
+            "failed": 0,
+            "embeddingsGenerated": 100,
+            "embeddingsReused": 10,
+            "complete": true,
+            "errors": [],
+            "generation": 2
+          },
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 3.0850000000000364
+            },
+            "classify": {
+              "calls": 110,
+              "ms": 13.131700000001274
+            },
+            "extract": {
+              "calls": 100,
+              "ms": 8.138400000001411
+            },
+            "embed": {
+              "calls": 100,
+              "ms": 6.358999999999924
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 73.04339999999979
+            }
+          }
+        },
+        "unchanged": {
+          "ms": 90.96049999999991,
+          "report": {
+            "scanned": 110,
+            "unchanged": 110,
+            "updated": 0,
+            "removed": 0,
+            "skipped": 0,
+            "failed": 0,
+            "embeddingsGenerated": 0,
+            "embeddingsReused": 110,
+            "complete": true,
+            "errors": [],
+            "generation": 3
+          },
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 1.4083999999998014
+            },
+            "classify": {
+              "calls": 110,
+              "ms": 12.549399999997831
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 17.475400000000263
+            }
+          }
+        },
+        "incremental": {
+          "ms": 136.91240000000016,
+          "changed": 1,
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 3.7778000000002976
+            },
+            "classify": {
+              "calls": 110,
+              "ms": 12.881799999999203
+            },
+            "extract": {
+              "calls": 1,
+              "ms": 0.09609999999975116
+            },
+            "embed": {
+              "calls": 1,
+              "ms": 0.06370000000015352
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 57.772399999999834
+            }
+          }
+        },
+        "search": [
+          {
+            "mode": "fulltext",
+            "scoped": false,
+            "firstObservedMs": 10.847300000000132,
+            "n": 12,
+            "medianMs": 2.30580000000009,
+            "p95Ms": 4.425499999999829,
+            "minMs": 1.9652000000000953,
+            "maxMs": 4.425499999999829,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 0.42499999999972715
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 29.252599999999347
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "scoped": false,
+            "firstObservedMs": 7.906700000000001,
+            "n": 12,
+            "medianMs": 4.136200000000144,
+            "p95Ms": 5.658099999999877,
+            "minMs": 3.8497999999999593,
+            "maxMs": 5.658099999999877,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 0.3106000000000222
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.035899999999856
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 49.2018000000005
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "scoped": false,
+            "firstObservedMs": 6.635400000000118,
+            "n": 12,
+            "medianMs": 6.1836000000000695,
+            "p95Ms": 6.643299999999954,
+            "minMs": 5.996900000000096,
+            "maxMs": 6.643299999999954,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 0.3147000000001299
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 26.700899999999365
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 0.9627000000002681
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 45.71460000000047
+              }
+            }
+          },
+          {
+            "mode": "fulltext",
+            "scoped": true,
+            "firstObservedMs": 2.263300000000072,
+            "n": 12,
+            "medianMs": 2.0854000000001633,
+            "p95Ms": 2.4220000000000255,
+            "minMs": 1.8967999999999847,
+            "maxMs": 2.4220000000000255,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 4.813500000000431
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 19.977600000000848
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "scoped": true,
+            "firstObservedMs": 3.491399999999885,
+            "n": 12,
+            "medianMs": 3.289800000000014,
+            "p95Ms": 4.438500000000204,
+            "minMs": 3.1168000000002394,
+            "maxMs": 4.438500000000204,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 5.055399999998372
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 0.9804000000008273
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 34.69160000000011
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "scoped": true,
+            "firstObservedMs": 6.190700000000106,
+            "n": 12,
+            "medianMs": 5.1887000000001535,
+            "p95Ms": 5.690500000000156,
+            "minMs": 4.88189999999986,
+            "maxMs": 5.690500000000156,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 4.5000000000009095
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 21.915999999999713
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 0.9406000000003587
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 34.64709999999877
+              }
+            }
+          }
+        ],
+        "exactCosineTop5Verified": true,
+        "catalogJsonBytes": 1877971,
+        "catalogVectorJsonBytes": 1563739,
+        "float32VectorsBytes": 307200,
+        "diskBytes": 2252523,
+        "processMemory": {
+          "rss": 178995200,
+          "heapTotal": 59777024,
+          "heapUsed": 29843112,
+          "external": 10644480
+        }
+      },
+      {
+        "driver": "turso",
+        "uniqueChunks": 1000,
+        "documents": 1100,
+        "dimensions": 768,
+        "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+        "openMs": 9.15079999999989,
+        "reopenMs": 108.1226000000006,
+        "initial": {
+          "ms": 5913.2510999999995,
+          "documentsPerSecond": 186.02288003633063,
+          "report": {
+            "scanned": 1100,
+            "unchanged": 0,
+            "updated": 1100,
+            "removed": 0,
+            "skipped": 0,
+            "failed": 0,
+            "embeddingsGenerated": 1000,
+            "embeddingsReused": 100,
+            "complete": true,
+            "errors": [],
+            "generation": 2
+          },
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 10.078500000000076
+            },
+            "classify": {
+              "calls": 1100,
+              "ms": 123.99460000000909
+            },
+            "extract": {
+              "calls": 1000,
+              "ms": 76.17139999998244
+            },
+            "embed": {
+              "calls": 1000,
+              "ms": 59.05560000000696
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 4687.6852
+            }
+          }
+        },
+        "unchanged": {
+          "ms": 1112.532799999999,
+          "report": {
+            "scanned": 1100,
+            "unchanged": 1100,
+            "updated": 0,
+            "removed": 0,
+            "skipped": 0,
+            "failed": 0,
+            "embeddingsGenerated": 0,
+            "embeddingsReused": 1100,
+            "complete": true,
+            "errors": [],
+            "generation": 3
+          },
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 18.788300000000163
+            },
+            "classify": {
+              "calls": 1100,
+              "ms": 121.7847000000038
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 353.2515999999996
+            }
+          }
+        },
+        "incremental": {
+          "ms": 1418.837599999999,
+          "changed": 10,
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 16.657599999998638
+            },
+            "classify": {
+              "calls": 1100,
+              "ms": 114.90370000001349
+            },
+            "extract": {
+              "calls": 10,
+              "ms": 0.9214000000010856
+            },
+            "embed": {
+              "calls": 10,
+              "ms": 0.7033999999985099
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 400.8922999999995
+            }
+          }
+        },
+        "search": [
+          {
+            "mode": "fulltext",
+            "scoped": false,
+            "firstObservedMs": 3.621399999999994,
+            "n": 12,
+            "medianMs": 2.527299999999741,
+            "p95Ms": 17.114799999999377,
+            "minMs": 1.6885000000002037,
+            "maxMs": 17.114799999999377,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 6.596499999999651
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 100.5847999999969
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "scoped": false,
+            "firstObservedMs": 19.10020000000077,
+            "n": 12,
+            "medianMs": 14.266499999999724,
+            "p95Ms": 16.018400000000838,
+            "minMs": 13.970900000000256,
+            "maxMs": 16.018400000000838,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 7.19749999999658
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.0316000000020722
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 161.50240000000304
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "scoped": false,
+            "firstObservedMs": 16.22570000000087,
+            "n": 12,
+            "medianMs": 16.198700000000827,
+            "p95Ms": 31.13090000000011,
+            "minMs": 15.239599999998973,
+            "maxMs": 31.13090000000011,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 7.8496999999970285
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 101.14329999999973
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.1373999999977968
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 159.9440999999988
+              }
+            }
+          },
+          {
+            "mode": "fulltext",
+            "scoped": true,
+            "firstObservedMs": 3.3127000000004045,
+            "n": 12,
+            "medianMs": 3.5705999999991036,
+            "p95Ms": 5.2260000000005675,
+            "minMs": 2.9143000000003667,
+            "maxMs": 5.2260000000005675,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 35.81079999999929
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 7.4262999999991735
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "scoped": true,
+            "firstObservedMs": 3.820499999999811,
+            "n": 12,
+            "medianMs": 3.6771000000007916,
+            "p95Ms": 3.880800000000818,
+            "minMs": 3.591099999999642,
+            "maxMs": 3.880800000000818,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 33.45190000000184
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 0.7900000000008731
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 9.649199999996199
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "scoped": true,
+            "firstObservedMs": 3.971400000000358,
+            "n": 12,
+            "medianMs": 4.2450000000008,
+            "p95Ms": 4.8510000000005675,
+            "minMs": 3.7752000000000407,
+            "maxMs": 4.8510000000005675,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 33.734300000000076
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 6.861800000000585
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 0.7348000000019965
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 9.251400000001013
+              }
+            }
+          }
+        ],
+        "exactCosineTop5Verified": true,
+        "catalogJsonBytes": 18775249,
+        "catalogVectorJsonBytes": 15635246,
+        "float32VectorsBytes": 3072000,
+        "diskBytes": 55829539,
+        "processMemory": {
+          "rss": 352579584,
+          "heapTotal": 160030720,
+          "heapUsed": 88685360,
+          "external": 17206183
+        }
+      },
+      {
+        "driver": "lancedb",
+        "uniqueChunks": 1000,
+        "documents": 1100,
+        "dimensions": 768,
+        "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+        "openMs": 5.085699999999633,
+        "reopenMs": 67.11249999999927,
+        "initial": {
+          "ms": 1356.3863000000001,
+          "documentsPerSecond": 810.9784063728747,
+          "report": {
+            "scanned": 1100,
+            "unchanged": 0,
+            "updated": 1100,
+            "removed": 0,
+            "skipped": 0,
+            "failed": 0,
+            "embeddingsGenerated": 1000,
+            "embeddingsReused": 100,
+            "complete": true,
+            "errors": [],
+            "generation": 2
+          },
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 9.211199999999735
+            },
+            "classify": {
+              "calls": 1100,
+              "ms": 129.07919999998558
+            },
+            "extract": {
+              "calls": 1000,
+              "ms": 83.57690000002185
+            },
+            "embed": {
+              "calls": 1000,
+              "ms": 63.95770000000266
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 240.14619999999923
+            }
+          }
+        },
+        "unchanged": {
+          "ms": 860.0926,
+          "report": {
+            "scanned": 1100,
+            "unchanged": 1100,
+            "updated": 0,
+            "removed": 0,
+            "skipped": 0,
+            "failed": 0,
+            "embeddingsGenerated": 0,
+            "embeddingsReused": 1100,
+            "complete": true,
+            "errors": [],
+            "generation": 3
+          },
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 20.04359999999906
+            },
+            "classify": {
+              "calls": 1100,
+              "ms": 124.39240000000791
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 174.86679999999978
+            }
+          }
+        },
+        "incremental": {
+          "ms": 1306.6345000000001,
+          "changed": 10,
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 16.02560000000085
+            },
+            "classify": {
+              "calls": 1100,
+              "ms": 121.27399999993031
+            },
+            "extract": {
+              "calls": 10,
+              "ms": 1.0963000000010652
+            },
+            "embed": {
+              "calls": 10,
+              "ms": 0.7108000000007451
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 251.59829999999783
+            }
+          }
+        },
+        "search": [
+          {
+            "mode": "fulltext",
+            "scoped": false,
+            "firstObservedMs": 15.242299999999886,
+            "n": 12,
+            "medianMs": 11.821999999998297,
+            "p95Ms": 13.859199999998964,
+            "minMs": 9.532900000000154,
+            "maxMs": 13.859199999998964,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 5.949499999996988
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 134.00260000000344
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "scoped": false,
+            "firstObservedMs": 36.081599999999526,
+            "n": 12,
+            "medianMs": 32.99150000000009,
+            "p95Ms": 36.00909999999931,
+            "minMs": 31.763100000000122,
+            "maxMs": 36.00909999999931,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 6.879900000001726
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.0221999999976106
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 386.98529999999846
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "scoped": false,
+            "firstObservedMs": 43.9966000000004,
+            "n": 12,
+            "medianMs": 45.569399999998495,
+            "p95Ms": 49.567299999998795,
+            "minMs": 42.951499999999214,
+            "maxMs": 49.567299999998795,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 7.326999999995678
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 144.1229999999996
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.03479999999945
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 394.2570000000014
+              }
+            }
+          },
+          {
+            "mode": "fulltext",
+            "scoped": true,
+            "firstObservedMs": 5.730000000001382,
+            "n": 12,
+            "medianMs": 5.4597000000012486,
+            "p95Ms": 14.82719999999972,
+            "minMs": 4.7982000000010885,
+            "maxMs": 14.82719999999972,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 36.80090000000018
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 38.32920000000195
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "scoped": true,
+            "firstObservedMs": 8.252599999999802,
+            "n": 12,
+            "medianMs": 8.26549999999952,
+            "p95Ms": 9.095100000000457,
+            "minMs": 7.713200000000143,
+            "maxMs": 9.095100000000457,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 35.77469999999994
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.0234999999975116
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 60.808099999998376
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "scoped": true,
+            "firstObservedMs": 10.580700000000434,
+            "n": 12,
+            "medianMs": 10.47439999999915,
+            "p95Ms": 10.95470000000023,
+            "minMs": 9.881600000000617,
+            "maxMs": 10.95470000000023,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 35.953700000000026
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 26.868100000003324
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 0.9282000000057451
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 60.38420000000406
+              }
+            }
+          }
+        ],
+        "exactCosineTop5Verified": true,
+        "catalogJsonBytes": 18775249,
+        "catalogVectorJsonBytes": 15635246,
+        "float32VectorsBytes": 3072000,
+        "diskBytes": 22234097,
+        "processMemory": {
+          "rss": 388034560,
+          "heapTotal": 170254336,
+          "heapUsed": 98953424,
+          "external": 27042395
+        }
+      },
+      {
+        "driver": "turso",
+        "uniqueChunks": 3000,
+        "documents": 3300,
+        "dimensions": 768,
+        "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+        "openMs": 13.016100000000733,
+        "reopenMs": 307.14400000000023,
+        "initial": {
+          "ms": 19085.087900000002,
+          "documentsPerSecond": 172.90986645128314,
+          "report": {
+            "scanned": 3300,
+            "unchanged": 0,
+            "updated": 3300,
+            "removed": 0,
+            "skipped": 0,
+            "failed": 0,
+            "embeddingsGenerated": 3000,
+            "embeddingsReused": 300,
+            "complete": true,
+            "errors": [],
+            "generation": 2
+          },
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 32.277500000000146
+            },
+            "classify": {
+              "calls": 3300,
+              "ms": 376.6728000000112
+            },
+            "extract": {
+              "calls": 3000,
+              "ms": 280.71230000012656
+            },
+            "embed": {
+              "calls": 3000,
+              "ms": 176.57580000000962
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 14333.062499999996
+            }
+          }
+        },
+        "unchanged": {
+          "ms": 6551.697,
+          "report": {
+            "scanned": 3300,
+            "unchanged": 3300,
+            "updated": 0,
+            "removed": 0,
+            "skipped": 0,
+            "failed": 0,
+            "embeddingsGenerated": 0,
+            "embeddingsReused": 3300,
+            "complete": true,
+            "errors": [],
+            "generation": 3
+          },
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 35.984199999998964
+            },
+            "classify": {
+              "calls": 3300,
+              "ms": 329.80900000004476
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 1301.9586999999956
+            }
+          }
+        },
+        "incremental": {
+          "ms": 6666.464700000004,
+          "changed": 30,
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 42.11740000000282
+            },
+            "classify": {
+              "calls": 3300,
+              "ms": 334.0087999999596
+            },
+            "extract": {
+              "calls": 30,
+              "ms": 3.26320000000851
+            },
+            "embed": {
+              "calls": 30,
+              "ms": 2.122400000000198
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 1229.7034000000058
+            }
+          }
+        },
+        "search": [
+          {
+            "mode": "fulltext",
+            "scoped": false,
+            "firstObservedMs": 9.659800000001269,
+            "n": 12,
+            "medianMs": 9.382599999997183,
+            "p95Ms": 140.06809999999678,
+            "minMs": 6.276799999999639,
+            "maxMs": 140.06809999999678,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 27.41879999999219
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 795.678299999985
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "scoped": false,
+            "firstObservedMs": 134.83299999999872,
+            "n": 12,
+            "medianMs": 123.98799999999756,
+            "p95Ms": 148.61789999999746,
+            "minMs": 122.79049999999552,
+            "maxMs": 148.61789999999746,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 23.97000000000844
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.3277999999772874
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 1491.6015999999945
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "scoped": false,
+            "firstObservedMs": 125.19499999999971,
+            "n": 12,
+            "medianMs": 128.0017000000007,
+            "p95Ms": 255.41839999999502,
+            "minMs": 124.76039999999921,
+            "maxMs": 255.41839999999502,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 24.315900000015972
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 775.8805000000066
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.285199999991164
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 1436.1194000000032
+              }
+            }
+          },
+          {
+            "mode": "fulltext",
+            "scoped": true,
+            "firstObservedMs": 9.872900000002119,
+            "n": 12,
+            "medianMs": 9.840700000000652,
+            "p95Ms": 12.167300000000978,
+            "minMs": 8.840499999998428,
+            "maxMs": 12.167300000000978,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 107.78129999998782
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 17.625400000004447
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "scoped": true,
+            "firstObservedMs": 13.088400000000547,
+            "n": 12,
+            "medianMs": 12.049099999996542,
+            "p95Ms": 12.8408999999956,
+            "minMs": 11.195899999998801,
+            "maxMs": 12.8408999999956,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 113.12099999999191
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.2699000000066007
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 28.93239999999787
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "scoped": true,
+            "firstObservedMs": 12.117500000000291,
+            "n": 12,
+            "medianMs": 14.346199999999953,
+            "p95Ms": 21.34700000000157,
+            "minMs": 11.727200000001176,
+            "maxMs": 21.34700000000157,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 121.2188999999853
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 20.674299999998766
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.2134000000005472
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 28.07409999999072
+              }
+            }
+          }
+        ],
+        "exactCosineTop5Verified": true,
+        "catalogJsonBytes": 56331868,
+        "catalogVectorJsonBytes": 46908445,
+        "float32VectorsBytes": 9216000,
+        "diskBytes": 179890147,
+        "processMemory": {
+          "rss": 656740352,
+          "heapTotal": 324001792,
+          "heapUsed": 255024928,
+          "external": 48303926
+        }
+      },
+      {
+        "driver": "lancedb",
+        "uniqueChunks": 3000,
+        "documents": 3300,
+        "dimensions": 768,
+        "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+        "openMs": 16.436799999995856,
+        "reopenMs": 188.86680000000342,
+        "initial": {
+          "ms": 5039.444499999998,
+          "documentsPerSecond": 654.8340794307788,
+          "report": {
+            "scanned": 3300,
+            "unchanged": 0,
+            "updated": 3300,
+            "removed": 0,
+            "skipped": 0,
+            "failed": 0,
+            "embeddingsGenerated": 3000,
+            "embeddingsReused": 300,
+            "complete": true,
+            "errors": [],
+            "generation": 2
+          },
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 23.398999999997613
+            },
+            "classify": {
+              "calls": 3300,
+              "ms": 310.915699999925
+            },
+            "extract": {
+              "calls": 3000,
+              "ms": 246.53380000016477
+            },
+            "embed": {
+              "calls": 3000,
+              "ms": 174.9380999999048
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 625.8674000000028
+            }
+          }
+        },
+        "unchanged": {
+          "ms": 5457.697100000005,
+          "report": {
+            "scanned": 3300,
+            "unchanged": 3300,
+            "updated": 0,
+            "removed": 0,
+            "skipped": 0,
+            "failed": 0,
+            "embeddingsGenerated": 0,
+            "embeddingsReused": 3300,
+            "complete": true,
+            "errors": [],
+            "generation": 3
+          },
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 49.73309999999765
+            },
+            "classify": {
+              "calls": 3300,
+              "ms": 321.9692999998515
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 515.6067999999941
+            }
+          }
+        },
+        "incremental": {
+          "ms": 5741.729700000011,
+          "changed": 30,
+          "stages": {
+            "_scan": {
+              "calls": 1,
+              "ms": 28.74899999999616
+            },
+            "classify": {
+              "calls": 3300,
+              "ms": 317.40369999992254
+            },
+            "extract": {
+              "calls": 30,
+              "ms": 2.8668000000179745
+            },
+            "embed": {
+              "calls": 30,
+              "ms": 2.121599999984028
+            },
+            "commit": {
+              "calls": 1,
+              "ms": 632.5896000000066
+            }
+          }
+        },
+        "search": [
+          {
+            "mode": "fulltext",
+            "scoped": false,
+            "firstObservedMs": 39.65679999999702,
+            "n": 12,
+            "medianMs": 35.21379999999772,
+            "p95Ms": 43.73060000000987,
+            "minMs": 31.673500000004424,
+            "maxMs": 43.73060000000987,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 30.58740000000398
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 418.7816000000021
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "scoped": false,
+            "firstObservedMs": 181.24009999999544,
+            "n": 12,
+            "medianMs": 160.52270000000135,
+            "p95Ms": 175.50250000000233,
+            "minMs": 155.49280000000726,
+            "maxMs": 175.50250000000233,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 31.3980000000156
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.1438000000052853
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 1902.6783000000141
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "scoped": false,
+            "firstObservedMs": 193.1070000000036,
+            "n": 12,
+            "medianMs": 196.93270000000484,
+            "p95Ms": 207.74629999999888,
+            "minMs": 186.329899999997,
+            "maxMs": 207.74629999999888,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 30.511799999992945
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 436.1951999999874
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.1282000000064727
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 1878.8106000000116
+              }
+            }
+          },
+          {
+            "mode": "fulltext",
+            "scoped": true,
+            "firstObservedMs": 12.302500000005239,
+            "n": 12,
+            "medianMs": 11.933199999999488,
+            "p95Ms": 23.31369999999879,
+            "minMs": 10.80340000000433,
+            "maxMs": 23.31369999999879,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 105.53620000000228
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 45.95169999997597
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "scoped": true,
+            "firstObservedMs": 19.232600000003004,
+            "n": 12,
+            "medianMs": 18.911900000006426,
+            "p95Ms": 20.2445000000007,
+            "minMs": 18.154799999989336,
+            "maxMs": 20.2445000000007,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 107.31930000001739
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.144399999990128
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 119.59070000002976
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "scoped": true,
+            "firstObservedMs": 21.650800000003073,
+            "n": 12,
+            "medianMs": 22.545700000002398,
+            "p95Ms": 24.412699999986216,
+            "minMs": 20.901899999997113,
+            "maxMs": 24.412699999986216,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 107.29819999997562
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 38.61109999998007
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 1.1548999999795342
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 119.44190000000526
+              }
+            }
+          }
+        ],
+        "exactCosineTop5Verified": true,
+        "catalogJsonBytes": 56331868,
+        "catalogVectorJsonBytes": 46908445,
+        "float32VectorsBytes": 9216000,
+        "diskBytes": 66645517,
+        "processMemory": {
+          "rss": 598413312,
+          "heapTotal": 346685440,
+          "heapUsed": 277336832,
+          "external": 73884644
+        }
+      }
+    ]
+  },
+  "scaleMetadata": {
+    "kind": "storage",
+    "label": "scale",
+    "time": "2026-10-15T17:30:10.779Z",
+    "deno": {
+      "deno": "2.9.7",
+      "v8": "15.0.245.2-rusty",
+      "typescript": "6.0.3"
+    },
+    "platform": {
+      "target": "x86_64-pc-windows-msvc",
+      "arch": "x86_64",
+      "os": "windows",
+      "vendor": "pc",
+      "env": "msvc",
+      "standalone": false
+    },
+    "cpu": "11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz",
+    "logicalCpus": 16,
+    "totalMemoryBytes": 16889516032,
+    "productSha256": "c953cf7b0d7e88f5825730122c9e1825a6a5f3145a91c63ad7af8473ab23c26b",
+    "conditions": "Sequential single client; warm filesystem/model caches, no OS cache eviction; downloads may run concurrently. Stage timings overlap where a provider delegates. RSS is process-wide, not per database."
+  },
+  "storage": [
+    {
+      "driver": "turso",
+      "uniqueChunks": 100,
+      "documents": 110,
+      "dimensions": 768,
+      "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+      "openMs": 34.42860000000002,
+      "reopenMs": 10.388299999999958,
+      "initial": {
+        "ms": 200.15820000000002,
+        "documentsPerSecond": 549.5652938525626,
+        "report": {
+          "scanned": 110,
+          "unchanged": 0,
+          "updated": 110,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 100,
+          "embeddingsReused": 10,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 3.4535999999999945
+          },
+          "classify": {
+            "calls": 110,
+            "ms": 18.345000000000084
+          },
+          "extract": {
+            "calls": 100,
+            "ms": 11.09020000000038
+          },
+          "embed": {
+            "calls": 100,
+            "ms": 8.251199999999585
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 50.468800000000044
+          }
+        }
+      },
+      "unchanged": {
+        "ms": 30.426600000000008,
+        "report": {
+          "scanned": 110,
+          "unchanged": 110,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 3
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 4.274400000000014
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 3.1628999999999223
+          }
+        }
+      },
+      "hashVerified": {
+        "ms": 93.33949999999993,
+        "report": {
+          "scanned": 110,
+          "unchanged": 110,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 110,
+          "complete": true,
+          "errors": [],
+          "generation": 4
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 2.7531000000000176
+          },
+          "classify": {
+            "calls": 110,
+            "ms": 16.32769999999914
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 13.818899999999985
+          }
+        }
+      },
+      "incremental": {
+        "ms": 35.34100000000001,
+        "changed": 1,
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 2.1737000000000535
+          },
+          "classify": {
+            "calls": 1,
+            "ms": 0.3039999999999736
+          },
+          "extract": {
+            "calls": 1,
+            "ms": 0.2177000000000362
+          },
+          "embed": {
+            "calls": 1,
+            "ms": 0.0663000000000693
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 15.646799999999985
+          }
+        }
+      },
+      "search": [
+        {
+          "mode": "fulltext",
+          "scoped": false,
+          "firstObservedMs": 2.0441000000000713,
+          "n": 40,
+          "medianMs": 0.36999999999989086,
+          "p95Ms": 0.8070000000000164,
+          "minMs": 0.12210000000004584,
+          "maxMs": 8.144400000000019,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.05110000000013315
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 18.234699999999748
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": false,
+          "firstObservedMs": 3.270599999999945,
+          "n": 40,
+          "medianMs": 0.7182000000000244,
+          "p95Ms": 0.8972999999999729,
+          "minMs": 0.6163000000000238,
+          "maxMs": 1.4213999999999487,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.03420000000028267
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 4.422800000000279
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 21.690800000000422
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": false,
+          "firstObservedMs": 1.0374000000000478,
+          "n": 40,
+          "medianMs": 0.893100000000004,
+          "p95Ms": 1.0456000000000358,
+          "minMs": 0.7047999999999774,
+          "maxMs": 1.3219000000000278,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.029700000000275395
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 8.557500000000005
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 2.6141000000001213
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 20.4577000000005
+            }
+          }
+        },
+        {
+          "mode": "fulltext",
+          "scoped": true,
+          "firstObservedMs": 0.850400000000036,
+          "n": 40,
+          "medianMs": 0.2979000000000269,
+          "p95Ms": 0.351099999999974,
+          "minMs": 0.106899999999996,
+          "maxMs": 0.38220000000001164,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.02289999999993597
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 7.126500000000078
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": true,
+          "firstObservedMs": 1.119100000000003,
+          "n": 40,
+          "medianMs": 0.5729999999999791,
+          "p95Ms": 0.82650000000001,
+          "minMs": 0.5480000000000018,
+          "maxMs": 1.396199999999908,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.0289999999996553
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 2.3749000000002525
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 19.212899999999763
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": true,
+          "firstObservedMs": 0.6961999999999762,
+          "n": 40,
+          "medianMs": 0.8432000000000244,
+          "p95Ms": 0.9352000000000089,
+          "minMs": 0.6286999999999807,
+          "maxMs": 1.217300000000023,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.030499999999733518
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 7.608499999999822
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 2.53659999999968
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 18.45999999999981
+            }
+          }
+        }
+      ],
+      "exactCosineTop5Verified": true,
+      "catalogJsonBytes": 352891,
+      "catalogVectorJsonBytes": 29089,
+      "float32VectorsBytes": 307200,
+      "diskBytes": 2068387,
+      "processMemory": {
+        "rss": 83869696,
+        "heapTotal": 21159936,
+        "heapUsed": 11007968,
+        "external": 1822443
+      }
+    },
+    {
+      "driver": "lancedb",
+      "uniqueChunks": 100,
+      "documents": 110,
+      "dimensions": 768,
+      "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+      "openMs": 178.42079999999999,
+      "reopenMs": 4.284400000000005,
+      "initial": {
+        "ms": 190.81939999999986,
+        "documentsPerSecond": 576.461303200828,
+        "report": {
+          "scanned": 110,
+          "unchanged": 0,
+          "updated": 110,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 100,
+          "embeddingsReused": 10,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 1.8167000000000826
+          },
+          "classify": {
+            "calls": 110,
+            "ms": 15.557100000001128
+          },
+          "extract": {
+            "calls": 100,
+            "ms": 9.349399999999832
+          },
+          "embed": {
+            "calls": 100,
+            "ms": 6.857199999998784
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 64.74890000000005
+          }
+        }
+      },
+      "unchanged": {
+        "ms": 20.427599999999984,
+        "report": {
+          "scanned": 110,
+          "unchanged": 110,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 3
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 1.7867999999998574
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 1.980199999999968
+          }
+        }
+      },
+      "hashVerified": {
+        "ms": 75.61229999999978,
+        "report": {
+          "scanned": 110,
+          "unchanged": 110,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 110,
+          "complete": true,
+          "errors": [],
+          "generation": 4
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 1.9386999999999261
+          },
+          "classify": {
+            "calls": 110,
+            "ms": 14.364299999999048
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 1.9911999999999352
+          }
+        }
+      },
+      "incremental": {
+        "ms": 65.38040000000001,
+        "changed": 1,
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 2.3216999999999643
+          },
+          "classify": {
+            "calls": 1,
+            "ms": 0.19369999999980791
+          },
+          "extract": {
+            "calls": 1,
+            "ms": 0.15909999999985303
+          },
+          "embed": {
+            "calls": 1,
+            "ms": 0.06219999999984793
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 46.53409999999985
+          }
+        }
+      },
+      "search": [
+        {
+          "mode": "fulltext",
+          "scoped": false,
+          "firstObservedMs": 10.984500000000025,
+          "n": 40,
+          "medianMs": 2.259900000000016,
+          "p95Ms": 3.069400000000087,
+          "minMs": 1.914600000000064,
+          "maxMs": 3.2676000000001295,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.0671999999988202
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 90.72259999999983
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": false,
+          "firstObservedMs": 5.773599999999988,
+          "n": 40,
+          "medianMs": 4.1875,
+          "p95Ms": 4.6965999999999894,
+          "minMs": 3.94170000000031,
+          "maxMs": 5.372299999999996,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.058600000001206354
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 3.2348000000001775
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 161.41030000000092
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": false,
+          "firstObservedMs": 6.925300000000107,
+          "n": 40,
+          "medianMs": 6.573699999999917,
+          "p95Ms": 7.1930999999999585,
+          "minMs": 5.913299999999936,
+          "maxMs": 8.71510000000012,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.0581999999992604
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 94.07549999999856
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 4.219000000000506
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 160.82380000000103
+            }
+          }
+        },
+        {
+          "mode": "fulltext",
+          "scoped": true,
+          "firstObservedMs": 2.5383999999999105,
+          "n": 40,
+          "medianMs": 1.858600000000024,
+          "p95Ms": 2.5560999999997875,
+          "minMs": 1.5940999999997985,
+          "maxMs": 2.980299999999943,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.05120000000033542
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 74.27539999999954
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": true,
+          "firstObservedMs": 3.654600000000073,
+          "n": 40,
+          "medianMs": 3.2489999999997963,
+          "p95Ms": 4.052799999999934,
+          "minMs": 2.9494000000004235,
+          "maxMs": 4.304200000000037,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.05759999999986576
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 3.2610999999972137
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 124.8969999999988
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": true,
+          "firstObservedMs": 4.983100000000377,
+          "n": 40,
+          "medianMs": 5.047599999999875,
+          "p95Ms": 5.857700000000477,
+          "minMs": 4.342699999999695,
+          "maxMs": 6.315000000000055,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.06260000000020227
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 76.24139999999943
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 3.5459000000009837
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 120.48129999999946
+            }
+          }
+        }
+      ],
+      "exactCosineTop5Verified": true,
+      "catalogJsonBytes": 352891,
+      "catalogVectorJsonBytes": 29089,
+      "float32VectorsBytes": 307200,
+      "diskBytes": 727378,
+      "processMemory": {
+        "rss": 154775552,
+        "heapTotal": 45936640,
+        "heapUsed": 27957296,
+        "external": 2950880
+      }
+    },
+    {
+      "driver": "turso",
+      "uniqueChunks": 1000,
+      "documents": 1100,
+      "dimensions": 768,
+      "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+      "openMs": 13.027700000000095,
+      "reopenMs": 25.56630000000041,
+      "initial": {
+        "ms": 1504.4985000000001,
+        "documentsPerSecond": 731.1406425463368,
+        "report": {
+          "scanned": 1100,
+          "unchanged": 0,
+          "updated": 1100,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 1000,
+          "embeddingsReused": 100,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 12.633400000000165
+          },
+          "classify": {
+            "calls": 1100,
+            "ms": 151.07509999998592
+          },
+          "extract": {
+            "calls": 1000,
+            "ms": 98.07969999999659
+          },
+          "embed": {
+            "calls": 1000,
+            "ms": 66.16600000000881
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 281.6194999999998
+          }
+        }
+      },
+      "unchanged": {
+        "ms": 227.64490000000023,
+        "report": {
+          "scanned": 1100,
+          "unchanged": 1100,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 3
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 12.746500000000196
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 26.95759999999973
+          }
+        }
+      },
+      "hashVerified": {
+        "ms": 861.7673000000004,
+        "report": {
+          "scanned": 1100,
+          "unchanged": 1100,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 1100,
+          "complete": true,
+          "errors": [],
+          "generation": 4
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 11.258700000000317
+          },
+          "classify": {
+            "calls": 1100,
+            "ms": 153.87769999999819
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 37.37109999999939
+          }
+        }
+      },
+      "incremental": {
+        "ms": 208.33709999999974,
+        "changed": 10,
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 10.92949999999928
+          },
+          "classify": {
+            "calls": 10,
+            "ms": 1.4556000000020504
+          },
+          "extract": {
+            "calls": 10,
+            "ms": 1.2577999999975873
+          },
+          "embed": {
+            "calls": 10,
+            "ms": 0.6412000000009357
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 30.79199999999946
+          }
+        }
+      },
+      "search": [
+        {
+          "mode": "fulltext",
+          "scoped": false,
+          "firstObservedMs": 2.3492999999998574,
+          "n": 40,
+          "medianMs": 0.37519999999949505,
+          "p95Ms": 3.116399999999885,
+          "minMs": 0.14769999999953143,
+          "maxMs": 4.20890000000054,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.04480000000057771
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 60.20969999999852
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": false,
+          "firstObservedMs": 11.51640000000043,
+          "n": 40,
+          "medianMs": 2.096099999999751,
+          "p95Ms": 4.099899999999252,
+          "minMs": 1.9310999999997875,
+          "maxMs": 6.392300000000432,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.026499999999941792
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 3.329200000003766
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 78.83919999999944
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": false,
+          "firstObservedMs": 2.268000000000029,
+          "n": 40,
+          "medianMs": 3.9184000000004744,
+          "p95Ms": 6.785899999999856,
+          "minMs": 2.0510000000003856,
+          "maxMs": 8.801800000000185,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.03499999999530701
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 66.73980000000302
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 2.9737000000004628
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 73.80289999999786
+            }
+          }
+        },
+        {
+          "mode": "fulltext",
+          "scoped": true,
+          "firstObservedMs": 4.856400000000576,
+          "n": 40,
+          "medianMs": 0.27300000000013824,
+          "p95Ms": 2.0598999999992884,
+          "minMs": 0.12340000000040163,
+          "maxMs": 2.6202000000002954,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.019799999996394035
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 37.66180000000077
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": true,
+          "firstObservedMs": 4.11449999999968,
+          "n": 40,
+          "medianMs": 0.8392999999996391,
+          "p95Ms": 2.151100000000042,
+          "minMs": 0.7875999999996566,
+          "maxMs": 2.1940999999997075,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.025200000000040745
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 2.822899999998299
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 36.06530000000021
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": true,
+          "firstObservedMs": 0.9663999999993393,
+          "n": 40,
+          "medianMs": 1.5052999999998065,
+          "p95Ms": 2.814700000000812,
+          "minMs": 0.8998000000001412,
+          "maxMs": 3.1364000000003216,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.03920000000107393
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 37.92880000000059
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 2.588499999998021
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 30.002300000002833
+            }
+          }
+        }
+      ],
+      "exactCosineTop5Verified": true,
+      "catalogJsonBytes": 3526584,
+      "catalogVectorJsonBytes": 290881,
+      "float32VectorsBytes": 3072000,
+      "diskBytes": 12424723,
+      "processMemory": {
+        "rss": 257789952,
+        "heapTotal": 108351488,
+        "heapUsed": 54197080,
+        "external": 6674450
+      }
+    },
+    {
+      "driver": "lancedb",
+      "uniqueChunks": 1000,
+      "documents": 1100,
+      "dimensions": 768,
+      "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+      "openMs": 4.093899999999849,
+      "reopenMs": 15.415499999999156,
+      "initial": {
+        "ms": 1359.7687999999998,
+        "documentsPerSecond": 808.9610527907392,
+        "report": {
+          "scanned": 1100,
+          "unchanged": 0,
+          "updated": 1100,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 1000,
+          "embeddingsReused": 100,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 9.304699999999684
+          },
+          "classify": {
+            "calls": 1100,
+            "ms": 153.42799999998897
+          },
+          "extract": {
+            "calls": 1000,
+            "ms": 98.07699999998931
+          },
+          "embed": {
+            "calls": 1000,
+            "ms": 67.00140000000283
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 168.17099999999937
+          }
+        }
+      },
+      "unchanged": {
+        "ms": 244.9976999999999,
+        "report": {
+          "scanned": 1100,
+          "unchanged": 1100,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 3
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 15.755100000000311
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 22.272299999999632
+          }
+        }
+      },
+      "hashVerified": {
+        "ms": 824.6368999999995,
+        "report": {
+          "scanned": 1100,
+          "unchanged": 1100,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 1100,
+          "complete": true,
+          "errors": [],
+          "generation": 4
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 14.736799999999675
+          },
+          "classify": {
+            "calls": 1100,
+            "ms": 148.84620000001632
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 20.837499999999636
+          }
+        }
+      },
+      "incremental": {
+        "ms": 283.14960000000065,
+        "changed": 10,
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 11.012499999998909
+          },
+          "classify": {
+            "calls": 10,
+            "ms": 1.7604999999985012
+          },
+          "extract": {
+            "calls": 10,
+            "ms": 1.0825999999997293
+          },
+          "embed": {
+            "calls": 10,
+            "ms": 0.9008999999987282
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 90.54600000000028
+          }
+        }
+      },
+      "search": [
+        {
+          "mode": "fulltext",
+          "scoped": false,
+          "firstObservedMs": 16.78440000000046,
+          "n": 40,
+          "medianMs": 8.526499999999942,
+          "p95Ms": 11.91569999999956,
+          "minMs": 6.669200000000274,
+          "maxMs": 23.172200000000885,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.04460000000835862
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 374.6126000000004
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": false,
+          "firstObservedMs": 31.592899999999645,
+          "n": 40,
+          "medianMs": 23.06079999999929,
+          "p95Ms": 38.48329999999987,
+          "minMs": 19.5570000000007,
+          "maxMs": 49.176799999999275,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.0577000000012049
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 4.231100000002698
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 995.3508000000074
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": false,
+          "firstObservedMs": 26.600400000001173,
+          "n": 40,
+          "medianMs": 27.740600000000995,
+          "p95Ms": 38.13980000000083,
+          "minMs": 26.30240000000049,
+          "maxMs": 42.52169999999933,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.07229999999253778
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 317.88809999999285
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 3.6358000000072934
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 839.580899999999
+            }
+          }
+        },
+        {
+          "mode": "fulltext",
+          "scoped": true,
+          "firstObservedMs": 10.64259999999922,
+          "n": 40,
+          "medianMs": 2.4082999999991443,
+          "p95Ms": 2.967899999999645,
+          "minMs": 1.9195999999992637,
+          "maxMs": 3.1252000000004045,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.038100000008853385
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 94.95109999999659
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": true,
+          "firstObservedMs": 6.178400000000693,
+          "n": 40,
+          "medianMs": 5.106499999999869,
+          "p95Ms": 6.343500000000859,
+          "minMs": 4.710400000001755,
+          "maxMs": 6.550599999998667,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.03589999999894644
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 3.0579000000016094
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 203.87450000000354
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": true,
+          "firstObservedMs": 7.536200000000463,
+          "n": 40,
+          "medianMs": 8.5645999999997,
+          "p95Ms": 10.191399999999703,
+          "minMs": 6.610599999999977,
+          "maxMs": 10.459100000000035,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.10240000000158034
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 107.890199999998
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 3.303299999990486
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 223.53469999999834
+            }
+          }
+        }
+      ],
+      "exactCosineTop5Verified": true,
+      "catalogJsonBytes": 3526584,
+      "catalogVectorJsonBytes": 290881,
+      "float32VectorsBytes": 3072000,
+      "diskBytes": 6985432,
+      "processMemory": {
+        "rss": 251588608,
+        "heapTotal": 113795072,
+        "heapUsed": 51487512,
+        "external": 10352198
+      }
+    },
+    {
+      "driver": "turso",
+      "uniqueChunks": 3000,
+      "documents": 3300,
+      "dimensions": 768,
+      "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+      "openMs": 18.098799999999756,
+      "reopenMs": 64.91960000000108,
+      "initial": {
+        "ms": 4742.311199999998,
+        "documentsPerSecond": 695.8632322568797,
+        "report": {
+          "scanned": 3300,
+          "unchanged": 0,
+          "updated": 3300,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 3000,
+          "embeddingsReused": 300,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 39.722499999999854
+          },
+          "classify": {
+            "calls": 3300,
+            "ms": 477.00240000001577
+          },
+          "extract": {
+            "calls": 3000,
+            "ms": 302.2532999999785
+          },
+          "embed": {
+            "calls": 3000,
+            "ms": 217.50230000007286
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 1054.3516000000018
+          }
+        }
+      },
+      "unchanged": {
+        "ms": 749.5276000000013,
+        "report": {
+          "scanned": 3300,
+          "unchanged": 3300,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 3
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 43.03189999999813
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 190.3328999999976
+          }
+        }
+      },
+      "hashVerified": {
+        "ms": 2479.7700000000004,
+        "report": {
+          "scanned": 3300,
+          "unchanged": 3300,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 3300,
+          "complete": true,
+          "errors": [],
+          "generation": 4
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 59.489299999997456
+          },
+          "classify": {
+            "calls": 3300,
+            "ms": 452.33980000008523
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 148.51540000000023
+          }
+        }
+      },
+      "incremental": {
+        "ms": 677.3536999999997,
+        "changed": 30,
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 35.18260000000009
+          },
+          "classify": {
+            "calls": 30,
+            "ms": 3.749099999993632
+          },
+          "extract": {
+            "calls": 30,
+            "ms": 2.7581000000172935
+          },
+          "embed": {
+            "calls": 30,
+            "ms": 1.832799999996496
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 146.6376999999993
+          }
+        }
+      },
+      "search": [
+        {
+          "mode": "fulltext",
+          "scoped": false,
+          "firstObservedMs": 7.8628999999964435,
+          "n": 40,
+          "medianMs": 3.0737999999983003,
+          "p95Ms": 16.027200000000448,
+          "minMs": 0.4629000000022643,
+          "maxMs": 18.744800000000396,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.055100000001402805
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 303.9965999999913
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": false,
+          "firstObservedMs": 143.5616000000009,
+          "n": 40,
+          "medianMs": 14.861800000002404,
+          "p95Ms": 22.77939999999944,
+          "minMs": 13.73489999999947,
+          "maxMs": 24.21389999999883,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.03790000001026783
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 2.924200000008568
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 590.4727999999923
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": false,
+          "firstObservedMs": 15.31369999999879,
+          "n": 40,
+          "medianMs": 19.413699999997334,
+          "p95Ms": 26.6903999999995,
+          "minMs": 14.003700000001118,
+          "maxMs": 31.280899999997928,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.049699999992299126
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 188.9743999999846
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 2.986300000011397
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 587.2811999999976
+            }
+          }
+        },
+        {
+          "mode": "fulltext",
+          "scoped": true,
+          "firstObservedMs": 10.360099999998056,
+          "n": 40,
+          "medianMs": 0.7262000000009721,
+          "p95Ms": 11.241500000000087,
+          "minMs": 0.14240000000063446,
+          "maxMs": 13.180100000001403,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.0330999999823689
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 156.7368000000024
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": true,
+          "firstObservedMs": 11.878500000002532,
+          "n": 40,
+          "medianMs": 1.5673999999999069,
+          "p95Ms": 3.986300000000483,
+          "minMs": 1.4202000000004773,
+          "maxMs": 4.3180000000029395,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.027500000011059456
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 2.8615999999929045
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 71.58439999999246
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": true,
+          "firstObservedMs": 2.7501999999985856,
+          "n": 40,
+          "medianMs": 3.5591999999996915,
+          "p95Ms": 12.125700000000506,
+          "minMs": 1.5632000000005064,
+          "maxMs": 13.084999999999127,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.04000000000814907
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 133.9327999999914
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 2.9610000000102445
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 67.58659999998417
+            }
+          }
+        }
+      ],
+      "exactCosineTop5Verified": true,
+      "catalogJsonBytes": 10583164,
+      "catalogVectorJsonBytes": 872641,
+      "float32VectorsBytes": 9216000,
+      "diskBytes": 41536995,
+      "processMemory": {
+        "rss": 363491328,
+        "heapTotal": 179081216,
+        "heapUsed": 112044544,
+        "external": 14553674
+      }
+    },
+    {
+      "driver": "lancedb",
+      "uniqueChunks": 3000,
+      "documents": 3300,
+      "dimensions": 768,
+      "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+      "openMs": 14.433199999999488,
+      "reopenMs": 33.66399999999703,
+      "initial": {
+        "ms": 3954.0270999999993,
+        "documentsPerSecond": 834.5921554255408,
+        "report": {
+          "scanned": 3300,
+          "unchanged": 0,
+          "updated": 3300,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 3000,
+          "embeddingsReused": 300,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 27.889899999998306
+          },
+          "classify": {
+            "calls": 3300,
+            "ms": 440.1968000000197
+          },
+          "extract": {
+            "calls": 3000,
+            "ms": 282.2816999999304
+          },
+          "embed": {
+            "calls": 3000,
+            "ms": 207.76119999994262
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 440.72299999999814
+          }
+        }
+      },
+      "unchanged": {
+        "ms": 631.7328999999991,
+        "report": {
+          "scanned": 3300,
+          "unchanged": 3300,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 3
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 57.637800000000425
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 49.32419999999911
+          }
+        }
+      },
+      "hashVerified": {
+        "ms": 2259.489999999998,
+        "report": {
+          "scanned": 3300,
+          "unchanged": 3300,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 3300,
+          "complete": true,
+          "errors": [],
+          "generation": 4
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 45.1887999999999
+          },
+          "classify": {
+            "calls": 3300,
+            "ms": 436.5812999998561
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 45.83009999999922
+          }
+        }
+      },
+      "incremental": {
+        "ms": 888.5653999999995,
+        "changed": 30,
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 51.53210000000399
+          },
+          "classify": {
+            "calls": 30,
+            "ms": 6.125399999997171
+          },
+          "extract": {
+            "calls": 30,
+            "ms": 3.335499999986496
+          },
+          "embed": {
+            "calls": 30,
+            "ms": 2.8374000000039814
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 195.46929999999702
+          }
+        }
+      },
+      "search": [
+        {
+          "mode": "fulltext",
+          "scoped": false,
+          "firstObservedMs": 28.433000000000902,
+          "n": 40,
+          "medianMs": 19.29449999999997,
+          "p95Ms": 28.045399999999063,
+          "minMs": 17.994300000002113,
+          "maxMs": 32.66319999999905,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.05639999999766587
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 854.4696999999796
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": false,
+          "firstObservedMs": 92.9481999999989,
+          "n": 40,
+          "medianMs": 72.50760000000446,
+          "p95Ms": 94.03910000000178,
+          "minMs": 57.48719999999594,
+          "maxMs": 108.30599999999686,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.06560000000172295
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 3.513100000011036
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 2935.2886999999973
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": false,
+          "firstObservedMs": 105.52500000000146,
+          "n": 40,
+          "medianMs": 88.78779999999824,
+          "p95Ms": 118.12100000000646,
+          "minMs": 75.87580000000162,
+          "maxMs": 153.06150000000343,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.08979999999428401
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 926.4817000000039
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 4.237499999995634
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 2773.119400000003
+            }
+          }
+        },
+        {
+          "mode": "fulltext",
+          "scoped": true,
+          "firstObservedMs": 13.532900000005611,
+          "n": 40,
+          "medianMs": 2.124500000005355,
+          "p95Ms": 2.6350000000020373,
+          "minMs": 1.921199999997043,
+          "maxMs": 2.9861000000018976,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.050600000024132896
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 85.48620000001392
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": true,
+          "firstObservedMs": 12.440699999999197,
+          "n": 40,
+          "medianMs": 10.382599999997183,
+          "p95Ms": 13.23700000000099,
+          "minMs": 9.667999999997846,
+          "maxMs": 13.839099999997416,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.07769999997253763
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 3.2150000000401633
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 423.36470000002737
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": true,
+          "firstObservedMs": 12.38810000000376,
+          "n": 40,
+          "medianMs": 12.57369999999355,
+          "p95Ms": 13.78200000000652,
+          "minMs": 11.892299999999523,
+          "maxMs": 14.645599999996193,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.06899999999586726
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 106.94809999998688
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 3.5521000000298955
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 390.78279999997903
+            }
+          }
+        }
+      ],
+      "exactCosineTop5Verified": true,
+      "catalogJsonBytes": 10583164,
+      "catalogVectorJsonBytes": 872641,
+      "float32VectorsBytes": 9216000,
+      "diskBytes": 20897259,
+      "processMemory": {
+        "rss": 297099264,
+        "heapTotal": 134176768,
+        "heapUsed": 92446664,
+        "external": 24197232
+      }
+    },
+    {
+      "driver": "turso",
+      "uniqueChunks": 10000,
+      "documents": 11000,
+      "dimensions": 768,
+      "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+      "openMs": 35.48299999999972,
+      "reopenMs": 209.4274000000005,
+      "initial": {
+        "ms": 15475.639799999999,
+        "documentsPerSecond": 710.7945223692788,
+        "report": {
+          "scanned": 11000,
+          "unchanged": 0,
+          "updated": 11000,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 10000,
+          "embeddingsReused": 1000,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 94.4966000000004
+          },
+          "classify": {
+            "calls": 11000,
+            "ms": 1499.2307000001038
+          },
+          "extract": {
+            "calls": 10000,
+            "ms": 958.9748999998988
+          },
+          "embed": {
+            "calls": 10000,
+            "ms": 661.5488999999588
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 3727.5901999999987
+          }
+        }
+      },
+      "unchanged": {
+        "ms": 2306.727500000001,
+        "report": {
+          "scanned": 11000,
+          "unchanged": 11000,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 3
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 129.9462999999996
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 487.3338999999978
+          }
+        }
+      },
+      "hashVerified": {
+        "ms": 7864.819500000001,
+        "report": {
+          "scanned": 11000,
+          "unchanged": 11000,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 11000,
+          "complete": true,
+          "errors": [],
+          "generation": 4
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 134.52160000000003
+          },
+          "classify": {
+            "calls": 11000,
+            "ms": 1478.3936000004142
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 574.3880000000026
+          }
+        }
+      },
+      "incremental": {
+        "ms": 2877.3171,
+        "changed": 100,
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 112.7664999999979
+          },
+          "classify": {
+            "calls": 100,
+            "ms": 18.32980000002135
+          },
+          "extract": {
+            "calls": 100,
+            "ms": 11.790899999941757
+          },
+          "embed": {
+            "calls": 100,
+            "ms": 10.087800000015704
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 660.8413999999975
+          }
+        }
+      },
+      "search": [
+        {
+          "mode": "fulltext",
+          "scoped": false,
+          "firstObservedMs": 19.238099999998667,
+          "n": 40,
+          "medianMs": 1.888200000001234,
+          "p95Ms": 65.26889999999912,
+          "minMs": 0.7168999999994412,
+          "maxMs": 83.23300000000017,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.10769999999320135
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 1078.2395999999899
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": false,
+          "firstObservedMs": 441.81670000000304,
+          "n": 40,
+          "medianMs": 108.0044999999991,
+          "p95Ms": 117.75379999999859,
+          "minMs": 75.71780000000217,
+          "maxMs": 137.42639999999665,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.1068999999697553
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 4.34700000000521
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 4008.7133000000213
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": false,
+          "firstObservedMs": 104.22019999999611,
+          "n": 40,
+          "medianMs": 116.38410000000295,
+          "p95Ms": 178.19580000000133,
+          "minMs": 78.36490000000049,
+          "maxMs": 182.10080000000016,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.10189999998692656
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 1125.7133999999714
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 5.272899999981746
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 3882.937399999966
+            }
+          }
+        },
+        {
+          "mode": "fulltext",
+          "scoped": true,
+          "firstObservedMs": 35.62109999999666,
+          "n": 40,
+          "medianMs": 0.521999999997206,
+          "p95Ms": 19.662799999998242,
+          "minMs": 0.20870000000286382,
+          "maxMs": 21.301400000003923,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.05879999997705454
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 372.3617999999842
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": true,
+          "firstObservedMs": 29.016700000000128,
+          "n": 40,
+          "medianMs": 3.318599999998696,
+          "p95Ms": 3.637399999999616,
+          "minMs": 3.1748999999981606,
+          "maxMs": 4.150799999995797,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.029999999969732016
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 2.359100000016042
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 130.02590000002238
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": true,
+          "firstObservedMs": 3.450700000001234,
+          "n": 40,
+          "medianMs": 4.397799999998824,
+          "p95Ms": 25.250899999999092,
+          "minMs": 3.4074000000036904,
+          "maxMs": 27.694500000005064,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.051499999994121026
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 378.9236000000019
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 2.8628000000026077
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 143.11789999994653
+            }
+          }
+        }
+      ],
+      "exactCosineTop5Verified": true,
+      "catalogJsonBytes": 35303205,
+      "catalogVectorJsonBytes": 2908801,
+      "float32VectorsBytes": 30720000,
+      "diskBytes": 157838060,
+      "processMemory": {
+        "rss": 515461120,
+        "heapTotal": 303767552,
+        "heapUsed": 232120888,
+        "external": 4854918
+      }
+    },
+    {
+      "driver": "lancedb",
+      "uniqueChunks": 10000,
+      "documents": 11000,
+      "dimensions": 768,
+      "embeddingProvider": "deterministic PRNG; measures storage/orchestration, not model or semantic quality",
+      "openMs": 174.55289999999513,
+      "reopenMs": 167.60980000000563,
+      "initial": {
+        "ms": 12512.0334,
+        "documentsPerSecond": 879.1536633845623,
+        "report": {
+          "scanned": 11000,
+          "unchanged": 0,
+          "updated": 11000,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 10000,
+          "embeddingsReused": 1000,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 96.28879999999481
+          },
+          "classify": {
+            "calls": 11000,
+            "ms": 1474.4233000004679
+          },
+          "extract": {
+            "calls": 10000,
+            "ms": 942.8890000000683
+          },
+          "embed": {
+            "calls": 10000,
+            "ms": 650.7565000001196
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 1141.1215999999986
+          }
+        }
+      },
+      "unchanged": {
+        "ms": 2074.448400000001,
+        "report": {
+          "scanned": 11000,
+          "unchanged": 11000,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 3
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 96.09130000000005
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 129.95539999999892
+          }
+        }
+      },
+      "hashVerified": {
+        "ms": 7465.784799999994,
+        "report": {
+          "scanned": 11000,
+          "unchanged": 11000,
+          "updated": 0,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 0,
+          "embeddingsReused": 11000,
+          "complete": true,
+          "errors": [],
+          "generation": 4
+        },
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 93.16999999999825
+          },
+          "classify": {
+            "calls": 11000,
+            "ms": 1483.788900000196
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 168.9939000000013
+          }
+        }
+      },
+      "incremental": {
+        "ms": 2590.784799999994,
+        "changed": 100,
+        "stages": {
+          "_scan": {
+            "calls": 1,
+            "ms": 126.1704999999929
+          },
+          "classify": {
+            "calls": 100,
+            "ms": 18.142699999982142
+          },
+          "extract": {
+            "calls": 100,
+            "ms": 11.571299999995972
+          },
+          "embed": {
+            "calls": 100,
+            "ms": 8.624099999913597
+          },
+          "commit": {
+            "calls": 1,
+            "ms": 519.8944000000047
+          }
+        }
+      },
+      "search": [
+        {
+          "mode": "fulltext",
+          "scoped": false,
+          "firstObservedMs": 119.47179999999935,
+          "n": 40,
+          "medianMs": 89.62049999998999,
+          "p95Ms": 104.08810000000813,
+          "minMs": 66.12429999999586,
+          "maxMs": 125.53429999999935,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.079799999948591
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 3548.2193000000116
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": false,
+          "firstObservedMs": 238.65209999999206,
+          "n": 40,
+          "medianMs": 283.4872999999934,
+          "p95Ms": 327.8310000000056,
+          "minMs": 232.56590000000142,
+          "maxMs": 339.1890999999887,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.08010000002104789
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 2.962299999970128
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 10948.51559999994
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": false,
+          "firstObservedMs": 303.14049999999406,
+          "n": 40,
+          "medianMs": 311.5205999999889,
+          "p95Ms": 407.3564000000042,
+          "minMs": 293.44400000000314,
+          "maxMs": 456.3237999999983,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.0917999999364838
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 3003.766900000046
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 4.372099999949569
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 10167.915399999998
+            }
+          }
+        },
+        {
+          "mode": "fulltext",
+          "scoped": true,
+          "firstObservedMs": 39.5344000000041,
+          "n": 40,
+          "medianMs": 2.8377000000036787,
+          "p95Ms": 3.680999999996857,
+          "minMs": 2.268400000000838,
+          "maxMs": 5.1990000000078,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.052599999980884604
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 115.61429999997199
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "scoped": true,
+          "firstObservedMs": 24.87600000000384,
+          "n": 40,
+          "medianMs": 24.2103000000061,
+          "p95Ms": 26.84189999999944,
+          "minMs": 22.27610000000277,
+          "maxMs": 27.57819999998901,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.08719999995082617
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 3.2721000000165077
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 961.7945000000327
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "scoped": true,
+          "firstObservedMs": 31.574700000011944,
+          "n": 40,
+          "medianMs": 30.10000000000582,
+          "p95Ms": 34.55529999999271,
+          "minMs": 26.368799999996554,
+          "maxMs": 36.73029999999562,
+          "stages": {
+            "_visible": {
+              "calls": 40,
+              "ms": 0.09179999995103572
+            },
+            "searchLexical": {
+              "calls": 40,
+              "ms": 166.5274999999674
+            },
+            "embed": {
+              "calls": 40,
+              "ms": 4.205999999961932
+            },
+            "searchVector": {
+              "calls": 40,
+              "ms": 1035.851999999999
+            }
+          }
+        }
+      ],
+      "exactCosineTop5Verified": true,
+      "catalogJsonBytes": 35303205,
+      "catalogVectorJsonBytes": 2908801,
+      "float32VectorsBytes": 30720000,
+      "diskBytes": 69729116,
+      "processMemory": {
+        "rss": 645283840,
+        "heapTotal": 411230208,
+        "heapUsed": 339276240,
+        "external": 38133762
+      }
+    }
+  ],
+  "quality": {
+    "metadata": {
+      "kind": "quality",
+      "label": "validated",
+      "time": "2026-10-15T17:25:21.897Z",
+      "deno": {
+        "deno": "2.9.7",
+        "v8": "15.0.245.2-rusty",
+        "typescript": "6.0.3"
+      },
+      "platform": {
+        "target": "x86_64-pc-windows-msvc",
+        "arch": "x86_64",
+        "os": "windows",
+        "vendor": "pc",
+        "env": "msvc",
+        "standalone": false
+      },
+      "cpu": "11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz",
+      "logicalCpus": 16,
+      "totalMemoryBytes": 16889516032,
+      "productSha256": "c953cf7b0d7e88f5825730122c9e1825a6a5f3145a91c63ad7af8473ab23c26b",
+      "conditions": "Sequential single client; warm filesystem/model caches, no OS cache eviction; downloads may run concurrently. Stage timings overlap where a provider delegates. RSS is process-wide, not per database.",
+      "modelFirstObservedMs": 4212.764999999999,
+      "embedding": {
+        "dimensions": 768,
+        "documents": 16,
+        "documentBatchMs": 587.6652999999997,
+        "queries": 24,
+        "queryBatchMs": 732.9398999999994,
+        "model": "Xberg multilingual preset, E5 document/query roles"
+      }
+    },
+    "results": [
+      {
+        "driver": "turso",
+        "mode": "fulltext",
+        "indexMs": 36.587000000000444,
+        "indexReport": {
+          "scanned": 16,
+          "unchanged": 0,
+          "updated": 16,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 16,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "metrics": {
+          "hit1": 0.25,
+          "hit5": 0.4583333333333333,
+          "reciprocalRank": 0.3263888888888889,
+          "recall5": 0.25,
+          "ndcg5": 0.23642297582601193
+        },
+        "latency": {
+          "n": 24,
+          "medianMs": 0.2118000000000393,
+          "p95Ms": 3.280300000000352,
+          "minMs": 0.11339999999927386,
+          "maxMs": 7.690599999999904
+        },
+        "byLanguage": {
+          "it": {
+            "n": 8,
+            "hit1": 0.25,
+            "hit5": 0.625,
+            "mrr5": 0.38541666666666663
+          },
+          "en": {
+            "n": 8,
+            "hit1": 0.5,
+            "hit5": 0.75,
+            "mrr5": 0.59375
+          },
+          "ru": {
+            "n": 4,
+            "hit1": 0,
+            "hit5": 0,
+            "mrr5": 0
+          },
+          "zh": {
+            "n": 4,
+            "hit1": 0,
+            "hit5": 0,
+            "mrr5": 0
+          }
+        },
+        "rows": [
+          {
+            "topic": "lease",
+            "language": "it",
+            "ms": 3.280300000000352,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.3333333333333333,
+            "recall5": 0.5,
+            "ndcg5": 0.3065735963827292,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "lease",
+            "language": "en",
+            "ms": 0.3868000000002212,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "lease",
+            "language": "ru",
+            "ms": 0.8227000000006228,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "it",
+            "ms": 7.690599999999904,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.25,
+            "recall5": 0.5,
+            "ndcg5": 0.2640681225725909,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "en",
+            "ms": 0.2863999999999578,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "zh",
+            "ms": 0.15079999999943539,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "it",
+            "ms": 0.2179999999998472,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "en",
+            "ms": 0.22590000000036525,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.5,
+            "recall5": 0.5,
+            "ndcg5": 0.38685280723454163,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "ru",
+            "ms": 0.14059999999972206,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "it",
+            "ms": 0.2290000000002692,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "en",
+            "ms": 0.20889999999963038,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "zh",
+            "ms": 0.11759999999958382,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "it",
+            "ms": 0.1995999999999185,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.5,
+            "recall5": 0.5,
+            "ndcg5": 0.38685280723454163,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "en",
+            "ms": 0.16849999999976717,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "ru",
+            "ms": 0.12929999999960273,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "it",
+            "ms": 0.2136000000000422,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "en",
+            "ms": 0.2118000000000393,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "zh",
+            "ms": 0.12489999999979773,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "it",
+            "ms": 0.20340000000032887,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "en",
+            "ms": 0.22290000000066357,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "ru",
+            "ms": 0.12989999999990687,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "it",
+            "ms": 0.2136000000000422,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "en",
+            "ms": 0.21309999999994034,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.25,
+            "recall5": 0.5,
+            "ndcg5": 0.2640681225725909,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "zh",
+            "ms": 0.11339999999927386,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          }
+        ]
+      },
+      {
+        "driver": "turso",
+        "mode": "vector",
+        "indexMs": 36.587000000000444,
+        "indexReport": {
+          "scanned": 16,
+          "unchanged": 0,
+          "updated": 16,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 16,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "metrics": {
+          "hit1": 1,
+          "hit5": 1,
+          "reciprocalRank": 1,
+          "recall5": 1,
+          "ndcg5": 0.9837294697074715
+        },
+        "latency": {
+          "n": 24,
+          "medianMs": 0.5437000000001717,
+          "p95Ms": 0.9795999999996639,
+          "minMs": 0.502200000000812,
+          "maxMs": 1.7906000000002678
+        },
+        "byLanguage": {
+          "it": {
+            "n": 8,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "en": {
+            "n": 8,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "ru": {
+            "n": 4,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "zh": {
+            "n": 4,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          }
+        },
+        "rows": [
+          {
+            "topic": "lease",
+            "language": "it",
+            "ms": 1.7906000000002678,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "lease",
+            "language": "en",
+            "ms": 0.9795999999996639,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "lease",
+            "language": "ru",
+            "ms": 0.889299999999821,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "it",
+            "ms": 0.9089999999996508,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.9197207891481876,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "en",
+            "ms": 0.8218000000006214,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.9197207891481876,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "zh",
+            "ms": 0.6945000000005166,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "it",
+            "ms": 0.565799999999399,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "en",
+            "ms": 0.5758000000005268,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.9197207891481876,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "ru",
+            "ms": 0.5114999999996144,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "it",
+            "ms": 0.502200000000812,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.8503449055347546,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "en",
+            "ms": 0.5857999999998356,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "zh",
+            "ms": 0.5972999999994499,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "it",
+            "ms": 0.5332999999991443,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "en",
+            "ms": 0.5300999999999476,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "ru",
+            "ms": 0.5387000000000626,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "it",
+            "ms": 0.5156999999999243,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "en",
+            "ms": 0.764299999999821,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "zh",
+            "ms": 0.5437000000001717,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "it",
+            "ms": 0.5289000000002488,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "en",
+            "ms": 0.5216000000000349,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "ru",
+            "ms": 0.566899999999805,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "it",
+            "ms": 0.5365999999994528,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "en",
+            "ms": 0.5163999999995212,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "zh",
+            "ms": 0.5140000000001237,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          }
+        ]
+      },
+      {
+        "driver": "turso",
+        "mode": "hybrid",
+        "indexMs": 36.587000000000444,
+        "indexReport": {
+          "scanned": 16,
+          "unchanged": 0,
+          "updated": 16,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 16,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "metrics": {
+          "hit1": 0.8333333333333334,
+          "hit5": 0.9583333333333334,
+          "reciprocalRank": 0.8784722222222222,
+          "recall5": 0.7708333333333334,
+          "ndcg5": 0.7515732210384013
+        },
+        "latency": {
+          "n": 24,
+          "medianMs": 0.6870000000008076,
+          "p95Ms": 1.478900000000067,
+          "minMs": 0.5835999999999331,
+          "maxMs": 1.6252000000004045
+        },
+        "byLanguage": {
+          "it": {
+            "n": 8,
+            "hit1": 0.625,
+            "hit5": 0.875,
+            "mrr5": 0.71875
+          },
+          "en": {
+            "n": 8,
+            "hit1": 0.875,
+            "hit5": 1,
+            "mrr5": 0.9166666666666666
+          },
+          "ru": {
+            "n": 4,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "zh": {
+            "n": 4,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          }
+        },
+        "rows": [
+          {
+            "topic": "lease",
+            "language": "it",
+            "ms": 1.2010000000000218,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "lease",
+            "language": "en",
+            "ms": 0.9260000000003856,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.8503449055347546,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "lease",
+            "language": "ru",
+            "ms": 0.7601000000004206,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "it",
+            "ms": 0.6724999999996726,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "en",
+            "ms": 0.7154000000000451,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.3333333333333333,
+            "recall5": 1,
+            "ndcg5": 0.5437713091520254,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "zh",
+            "ms": 0.6372000000001208,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "it",
+            "ms": 0.6870000000008076,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.25,
+            "recall5": 1,
+            "ndcg5": 0.5012658353418871,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "en",
+            "ms": 0.7637999999997191,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "ru",
+            "ms": 0.8420999999998457,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "it",
+            "ms": 0.6859000000004016,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "en",
+            "ms": 0.6907000000001062,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "zh",
+            "ms": 0.6197000000001935,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "it",
+            "ms": 0.7316000000000713,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "en",
+            "ms": 1.000199999999495,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "ru",
+            "ms": 0.6610000000000582,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "it",
+            "ms": 0.6593000000002576,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "en",
+            "ms": 0.6606999999994514,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "zh",
+            "ms": 0.5835999999999331,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "it",
+            "ms": 1.478900000000067,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.5,
+            "recall5": 0.5,
+            "ndcg5": 0.38685280723454163,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "en",
+            "ms": 0.6656000000002678,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "ru",
+            "ms": 0.617099999999482,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "it",
+            "ms": 0.6441999999997279,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "en",
+            "ms": 0.8143000000000029,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.8503449055347546,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "zh",
+            "ms": 1.6252000000004045,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          }
+        ]
+      },
+      {
+        "driver": "turso",
+        "endToEnd": [
+          {
+            "mode": "fulltext",
+            "n": 12,
+            "medianMs": 0.18980000000010477,
+            "p95Ms": 0.5234000000000378,
+            "minMs": 0.09940000000005966,
+            "maxMs": 0.5234000000000378,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 0.029699999998229032
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 1.7952000000013868
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "n": 12,
+            "medianMs": 30.19930000000022,
+            "p95Ms": 32.283300000000054,
+            "minMs": 27.422100000000682,
+            "maxMs": 32.283300000000054,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 0.052100000000791624
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 347.3191000000006
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 11.78309999999965
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "n": 12,
+            "medianMs": 31.373499999999694,
+            "p95Ms": 34.60069999999996,
+            "minMs": 30.010800000000017,
+            "maxMs": 34.60069999999996,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 0.05139999999937572
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 3.4604999999992287
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 362.3005999999996
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 11.153299999999035
+              }
+            }
+          }
+        ],
+        "note": "Real Xberg query inference on every vector/hybrid request; warm model, 12 distinct queries."
+      },
+      {
+        "driver": "lancedb",
+        "mode": "fulltext",
+        "indexMs": 76.93080000000009,
+        "indexReport": {
+          "scanned": 16,
+          "unchanged": 0,
+          "updated": 16,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 16,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "metrics": {
+          "hit1": 0.2916666666666667,
+          "hit5": 0.5,
+          "reciprocalRank": 0.3729166666666666,
+          "recall5": 0.2708333333333333,
+          "ndcg5": 0.26085117511610206
+        },
+        "latency": {
+          "n": 24,
+          "medianMs": 2.139299999999821,
+          "p95Ms": 3.751800000000003,
+          "minMs": 1.2039000000004307,
+          "maxMs": 13.135099999999511
+        },
+        "byLanguage": {
+          "it": {
+            "n": 8,
+            "hit1": 0.375,
+            "hit5": 0.75,
+            "mrr5": 0.49375
+          },
+          "en": {
+            "n": 8,
+            "hit1": 0.5,
+            "hit5": 0.75,
+            "mrr5": 0.625
+          },
+          "ru": {
+            "n": 4,
+            "hit1": 0,
+            "hit5": 0,
+            "mrr5": 0
+          },
+          "zh": {
+            "n": 4,
+            "hit1": 0,
+            "hit5": 0,
+            "mrr5": 0
+          }
+        },
+        "rows": [
+          {
+            "topic": "lease",
+            "language": "it",
+            "ms": 13.135099999999511,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.5,
+            "recall5": 0.5,
+            "ndcg5": 0.38685280723454163,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "lease",
+            "language": "en",
+            "ms": 3.050799999999981,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.5,
+            "recall5": 0.5,
+            "ndcg5": 0.38685280723454163,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "lease",
+            "language": "ru",
+            "ms": 1.8103000000000975,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "it",
+            "ms": 3.751800000000003,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.2,
+            "recall5": 0.5,
+            "ndcg5": 0.23719771276929622,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "password",
+            "language": "en",
+            "ms": 1.410000000000764,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "password",
+            "language": "zh",
+            "ms": 1.2749000000003434,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "it",
+            "ms": 2.5307999999995445,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "battery",
+            "language": "en",
+            "ms": 2.3134000000000015,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "battery",
+            "language": "ru",
+            "ms": 1.9378999999998996,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "it",
+            "ms": 2.420199999999568,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "refund",
+            "language": "en",
+            "ms": 2.4693999999999505,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "refund",
+            "language": "zh",
+            "ms": 2.021099999999933,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "it",
+            "ms": 2.5555999999996857,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "garden",
+            "language": "en",
+            "ms": 2.139900000000125,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "garden",
+            "language": "ru",
+            "ms": 1.322400000000016,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "it",
+            "ms": 2.139299999999821,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "train",
+            "language": "en",
+            "ms": 1.9760999999998603,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "train",
+            "language": "zh",
+            "ms": 1.2039000000004307,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "it",
+            "ms": 1.975800000000163,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.25,
+            "recall5": 0.5,
+            "ndcg5": 0.2640681225725909,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "backup",
+            "language": "en",
+            "ms": 2.348399999999856,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.5,
+            "recall5": 1,
+            "ndcg5": 0.6934264036172708,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "backup",
+            "language": "ru",
+            "ms": 1.9718999999995503,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "it",
+            "ms": 2.5572000000001935,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "en",
+            "ms": 2.2089999999998327,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "bread",
+            "language": "zh",
+            "ms": 1.241899999999987,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": true
+          }
+        ]
+      },
+      {
+        "driver": "lancedb",
+        "mode": "vector",
+        "indexMs": 76.93080000000009,
+        "indexReport": {
+          "scanned": 16,
+          "unchanged": 0,
+          "updated": 16,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 16,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "metrics": {
+          "hit1": 1,
+          "hit5": 1,
+          "reciprocalRank": 1,
+          "recall5": 1,
+          "ndcg5": 0.9837294697074715
+        },
+        "latency": {
+          "n": 24,
+          "medianMs": 3.21349999999984,
+          "p95Ms": 4.368099999999686,
+          "minMs": 2.867699999999786,
+          "maxMs": 5.76299999999992
+        },
+        "byLanguage": {
+          "it": {
+            "n": 8,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "en": {
+            "n": 8,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "ru": {
+            "n": 4,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "zh": {
+            "n": 4,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          }
+        },
+        "rows": [
+          {
+            "topic": "lease",
+            "language": "it",
+            "ms": 5.76299999999992,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "lease",
+            "language": "en",
+            "ms": 2.867699999999786,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "lease",
+            "language": "ru",
+            "ms": 2.891700000000128,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "it",
+            "ms": 3.174199999999473,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.9197207891481876,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "en",
+            "ms": 3.21349999999984,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.9197207891481876,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "zh",
+            "ms": 3.6903000000002066,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "it",
+            "ms": 4.071100000000115,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "en",
+            "ms": 4.368099999999686,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.9197207891481876,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "ru",
+            "ms": 2.8789999999999054,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "it",
+            "ms": 3.412199999999757,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.8503449055347546,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "en",
+            "ms": 3.0437000000001717,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "zh",
+            "ms": 3.442599999999402,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "it",
+            "ms": 3.596299999999246,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "en",
+            "ms": 4.023199999999633,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "ru",
+            "ms": 2.949800000000323,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "it",
+            "ms": 2.9153000000005704,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "en",
+            "ms": 3.1216000000003987,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "zh",
+            "ms": 3.983799999999974,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "it",
+            "ms": 3.2145999999993364,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "en",
+            "ms": 3.0000999999992928,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "ru",
+            "ms": 3.068199999999706,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "it",
+            "ms": 3.1817999999993845,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "en",
+            "ms": 3.2757000000001426,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "zh",
+            "ms": 3.3648000000002867,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          }
+        ]
+      },
+      {
+        "driver": "lancedb",
+        "mode": "hybrid",
+        "indexMs": 76.93080000000009,
+        "indexReport": {
+          "scanned": 16,
+          "unchanged": 0,
+          "updated": 16,
+          "removed": 0,
+          "skipped": 0,
+          "failed": 0,
+          "embeddingsGenerated": 16,
+          "embeddingsReused": 0,
+          "complete": true,
+          "errors": [],
+          "generation": 2
+        },
+        "metrics": {
+          "hit1": 0.875,
+          "hit5": 0.9583333333333334,
+          "reciprocalRank": 0.9097222222222222,
+          "recall5": 0.8541666666666666,
+          "ndcg5": 0.8241147057364823
+        },
+        "latency": {
+          "n": 24,
+          "medianMs": 5.473300000000563,
+          "p95Ms": 7.31670000000031,
+          "minMs": 4.127700000000004,
+          "maxMs": 7.4299999999993815
+        },
+        "byLanguage": {
+          "it": {
+            "n": 8,
+            "hit1": 0.75,
+            "hit5": 0.875,
+            "mrr5": 0.8125
+          },
+          "en": {
+            "n": 8,
+            "hit1": 0.875,
+            "hit5": 1,
+            "mrr5": 0.9166666666666666
+          },
+          "ru": {
+            "n": 4,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "zh": {
+            "n": 4,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          }
+        },
+        "rows": [
+          {
+            "topic": "lease",
+            "language": "it",
+            "ms": 5.373499999999694,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "lease",
+            "language": "en",
+            "ms": 5.473300000000563,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.9197207891481876,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "lease",
+            "language": "ru",
+            "ms": 5.900200000000041,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "it",
+            "ms": 6.10780000000068,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "password",
+            "language": "en",
+            "ms": 5.259500000000116,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.9197207891481876,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "password",
+            "language": "zh",
+            "ms": 4.594699999999648,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "battery",
+            "language": "it",
+            "ms": 4.662199999999757,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.5,
+            "recall5": 1,
+            "ndcg5": 0.6934264036172708,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "battery",
+            "language": "en",
+            "ms": 5.496399999999994,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.9197207891481876,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "battery",
+            "language": "ru",
+            "ms": 4.127700000000004,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "refund",
+            "language": "it",
+            "ms": 4.974600000000464,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "refund",
+            "language": "en",
+            "ms": 6.166999999999462,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "refund",
+            "language": "zh",
+            "ms": 6.084900000000744,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "it",
+            "ms": 6.312399999999798,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "garden",
+            "language": "en",
+            "ms": 7.31670000000031,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "garden",
+            "language": "ru",
+            "ms": 6.250600000000304,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "train",
+            "language": "it",
+            "ms": 7.2520999999997,
+            "hit1": 0,
+            "hit5": 0,
+            "reciprocalRank": 0,
+            "recall5": 0,
+            "ndcg5": 0,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "train",
+            "language": "en",
+            "ms": 7.4299999999993815,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.9197207891481876,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "train",
+            "language": "zh",
+            "ms": 4.599699999999757,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "backup",
+            "language": "it",
+            "ms": 5.388100000000122,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.8503449055347546,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "backup",
+            "language": "en",
+            "ms": 5.060999999999694,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.9197207891481876,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "backup",
+            "language": "ru",
+            "ms": 5.44840000000022,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "it",
+            "ms": 6.988699999999881,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 0.5,
+            "ndcg5": 0.6131471927654584,
+            "sameRankingAcrossDrivers": true
+          },
+          {
+            "topic": "bread",
+            "language": "en",
+            "ms": 6.061299999999392,
+            "hit1": 0,
+            "hit5": 1,
+            "reciprocalRank": 0.3333333333333333,
+            "recall5": 1,
+            "ndcg5": 0.5706417189553201,
+            "sameRankingAcrossDrivers": false
+          },
+          {
+            "topic": "bread",
+            "language": "zh",
+            "ms": 4.763199999999415,
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 1,
+            "sameRankingAcrossDrivers": true
+          }
+        ]
+      },
+      {
+        "driver": "lancedb",
+        "endToEnd": [
+          {
+            "mode": "fulltext",
+            "n": 12,
+            "medianMs": 1.878700000000208,
+            "p95Ms": 2.6970000000001164,
+            "minMs": 1.2114000000001397,
+            "maxMs": 2.6970000000001164,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 0.021800000000439468
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 22.253999999999905
+              }
+            }
+          },
+          {
+            "mode": "vector",
+            "n": 12,
+            "medianMs": 34.249399999999696,
+            "p95Ms": 36.68279999999959,
+            "minMs": 33.3770999999997,
+            "maxMs": 36.68279999999959,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 0.03229999999894062
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 365.0484000000006
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 49.30369999999857
+              }
+            }
+          },
+          {
+            "mode": "hybrid",
+            "n": 12,
+            "medianMs": 36.63730000000032,
+            "p95Ms": 38.373099999999795,
+            "minMs": 35.897500000000036,
+            "maxMs": 38.373099999999795,
+            "stages": {
+              "_visible": {
+                "calls": 12,
+                "ms": 0.03330000000005384
+              },
+              "searchLexical": {
+                "calls": 12,
+                "ms": 25.676100000000588
+              },
+              "embed": {
+                "calls": 12,
+                "ms": 366.0246000000034
+              },
+              "searchVector": {
+                "calls": 12,
+                "ms": 48.757300000000214
+              }
+            }
+          }
+        ],
+        "note": "Real Xberg query inference on every vector/hybrid request; warm model, 12 distinct queries."
+      }
+    ]
+  },
+  "primitives": [
+    {
+      "operation": "file-read",
+      "bytes": 67108864,
+      "n": 5,
+      "medianMs": 89.97720000000004,
+      "p95Ms": 105.41229999999996,
+      "minMs": 77.89910000000009,
+      "maxMs": 105.41229999999996,
+      "MiBPerSecond": 711.2913049083543
+    },
+    {
+      "operation": "file-read-and-sha256",
+      "bytes": 67108864,
+      "n": 5,
+      "medianMs": 121.41480000000013,
+      "p95Ms": 126.14799999999991,
+      "minMs": 115.52350000000001,
+      "maxMs": 126.14799999999991,
+      "MiBPerSecond": 527.1186049806114
+    },
+    {
+      "operation": "chunk-sha256",
+      "chunks": 10000,
+      "charactersPerChunk": 1200,
+      "ms": 33.020300000000134
+    }
+  ],
+  "asr": {
+    "metadata": {
+      "time": "2026-10-15T17:20:46.095Z",
+      "deno": "2.9.7",
+      "platform": "x86_64-pc-windows-msvc",
+      "model": "Whisper tiny multilingual",
+      "inputSeconds": 12.207313,
+      "language": "auto",
+      "useGpu": false,
+      "note": "Separate sequential processes; includes module/model initialization, cached files, no resident context reuse. auto is the original NodeAV convenience wrapper; integer cases use public FilterAPI graph.nbThreads."
+    },
+    "results": [
+      {
+        "threads": "auto",
+        "timedOut": true,
+        "timeoutMs": 20000
+      },
+      {
+        "threads": "1",
+        "ms": 4948.7898,
+        "characters": 156,
+        "expectedKeywordFound": true
+      },
+      {
+        "threads": "2",
+        "ms": 2752.6804,
+        "characters": 156,
+        "expectedKeywordFound": true
+      },
+      {
+        "threads": "4",
+        "ms": 1857.4815,
+        "characters": 156,
+        "expectedKeywordFound": true
+      },
+      {
+        "threads": "8",
+        "ms": 1467.7139000000002,
+        "characters": 156,
+        "expectedKeywordFound": true
+      },
+      {
+        "threads": "16",
+        "timedOut": true,
+        "timeoutMs": 20000
+      }
+    ]
+  },
+  "native": [
+    {
+      "driver": "turso",
+      "timings": {
+        "indexMs": 3345.8062,
+        "unchangedMs": 3.608499999999367,
+        "transcribeVideoMs": 1706.9884999999995,
+        "ocrImageMs": 293.91190000000006
+      },
+      "report": {
+        "scanned": 2,
+        "unchanged": 0,
+        "updated": 2,
+        "removed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "embeddingsGenerated": 0,
+        "embeddingsReused": 0,
+        "complete": true,
+        "errors": [],
+        "generation": 2
+      },
+      "searchableChannels": [
+        "document",
+        "audio",
+        "video-ocr"
+      ],
+      "transcriptionSegments": 1,
+      "ocrProvider": "xberg-tesseract",
+      "durationLimit": {
+        "skipped": 1,
+        "errors": [
+          "MAX_DURATION"
+        ]
+      }
+    },
+    {
+      "driver": "lancedb",
+      "timings": {
+        "indexMs": 2987.2965999999997,
+        "unchangedMs": 2.743000000000393,
+        "transcribeVideoMs": 1762.008899999999,
+        "ocrImageMs": 280.9796000000006
+      },
+      "report": {
+        "scanned": 2,
+        "unchanged": 0,
+        "updated": 2,
+        "removed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "embeddingsGenerated": 0,
+        "embeddingsReused": 0,
+        "complete": true,
+        "errors": [],
+        "generation": 2
+      },
+      "searchableChannels": [
+        "document",
+        "audio",
+        "video-ocr"
+      ],
+      "transcriptionSegments": 1,
+      "ocrProvider": "xberg-tesseract",
+      "durationLimit": {
+        "skipped": 1,
+        "errors": [
+          "MAX_DURATION"
+        ]
+      }
+    }
+  ],
+  "corpus": {
+    "results": [
+      {
+        "driver": "turso",
+        "selectedFiles": 14,
+        "indexMs": 20635.9213,
+        "unchangedMs": 90.76430000000255,
+        "states": {
+          "ready": 14
+        },
+        "counts": {
+          "sources": 1,
+          "documents": 14,
+          "contents": 14,
+          "extractions": 14,
+          "revisions": 14,
+          "chunks": 37,
+          "embeddings": 37
+        },
+        "search": [
+          {
+            "mode": "fulltext",
+            "n": 12,
+            "medianMs": 0.32670000000143773,
+            "p95Ms": 0.9219000000011874
+          },
+          {
+            "mode": "vector",
+            "n": 12,
+            "medianMs": 27.850400000002992,
+            "p95Ms": 45.258600000001024
+          },
+          {
+            "mode": "hybrid",
+            "n": 12,
+            "medianMs": 26.22609999999986,
+            "p95Ms": 26.960299999998824
+          }
+        ],
+        "lexicalHits": 9,
+        "vectorHits": 3,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "driver": "lancedb",
+        "selectedFiles": 14,
+        "indexMs": 15845.192600000002,
+        "unchangedMs": 86.91139999999723,
+        "states": {
+          "ready": 14
+        },
+        "counts": {
+          "sources": 1,
+          "documents": 14,
+          "contents": 14,
+          "extractions": 14,
+          "revisions": 14,
+          "chunks": 37,
+          "embeddings": 37
+        },
+        "search": [
+          {
+            "mode": "fulltext",
+            "n": 12,
+            "medianMs": 2.9156999999977415,
+            "p95Ms": 4.105999999999767
+          },
+          {
+            "mode": "vector",
+            "n": 12,
+            "medianMs": 32.38100000000122,
+            "p95Ms": 33.44590000000608
+          },
+          {
+            "mode": "hybrid",
+            "n": 12,
+            "medianMs": 34.43620000000374,
+            "p95Ms": 39.817699999999604
+          }
+        ],
+        "lexicalHits": 9,
+        "vectorHits": 3,
+        "failures": 0,
+        "skipped": 0
+      }
+    ],
+    "vectorWinnerAgreesAcrossDrivers": true,
+    "download": {
+      "expected": 1869,
+      "verified": 1869,
+      "bytes": 2514285733,
+      "nativePdfExports": 8
+    }
+  }
+}

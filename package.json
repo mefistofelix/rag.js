@@ -1,0 +1,51 @@
+{
+  "name": "@mefistofelix/rag.js",
+  "version": "0.3.0",
+  "description": "Single-file local RAG for Deno and Bun, with Turso, multilingual embeddings, OCR and audio/video transcription.",
+  "type": "module",
+  "main": "./rag.js",
+  "exports": {
+    ".": "./rag.js",
+    "./rag.js": "./rag.js"
+  },
+  "files": [
+    "rag.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "author": "mefistofelix",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mefistofelix/rag.js.git"
+  },
+  "homepage": "https://github.com/mefistofelix/rag.js#readme",
+  "bugs": {
+    "url": "https://github.com/mefistofelix/rag.js/issues"
+  },
+  "keywords": [
+    "rag",
+    "deno",
+    "bun",
+    "turso",
+    "ocr",
+    "embeddings",
+    "whisper"
+  ],
+  "engines": {
+    "deno": ">=2.9.7",
+    "bun": ">=1.4.3"
+  },
+  "dependencies": {
+    "@tursodatabase/database": "0.8.3"
+  },
+  "optionalDependencies": {
+    "@xberg-io/xberg": "1.3.10",
+    "node-av": "6.1.1",
+    "@mefistofelix/auto.js": "0.1.5"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

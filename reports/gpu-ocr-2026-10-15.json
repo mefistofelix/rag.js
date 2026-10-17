@@ -1,0 +1,454 @@
+{
+  "date": "2026-10-15",
+  "target": {
+    "target": "x86_64-pc-windows-msvc",
+    "arch": "x86_64",
+    "os": "windows",
+    "vendor": "pc",
+    "env": "msvc",
+    "standalone": false
+  },
+  "deno": {
+    "deno": "2.9.7",
+    "v8": "15.0.245.2-rusty",
+    "typescript": "6.0.3"
+  },
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU, 4096 MiB, 596.08, 8.6",
+  "productSha256": "7650b8b8dd8580f930c46a3bd5ac7cd1b7901460634fdaf8a88d650c4f4750da",
+  "packages": {
+    "xberg": "1.3.10",
+    "nodeAv": "6.1.1",
+    "turso": "0.8.3",
+    "lancedb": "0.40.0"
+  },
+  "ocr": [
+    {
+      "provider": "tesseract-four-script-profile",
+      "rows": [
+        {
+          "label": "en",
+          "ok": true,
+          "ms": 688.2644,
+          "characters": 164,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "it",
+          "ok": true,
+          "ms": 332.7294999999999,
+          "characters": 166,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "it-accents",
+          "ok": true,
+          "ms": 246.00520000000006,
+          "characters": 163,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "fr",
+          "ok": true,
+          "ms": 255.64699999999993,
+          "characters": 175,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "de",
+          "ok": true,
+          "ms": 259.03679999999986,
+          "characters": 179,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "es",
+          "ok": true,
+          "ms": 295.45830000000024,
+          "characters": 161,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "ru",
+          "ok": true,
+          "ms": 230.98160000000007,
+          "characters": 133,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "zh",
+          "ok": true,
+          "ms": 365.4733000000001,
+          "characters": 80,
+          "cer": 0.6888888888888889,
+          "cerNoWhitespace": 0.023255813953488372
+        },
+        {
+          "label": "ar",
+          "ok": true,
+          "ms": 413.1037000000001,
+          "characters": 41,
+          "cer": 0.9130434782608695,
+          "cerNoWhitespace": 0.9484536082474226
+        },
+        {
+          "label": "mixed-latin",
+          "ok": true,
+          "ms": 317.93319999999994,
+          "characters": 164,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "private-scene-1",
+          "ok": true,
+          "ms": 2841.9229,
+          "characters": 367
+        },
+        {
+          "label": "private-scene-2",
+          "ok": true,
+          "ms": 5765.029399999999,
+          "characters": 960
+        },
+        {
+          "label": "warm-en-0",
+          "ok": true,
+          "ms": 257.15160000000105,
+          "characters": 164,
+          "cer": 0
+        },
+        {
+          "label": "warm-en-1",
+          "ok": true,
+          "ms": 260.1042000000016,
+          "characters": 164,
+          "cer": 0
+        },
+        {
+          "label": "warm-en-2",
+          "ok": true,
+          "ms": 282.698699999999,
+          "characters": 164,
+          "cer": 0
+        }
+      ]
+    },
+    {
+      "provider": "paddle-v6-small-matching-language",
+      "rows": [
+        {
+          "label": "en",
+          "ok": true,
+          "ms": 826.2668999999999,
+          "characters": 164,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "it",
+          "ok": true,
+          "ms": 254.6319000000001,
+          "characters": 166,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "it-accents",
+          "ok": true,
+          "ms": 244.41539999999986,
+          "characters": 163,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "fr",
+          "ok": true,
+          "ms": 245.93049999999994,
+          "characters": 175,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "de",
+          "ok": true,
+          "ms": 233.79349999999977,
+          "characters": 179,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "es",
+          "ok": true,
+          "ms": 222.03380000000016,
+          "characters": 161,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "ru",
+          "ok": true,
+          "ms": 403.2384000000002,
+          "characters": 131,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "zh",
+          "ok": true,
+          "ms": 209.9980999999998,
+          "characters": 50,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "ar",
+          "ok": true,
+          "ms": 405.9683,
+          "characters": 118,
+          "cer": 0.7652173913043478,
+          "cerNoWhitespace": 0.7628865979381443
+        },
+        {
+          "label": "mixed-latin",
+          "ok": true,
+          "ms": 256.7626,
+          "characters": 164,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "mixed-language-request-ru",
+          "ok": true,
+          "ms": 226.83759999999984,
+          "characters": 24,
+          "cer": 1,
+          "cerNoWhitespace": 1
+        },
+        {
+          "label": "mixed-language-request-ar",
+          "ok": true,
+          "ms": 215.66649999999981,
+          "characters": 0,
+          "cer": 1,
+          "cerNoWhitespace": 1
+        },
+        {
+          "label": "mixed-language-request-zh",
+          "ok": true,
+          "ms": 208.5242000000003,
+          "characters": 50,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "default-profile-en",
+          "ok": true,
+          "ms": 244.85559999999987,
+          "characters": 164,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "default-profile-it-accents",
+          "ok": true,
+          "ms": 260.72429999999986,
+          "characters": 163,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "default-profile-zh",
+          "ok": true,
+          "ms": 214.35320000000047,
+          "characters": 50,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "default-profile-ru",
+          "ok": true,
+          "ms": 236.57260000000042,
+          "characters": 24,
+          "cer": 1,
+          "cerNoWhitespace": 1
+        },
+        {
+          "label": "default-profile-ar",
+          "ok": true,
+          "ms": 205.72680000000037,
+          "characters": 0,
+          "cer": 1,
+          "cerNoWhitespace": 1
+        },
+        {
+          "label": "private-scene-1",
+          "ok": true,
+          "ms": 515.4435000000003,
+          "characters": 1
+        },
+        {
+          "label": "private-scene-2",
+          "ok": true,
+          "ms": 555.3371999999999,
+          "characters": 0
+        },
+        {
+          "label": "warm-en-0",
+          "ok": true,
+          "ms": 242.8168999999998,
+          "characters": 164,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "warm-en-1",
+          "ok": true,
+          "ms": 238.6896000000006,
+          "characters": 164,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        },
+        {
+          "label": "warm-en-2",
+          "ok": true,
+          "ms": 246.9977000000008,
+          "characters": 164,
+          "cer": 0,
+          "cerNoWhitespace": 0
+        }
+      ]
+    }
+  ],
+  "onnx": [
+    {
+      "kind": "embedding",
+      "provider": "cpu",
+      "calls": 12,
+      "coldMs": 3589.86,
+      "warmMedianMs": 25.868799999999283,
+      "cudaNotCompiled": false,
+      "success": true
+    },
+    {
+      "kind": "embedding",
+      "provider": "cuda",
+      "calls": 1,
+      "coldMs": 4679.3431,
+      "cudaNotCompiled": true,
+      "success": false
+    },
+    {
+      "kind": "ocr",
+      "provider": "cpu",
+      "calls": 12,
+      "coldMs": 594.4245000000001,
+      "warmMedianMs": 242.93089999999984,
+      "cudaNotCompiled": false,
+      "success": true
+    },
+    {
+      "kind": "ocr",
+      "provider": "cuda",
+      "calls": 1,
+      "coldMs": 187.42209999999997,
+      "cudaNotCompiled": true,
+      "success": false
+    }
+  ],
+  "asr": [
+    {
+      "input": "synthetic-12s",
+      "backend": "cpu",
+      "ms": 1936.7522000000001,
+      "durationSeconds": 12.207313,
+      "characters": 156,
+      "actualInferenceBackend": "cpu",
+      "peakSystemGpuMemoryMiB": 367
+    },
+    {
+      "input": "synthetic-12s",
+      "backend": "gpu",
+      "ms": 7394.331099999999,
+      "durationSeconds": 12.207313,
+      "characters": 156,
+      "actualInferenceBackend": "Vulkan0",
+      "peakSystemGpuMemoryMiB": 596
+    },
+    {
+      "input": "synthetic-36s",
+      "backend": "cpu",
+      "ms": 3703.0726,
+      "durationSeconds": 36.621938,
+      "characters": 470,
+      "actualInferenceBackend": "cpu",
+      "peakSystemGpuMemoryMiB": 367
+    },
+    {
+      "input": "synthetic-36s",
+      "backend": "gpu",
+      "ms": 941.0937999999999,
+      "durationSeconds": 36.621938,
+      "characters": 470,
+      "actualInferenceBackend": "Vulkan0",
+      "peakSystemGpuMemoryMiB": 596
+    },
+    {
+      "input": "private-recording",
+      "backend": "cpu",
+      "ms": 5500.586,
+      "durationSeconds": 56.640001999999996,
+      "characters": 20,
+      "actualInferenceBackend": "cpu",
+      "peakSystemGpuMemoryMiB": 367
+    },
+    {
+      "input": "private-recording",
+      "backend": "gpu",
+      "ms": 5714.171,
+      "durationSeconds": 56.640001999999996,
+      "characters": 22,
+      "actualInferenceBackend": "Vulkan0",
+      "peakSystemGpuMemoryMiB": 615
+    }
+  ],
+  "xbergEmbeddingPlugin": {
+    "asyncEmbeddingDispatch": true,
+    "independentUnregister": true,
+    "gpuInferenceTested": false
+  },
+  "nativePaddle": [
+    {
+      "driver": "turso",
+      "failed": 0,
+      "indexed": 3,
+      "imageOnlyPdfSearchable": true,
+      "elementaryVideo": {
+        "indexed": true,
+        "durationEvidence": "packet-timestamps",
+        "seconds": 12,
+        "searchableOcr": true
+      },
+      "ocrProvider": "xberg-paddle"
+    },
+    {
+      "driver": "lancedb",
+      "failed": 0,
+      "indexed": 3,
+      "imageOnlyPdfSearchable": true,
+      "elementaryVideo": {
+        "indexed": true,
+        "durationEvidence": "packet-timestamps",
+        "seconds": 12,
+        "searchableOcr": true
+      },
+      "ocrProvider": "xberg-paddle"
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "version": "0.2.0",
+  "measuredAt": "2026-10-16T14:16:12.055Z",
+  "productSha256": "34f932409d0a53394e3c1c5355e935926b0e0f96f85d8cfc0f56d6f514e447d9",
+  "runtime": {
+    "deno": "2.9.7",
+    "v8": "15.0.245.2-rusty",
+    "typescript": "6.0.3"
+  },
+  "platform": {
+    "target": "x86_64-pc-windows-msvc",
+    "arch": "x86_64",
+    "os": "windows",
+    "vendor": "pc",
+    "env": "msvc",
+    "standalone": false
+  },
+  "dependencies": {
+    "turso": "0.8.3",
+    "xberg": "1.3.10",
+    "nodeAv": "6.1.1"
+  },
+  "core": {
+    "passed": 22,
+    "failed": 0
+  },
+  "native": [
+    {
+      "driver": "turso",
+      "timings": {
+        "indexMs": 8784.5184,
+        "unchangedMs": 3.3101999999998952,
+        "transcribeVideoMs": 1427.6365999999998,
+        "ocrImageMs": 252.14640000000145
+      },
+      "report": {
+        "scanned": 3,
+        "unchanged": 0,
+        "updated": 3,
+        "removed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "embeddingsGenerated": 0,
+        "embeddingsReused": 0,
+        "complete": true,
+        "errors": []
+      },
+      "searchableChannels": [
+        "document",
+        "audio",
+        "video-ocr"
+      ],
+      "transcriptionSegments": 1,
+      "ocrProvider": "xberg-paddle",
+      "elementaryVideo": {
+        "indexed": true,
+        "durationEvidence": "packet-timestamps",
+        "seconds": 12,
+        "searchableOcr": true
+      },
+      "durationLimit": {
+        "skipped": 1,
+        "errors": [
+          "MAX_DURATION"
+        ]
+      }
+    }
+  ],
+  "archives": [
+    {
+      "nestedEntryProvenance": true,
+      "duplicateOccurrences": 2,
+      "uniqueChunks": 2,
+      "persisted": true,
+      "entryLimitRejected": true
+    }
+  ],
+  "storage": {
+    "conditions": "Sequential single client; warm filesystem/model caches, no OS cache eviction; downloads may run concurrently. Stage timings overlap where a provider delegates. RSS is process-wide, not per database.",
+    "results": [
+      {
+        "driver": "turso",
+        "documents": 100,
+        "dimensions": 768,
+        "indexMs": 1054.3362,
+        "unchangedMs": 66.20080000000007,
+        "reopenMs": 6.248299999999745,
+        "oneChanged": {
+          "ms": 22.209199999999782,
+          "extractionCalls": 1,
+          "embeddingInputs": 1
+        },
+        "search": [
+          {
+            "mode": "fulltext",
+            "n": 12,
+            "medianMs": 3.9791000000000167,
+            "p95Ms": 11.782600000000002,
+            "minMs": 3.6887000000001535,
+            "maxMs": 11.782600000000002
+          },
+          {
+            "mode": "vector",
+            "n": 12,
+            "medianMs": 4.892100000000028,
+            "p95Ms": 5.623299999999745,
+            "minMs": 4.613299999999981,
+            "maxMs": 5.623299999999745
+          },
+          {
+            "mode": "hybrid",
+            "n": 12,
+            "medianMs": 5.468699999999899,
+            "p95Ms": 6.391599999999926,
+            "minMs": 5.332499999999982,
+            "maxMs": 6.391599999999926
+          }
+        ],
+        "independentCosineQueries": 3
+      },
+      {
+        "driver": "turso",
+        "documents": 1000,
+        "dimensions": 768,
+        "indexMs": 10927.820600000001,
+        "unchangedMs": 743.7263000000003,
+        "reopenMs": 7.313400000000911,
+        "oneChanged": {
+          "ms": 16.304599999999482,
+          "extractionCalls": 1,
+          "embeddingInputs": 1
+        },
+        "search": [
+          {
+            "mode": "fulltext",
+            "n": 12,
+            "medianMs": 22.91899999999987,
+            "p95Ms": 28.67199999999866,
+            "minMs": 18.523000000001048,
+            "maxMs": 28.67199999999866
+          },
+          {
+            "mode": "vector",
+            "n": 12,
+            "medianMs": 22.733399999999165,
+            "p95Ms": 28.35859999999957,
+            "minMs": 18.408299999999144,
+            "maxMs": 28.35859999999957
+          },
+          {
+            "mode": "hybrid",
+            "n": 12,
+            "medianMs": 23.1166000000012,
+            "p95Ms": 34.126899999999296,
+            "minMs": 21.64850000000115,
+            "maxMs": 34.126899999999296
+          }
+        ],
+        "independentCosineQueries": 3
+      }
+    ],
+    "note": "Deterministic 768-dimensional vectors isolate storage; model/OCR/ASR costs are excluded. Search refresh=none."
+  },
+  "retrieval": {
+    "documents": 16,
+    "questions": 24,
+    "languages": [
+      "it",
+      "en",
+      "ru",
+      "zh"
+    ],
+    "rows": [
+      {
+        "mode": "fulltext",
+        "metrics": {
+          "hit1": 0.25,
+          "hit5": 0.4583333333333333,
+          "reciprocalRank": 0.3263888888888889,
+          "recall5": 0.25,
+          "ndcg5": 0.23642297582601193
+        },
+        "cachedQueryLatency": {
+          "n": 24,
+          "medianMs": 2.534099999999853,
+          "p95Ms": 6.918700000000172,
+          "minMs": 0.677599999999984,
+          "maxMs": 9.880799999999908
+        },
+        "byLanguage": {
+          "it": {
+            "n": 8,
+            "hit1": 0.25,
+            "hit5": 0.625,
+            "mrr5": 0.38541666666666663
+          },
+          "en": {
+            "n": 8,
+            "hit1": 0.5,
+            "hit5": 0.75,
+            "mrr5": 0.59375
+          },
+          "ru": {
+            "n": 4,
+            "hit1": 0,
+            "hit5": 0,
+            "mrr5": 0
+          },
+          "zh": {
+            "n": 4,
+            "hit1": 0,
+            "hit5": 0,
+            "mrr5": 0
+          }
+        }
+      },
+      {
+        "mode": "vector",
+        "metrics": {
+          "hit1": 1,
+          "hit5": 1,
+          "reciprocalRank": 1,
+          "recall5": 1,
+          "ndcg5": 0.9837294697074715
+        },
+        "cachedQueryLatency": {
+          "n": 24,
+          "medianMs": 3.866899999999987,
+          "p95Ms": 6.066299999999501,
+          "minMs": 3.4593999999997322,
+          "maxMs": 7.915800000000672
+        },
+        "byLanguage": {
+          "it": {
+            "n": 8,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "en": {
+            "n": 8,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "ru": {
+            "n": 4,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "zh": {
+            "n": 4,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          }
+        }
+      },
+      {
+        "mode": "hybrid",
+        "metrics": {
+          "hit1": 0.8333333333333334,
+          "hit5": 0.9583333333333334,
+          "reciprocalRank": 0.8784722222222222,
+          "recall5": 0.7708333333333334,
+          "ndcg5": 0.7515732210384013
+        },
+        "cachedQueryLatency": {
+          "n": 24,
+          "medianMs": 3.90099999999984,
+          "p95Ms": 5.174400000000787,
+          "minMs": 3.578700000000026,
+          "maxMs": 6.569999999999709
+        },
+        "byLanguage": {
+          "it": {
+            "n": 8,
+            "hit1": 0.625,
+            "hit5": 0.875,
+            "mrr5": 0.71875
+          },
+          "en": {
+            "n": 8,
+            "hit1": 0.875,
+            "hit5": 1,
+            "mrr5": 0.9166666666666666
+          },
+          "ru": {
+            "n": 4,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          "zh": {
+            "n": 4,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          }
+        }
+      }
+    ],
+    "liveQueryLatency": [
+      {
+        "mode": "fulltext",
+        "n": 12,
+        "medianMs": 2.4257000000006883,
+        "p95Ms": 3.057199999999284,
+        "minMs": 0.6825000000008004,
+        "maxMs": 3.057199999999284,
+        "stages": {
+          "retrieve": {
+            "calls": 12,
+            "ms": 19.493799999999283
+          }
+        }
+      },
+      {
+        "mode": "vector",
+        "n": 12,
+        "medianMs": 33.39249999999993,
+        "p95Ms": 35.28229999999985,
+        "minMs": 30.981399999999667,
+        "maxMs": 35.28229999999985,
+        "stages": {
+          "embed": {
+            "calls": 12,
+            "ms": 330.8105000000005
+          },
+          "retrieve": {
+            "calls": 12,
+            "ms": 60.62300000000232
+          }
+        }
+      },
+      {
+        "mode": "hybrid",
+        "n": 12,
+        "medianMs": 34.24420000000009,
+        "p95Ms": 36.69789999999921,
+        "minMs": 30.880599999999504,
+        "maxMs": 36.69789999999921,
+        "stages": {
+          "embed": {
+            "calls": 12,
+            "ms": 336.31179999999586
+          },
+          "retrieve": {
+            "calls": 12,
+            "ms": 63.35780000000159
+          }
+        }
+      }
+    ],
+    "note": "Small manually labeled public topic fixture, not a general leaderboard. Cached-query and live-inference timings are distinct."
+  },
+  "earlierScale": {
+    "productSha256": "00170221d78836b9a3c1e039701fa0212ed59bdb324680a13dbd684efe5a5f96",
+    "matchesCurrentSource": false,
+    "note": "Earlier development snapshot of the six-table Turso design. Separate source identity; not final-source validation.",
+    "conditions": "Sequential single client; warm filesystem/model caches, no OS cache eviction; downloads may run concurrently. Stage timings overlap where a provider delegates. RSS is process-wide, not per database.",
+    "results": [
+      {
+        "driver": "turso",
+        "documents": 10000,
+        "dimensions": 768,
+        "indexMs": 123739.4532,
+        "unchangedMs": 7797.912899999996,
+        "reopenMs": 28.154999999998836,
+        "oneChanged": {
+          "ms": 23.721300000004703,
+          "extractionCalls": 1,
+          "embeddingInputs": 1
+        },
+        "search": [
+          {
+            "mode": "fulltext",
+            "n": 12,
+            "medianMs": 271.90200000000186,
+            "p95Ms": 282.61569999999483,
+            "minMs": 261.820400000026,
+            "maxMs": 282.61569999999483
+          },
+          {
+            "mode": "vector",
+            "n": 12,
+            "medianMs": 282.9176999999909,
+            "p95Ms": 302.8379000000132,
+            "minMs": 273.2307000000146,
+            "maxMs": 302.8379000000132
+          },
+          {
+            "mode": "hybrid",
+            "n": 12,
+            "medianMs": 356.15829999998095,
+            "p95Ms": 395.414300000004,
+            "minMs": 347.4666000000143,
+            "maxMs": 395.414300000004
+          }
+        ],
+        "independentCosineQueries": 3
+      }
+    ]
+  },
+  "limits": [
+    "Windows x64 runtime tested; Linux/macOS runtime unverified.",
+    "Transaction rollback tested; abrupt power-loss durability not certified.",
+    "The complete private 2.51 GB corpus was not reindexed on v0.2.0.",
+    "Image-vector encoders are not implemented; image search uses OCR text."
+  ]
+}

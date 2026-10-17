@@ -1,0 +1,1117 @@
+{
+  "date": "2026-10-16",
+  "target": "windows/x86_64",
+  "deno": "2.9.7",
+  "xberg": "1.3.10",
+  "indexedSourceSha256": "7650b8b8dd8580f930c46a3bd5ac7cd1b7901460634fdaf8a88d650c4f4750da",
+  "documentTestSourceSha256": "aa53b22891b66041576eeff762a0e19347b0fc1668215ee38e3d081a7f01a8a5",
+  "retrieval": {
+    "distinctPdfQuestions": 12,
+    "audioQueryVariants": 6,
+    "audioTopics": 3,
+    "referenceDocuments": 16,
+    "checkedQueryScopeModeCalls": [
+      {
+        "driver": "turso",
+        "calls": 216,
+        "emptyScopeChecks": 54
+      },
+      {
+        "driver": "lancedb",
+        "calls": 216,
+        "emptyScopeChecks": 54
+      }
+    ],
+    "agreement": [
+      {
+        "mode": "fulltext",
+        "queries": 18,
+        "orderedEqual": 6,
+        "meanTop5Overlap": 0.7444444444444445,
+        "maxScoreDifference": 3.036540985107422
+      },
+      {
+        "mode": "vector",
+        "queries": 18,
+        "orderedEqual": 18,
+        "meanTop5Overlap": 1,
+        "maxScoreDifference": 1.4668677594809054e-7
+      },
+      {
+        "mode": "hybrid",
+        "queries": 18,
+        "orderedEqual": 6,
+        "meanTop5Overlap": 0.8444444444444444,
+        "maxScoreDifference": 0.001192368839427662
+      }
+    ],
+    "vectorOracle": [
+      {
+        "driver": "turso",
+        "sourceSha256": "7650b8b8dd8580f930c46a3bd5ac7cd1b7901460634fdaf8a88d650c4f4750da",
+        "dimensions": 768,
+        "tolerance": 0.00001,
+        "rows": [
+          {
+            "queryIndex": 0,
+            "vectors": 6929,
+            "maximumScoreError": 7.133842405693258e-8,
+            "top5WithinFloatTolerance": true
+          },
+          {
+            "queryIndex": 4,
+            "vectors": 6929,
+            "maximumScoreError": 2.7206941366486603e-8,
+            "top5WithinFloatTolerance": true
+          },
+          {
+            "queryIndex": 6,
+            "vectors": 6929,
+            "maximumScoreError": 8.061481782117852e-8,
+            "top5WithinFloatTolerance": true
+          },
+          {
+            "queryIndex": 12,
+            "vectors": 6929,
+            "maximumScoreError": 1.0110627823856078e-7,
+            "top5WithinFloatTolerance": true
+          }
+        ]
+      },
+      {
+        "driver": "lancedb",
+        "sourceSha256": "7650b8b8dd8580f930c46a3bd5ac7cd1b7901460634fdaf8a88d650c4f4750da",
+        "dimensions": 768,
+        "tolerance": 0.00001,
+        "rows": [
+          {
+            "queryIndex": 0,
+            "vectors": 6929,
+            "maximumScoreError": 9.00759983268884e-8,
+            "top5WithinFloatTolerance": true
+          },
+          {
+            "queryIndex": 4,
+            "vectors": 6929,
+            "maximumScoreError": 5.934783331440485e-8,
+            "top5WithinFloatTolerance": true
+          },
+          {
+            "queryIndex": 6,
+            "vectors": 6929,
+            "maximumScoreError": 1.0784246207151682e-7,
+            "top5WithinFloatTolerance": true
+          },
+          {
+            "queryIndex": 12,
+            "vectors": 6929,
+            "maximumScoreError": 7.668869361765474e-8,
+            "top5WithinFloatTolerance": true
+          }
+        ]
+      }
+    ],
+    "originalJudgments": [
+      {
+        "driver": "turso",
+        "metrics": [
+          {
+            "kind": "natural-pdf",
+            "mode": "fulltext",
+            "scope": "all",
+            "queries": 12,
+            "hit1": 0.3333333333333333,
+            "hit5": 0.5,
+            "mrr5": 0.4166666666666667
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "fulltext",
+            "scope": "mime",
+            "queries": 12,
+            "hit1": 0.3333333333333333,
+            "hit5": 0.5,
+            "mrr5": 0.4166666666666667
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "fulltext",
+            "scope": "source-glob",
+            "queries": 12,
+            "hit1": 0.3333333333333333,
+            "hit5": 0.5,
+            "mrr5": 0.4166666666666667
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "fulltext",
+            "scope": "exact-paths",
+            "queries": 12,
+            "hit1": 0.9166666666666666,
+            "hit5": 0.9166666666666666,
+            "mrr5": 0.9166666666666666
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "vector",
+            "scope": "all",
+            "queries": 12,
+            "hit1": 0.16666666666666666,
+            "hit5": 0.5,
+            "mrr5": 0.26666666666666666
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "vector",
+            "scope": "mime",
+            "queries": 12,
+            "hit1": 0.16666666666666666,
+            "hit5": 0.5,
+            "mrr5": 0.26666666666666666
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "vector",
+            "scope": "source-glob",
+            "queries": 12,
+            "hit1": 0.16666666666666666,
+            "hit5": 0.5,
+            "mrr5": 0.26666666666666666
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "vector",
+            "scope": "exact-paths",
+            "queries": 12,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "hybrid",
+            "scope": "all",
+            "queries": 12,
+            "hit1": 0.4166666666666667,
+            "hit5": 0.5833333333333334,
+            "mrr5": 0.4791666666666667
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "hybrid",
+            "scope": "mime",
+            "queries": 12,
+            "hit1": 0.4166666666666667,
+            "hit5": 0.5833333333333334,
+            "mrr5": 0.4791666666666667
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "hybrid",
+            "scope": "source-glob",
+            "queries": 12,
+            "hit1": 0.4166666666666667,
+            "hit5": 0.5833333333333334,
+            "mrr5": 0.4791666666666667
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "hybrid",
+            "scope": "exact-paths",
+            "queries": 12,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "fulltext",
+            "scope": "all",
+            "queries": 6,
+            "hit1": 0.16666666666666666,
+            "hit5": 0.16666666666666666,
+            "mrr5": 0.16666666666666666
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "fulltext",
+            "scope": "mime",
+            "queries": 6,
+            "hit1": 0.16666666666666666,
+            "hit5": 0.16666666666666666,
+            "mrr5": 0.16666666666666666
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "fulltext",
+            "scope": "source-glob",
+            "queries": 6,
+            "hit1": 0.16666666666666666,
+            "hit5": 0.16666666666666666,
+            "mrr5": 0.16666666666666666
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "fulltext",
+            "scope": "exact-paths",
+            "queries": 6,
+            "hit1": 0.8333333333333334,
+            "hit5": 0.8333333333333334,
+            "mrr5": 0.8333333333333334
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "vector",
+            "scope": "all",
+            "queries": 6,
+            "hit1": 0.5,
+            "hit5": 0.5,
+            "mrr5": 0.5
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "vector",
+            "scope": "mime",
+            "queries": 6,
+            "hit1": 0.5,
+            "hit5": 0.8333333333333334,
+            "mrr5": 0.5888888888888889
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "vector",
+            "scope": "source-glob",
+            "queries": 6,
+            "hit1": 0.5,
+            "hit5": 0.8333333333333334,
+            "mrr5": 0.5750000000000001
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "vector",
+            "scope": "exact-paths",
+            "queries": 6,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "hybrid",
+            "scope": "all",
+            "queries": 6,
+            "hit1": 0.3333333333333333,
+            "hit5": 0.5,
+            "mrr5": 0.4166666666666667
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "hybrid",
+            "scope": "mime",
+            "queries": 6,
+            "hit1": 0.16666666666666666,
+            "hit5": 0.5,
+            "mrr5": 0.27777777777777773
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "hybrid",
+            "scope": "source-glob",
+            "queries": 6,
+            "hit1": 0.3333333333333333,
+            "hit5": 0.5,
+            "mrr5": 0.38888888888888884
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "hybrid",
+            "scope": "exact-paths",
+            "queries": 6,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          }
+        ]
+      },
+      {
+        "driver": "lancedb",
+        "metrics": [
+          {
+            "kind": "natural-pdf",
+            "mode": "fulltext",
+            "scope": "all",
+            "queries": 12,
+            "hit1": 0.4166666666666667,
+            "hit5": 0.5833333333333334,
+            "mrr5": 0.47500000000000003
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "fulltext",
+            "scope": "mime",
+            "queries": 12,
+            "hit1": 0.4166666666666667,
+            "hit5": 0.5833333333333334,
+            "mrr5": 0.4791666666666667
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "fulltext",
+            "scope": "source-glob",
+            "queries": 12,
+            "hit1": 0.4166666666666667,
+            "hit5": 0.5833333333333334,
+            "mrr5": 0.4791666666666667
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "fulltext",
+            "scope": "exact-paths",
+            "queries": 12,
+            "hit1": 0.9166666666666666,
+            "hit5": 0.9166666666666666,
+            "mrr5": 0.9166666666666666
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "vector",
+            "scope": "all",
+            "queries": 12,
+            "hit1": 0.16666666666666666,
+            "hit5": 0.5,
+            "mrr5": 0.26666666666666666
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "vector",
+            "scope": "mime",
+            "queries": 12,
+            "hit1": 0.16666666666666666,
+            "hit5": 0.5,
+            "mrr5": 0.26666666666666666
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "vector",
+            "scope": "source-glob",
+            "queries": 12,
+            "hit1": 0.16666666666666666,
+            "hit5": 0.5,
+            "mrr5": 0.26666666666666666
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "vector",
+            "scope": "exact-paths",
+            "queries": 12,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "hybrid",
+            "scope": "all",
+            "queries": 12,
+            "hit1": 0.5,
+            "hit5": 0.5833333333333334,
+            "mrr5": 0.5208333333333334
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "hybrid",
+            "scope": "mime",
+            "queries": 12,
+            "hit1": 0.5,
+            "hit5": 0.5833333333333334,
+            "mrr5": 0.5208333333333334
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "hybrid",
+            "scope": "source-glob",
+            "queries": 12,
+            "hit1": 0.5,
+            "hit5": 0.5833333333333334,
+            "mrr5": 0.5208333333333334
+          },
+          {
+            "kind": "natural-pdf",
+            "mode": "hybrid",
+            "scope": "exact-paths",
+            "queries": 12,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "fulltext",
+            "scope": "all",
+            "queries": 6,
+            "hit1": 0.16666666666666666,
+            "hit5": 0.16666666666666666,
+            "mrr5": 0.16666666666666666
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "fulltext",
+            "scope": "mime",
+            "queries": 6,
+            "hit1": 0.16666666666666666,
+            "hit5": 0.3333333333333333,
+            "mrr5": 0.2222222222222222
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "fulltext",
+            "scope": "source-glob",
+            "queries": 6,
+            "hit1": 0.16666666666666666,
+            "hit5": 0.3333333333333333,
+            "mrr5": 0.2222222222222222
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "fulltext",
+            "scope": "exact-paths",
+            "queries": 6,
+            "hit1": 0.6666666666666666,
+            "hit5": 0.6666666666666666,
+            "mrr5": 0.6666666666666666
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "vector",
+            "scope": "all",
+            "queries": 6,
+            "hit1": 0.5,
+            "hit5": 0.5,
+            "mrr5": 0.5
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "vector",
+            "scope": "mime",
+            "queries": 6,
+            "hit1": 0.5,
+            "hit5": 0.8333333333333334,
+            "mrr5": 0.5888888888888889
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "vector",
+            "scope": "source-glob",
+            "queries": 6,
+            "hit1": 0.5,
+            "hit5": 0.8333333333333334,
+            "mrr5": 0.5750000000000001
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "vector",
+            "scope": "exact-paths",
+            "queries": 6,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "hybrid",
+            "scope": "all",
+            "queries": 6,
+            "hit1": 0.5,
+            "hit5": 0.5,
+            "mrr5": 0.5
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "hybrid",
+            "scope": "mime",
+            "queries": 6,
+            "hit1": 0.3333333333333333,
+            "hit5": 0.8333333333333334,
+            "mrr5": 0.4416666666666667
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "hybrid",
+            "scope": "source-glob",
+            "queries": 6,
+            "hit1": 0.3333333333333333,
+            "hit5": 0.6666666666666666,
+            "mrr5": 0.4000000000000001
+          },
+          {
+            "kind": "transcript-audio",
+            "mode": "hybrid",
+            "scope": "exact-paths",
+            "queries": 6,
+            "hit1": 1,
+            "hit5": 1,
+            "mrr5": 1
+          }
+        ]
+      }
+    ],
+    "limitedPooledReview": {
+      "addedPositiveChunks": 3,
+      "questionsReviewed": 2,
+      "drivers": [
+        {
+          "driver": "turso",
+          "metrics": [
+            {
+              "kind": "natural-pdf",
+              "mode": "fulltext",
+              "queries": 12,
+              "hit1": 0.5,
+              "hit5": 0.6666666666666666,
+              "mrr5": 0.5833333333333334
+            },
+            {
+              "kind": "natural-pdf",
+              "mode": "vector",
+              "queries": 12,
+              "hit1": 0.16666666666666666,
+              "hit5": 0.5833333333333334,
+              "mrr5": 0.30833333333333335
+            },
+            {
+              "kind": "natural-pdf",
+              "mode": "hybrid",
+              "queries": 12,
+              "hit1": 0.5,
+              "hit5": 0.75,
+              "mrr5": 0.6041666666666666
+            },
+            {
+              "kind": "transcript-audio",
+              "mode": "fulltext",
+              "queries": 6,
+              "hit1": 0.16666666666666666,
+              "hit5": 0.16666666666666666,
+              "mrr5": 0.16666666666666666
+            },
+            {
+              "kind": "transcript-audio",
+              "mode": "vector",
+              "queries": 6,
+              "hit1": 0.5,
+              "hit5": 0.5,
+              "mrr5": 0.5
+            },
+            {
+              "kind": "transcript-audio",
+              "mode": "hybrid",
+              "queries": 6,
+              "hit1": 0.3333333333333333,
+              "hit5": 0.5,
+              "mrr5": 0.4166666666666667
+            }
+          ]
+        },
+        {
+          "driver": "lancedb",
+          "metrics": [
+            {
+              "kind": "natural-pdf",
+              "mode": "fulltext",
+              "queries": 12,
+              "hit1": 0.5833333333333334,
+              "hit5": 0.75,
+              "mrr5": 0.6416666666666667
+            },
+            {
+              "kind": "natural-pdf",
+              "mode": "vector",
+              "queries": 12,
+              "hit1": 0.16666666666666666,
+              "hit5": 0.5833333333333334,
+              "mrr5": 0.30833333333333335
+            },
+            {
+              "kind": "natural-pdf",
+              "mode": "hybrid",
+              "queries": 12,
+              "hit1": 0.5833333333333334,
+              "hit5": 0.75,
+              "mrr5": 0.6458333333333334
+            },
+            {
+              "kind": "transcript-audio",
+              "mode": "fulltext",
+              "queries": 6,
+              "hit1": 0.16666666666666666,
+              "hit5": 0.16666666666666666,
+              "mrr5": 0.16666666666666666
+            },
+            {
+              "kind": "transcript-audio",
+              "mode": "vector",
+              "queries": 6,
+              "hit1": 0.5,
+              "hit5": 0.5,
+              "mrr5": 0.5
+            },
+            {
+              "kind": "transcript-audio",
+              "mode": "hybrid",
+              "queries": 6,
+              "hit1": 0.5,
+              "hit5": 0.5,
+              "mrr5": 0.5
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "documents": {
+    "descriptorRevision": "55504146733df3135caa434eac3622266db2e931",
+    "availableCorpusRevision": "bfd2dc2d1d333cc6a69f28e55cdb2d9485f2e175",
+    "websiteSelected": 60,
+    "websiteAvailable": 60,
+    "unavailableWebsiteDescriptors": [],
+    "downloadedBytes": 40629691,
+    "descriptorSizeMismatches": 0,
+    "extractionMs": 36985.342999999986,
+    "modelSeedMs": 100.46549999999999,
+    "configuration": {
+      "ocr": "PaddleOCR v6 small auto",
+      "embeddings": false
+    },
+    "byType": [
+      {
+        "type": "7z",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 1.6880999999993946,
+        "medianMs": 1.6880999999993946,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 0.3157894736842105
+      },
+      {
+        "type": "csv",
+        "files": 2,
+        "errors": 0,
+        "totalMs": 3.520700000000943,
+        "medianMs": 2.4399000000012165,
+        "ocrCalls": 0,
+        "scored": 2,
+        "meanTokenF1": 1
+      },
+      {
+        "type": "doc",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 1.999100000000908,
+        "medianMs": 1.999100000000908,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 1
+      },
+      {
+        "type": "docbook",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 1.0554000000011001,
+        "medianMs": 1.0554000000011001,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 1
+      },
+      {
+        "type": "docx",
+        "files": 2,
+        "errors": 0,
+        "totalMs": 5.711699999999837,
+        "medianMs": 3.248599999998987,
+        "ocrCalls": 0,
+        "scored": 2,
+        "meanTokenF1": 0.9556962025316456
+      },
+      {
+        "type": "eml",
+        "files": 3,
+        "errors": 0,
+        "totalMs": 3.2783999999955995,
+        "medianMs": 0.9752999999982421,
+        "ocrCalls": 0,
+        "scored": 3,
+        "meanTokenF1": 0.8933588868423689
+      },
+      {
+        "type": "epub",
+        "files": 3,
+        "errors": 0,
+        "totalMs": 319.40350000000035,
+        "medianMs": 98.5167999999976,
+        "ocrCalls": 4,
+        "scored": 3,
+        "meanTokenF1": 0.9495858921178174
+      },
+      {
+        "type": "fb2",
+        "files": 3,
+        "errors": 0,
+        "totalMs": 3.662899999999354,
+        "medianMs": 1.2602000000006228,
+        "ocrCalls": 0,
+        "scored": 3,
+        "meanTokenF1": 0.9712643678160919
+      },
+      {
+        "type": "gz",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 1.3954999999987194,
+        "medianMs": 1.3954999999987194,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 0.9786096256684492
+      },
+      {
+        "type": "html",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 2.702499999999418,
+        "medianMs": 2.702499999999418,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 1
+      },
+      {
+        "type": "jpeg",
+        "files": 14,
+        "errors": 0,
+        "totalMs": 19286.900099999995,
+        "medianMs": 1045.6309000000037,
+        "ocrCalls": 14,
+        "scored": 14,
+        "meanTokenF1": 0.6023319313014986
+      },
+      {
+        "type": "json",
+        "files": 2,
+        "errors": 0,
+        "totalMs": 2.7030000000013388,
+        "medianMs": 1.7083000000020547,
+        "ocrCalls": 0,
+        "scored": 2,
+        "meanTokenF1": 0.9582805429864254
+      },
+      {
+        "type": "latex",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 0.8268000000025495,
+        "medianMs": 0.8268000000025495,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 1
+      },
+      {
+        "type": "md",
+        "files": 2,
+        "errors": 0,
+        "totalMs": 1.9739000000008673,
+        "medianMs": 0.9972000000016124,
+        "ocrCalls": 0,
+        "scored": 2,
+        "meanTokenF1": 0.9982456140350877
+      },
+      {
+        "type": "msg",
+        "files": 3,
+        "errors": 0,
+        "totalMs": 142.53299999999945,
+        "medianMs": 1.673899999997957,
+        "ocrCalls": 1,
+        "scored": 3,
+        "meanTokenF1": 0.7100807574491785
+      },
+      {
+        "type": "odt",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 1.541400000001886,
+        "medianMs": 1.541400000001886,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 1
+      },
+      {
+        "type": "org",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 1.1223000000027241,
+        "medianMs": 1.1223000000027241,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 1
+      },
+      {
+        "type": "pdf",
+        "files": 12,
+        "errors": 0,
+        "totalMs": 17164.4218,
+        "medianMs": 115.79559999999992,
+        "ocrCalls": 21,
+        "scored": 10,
+        "meanTokenF1": 0.9439320406365119
+      },
+      {
+        "type": "ppt",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 2.3872000000010303,
+        "medianMs": 2.3872000000010303,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 1
+      },
+      {
+        "type": "pptx",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 1.7850999999973283,
+        "medianMs": 1.7850999999973283,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 0.989247311827957
+      },
+      {
+        "type": "rst",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 1.2592999999978929,
+        "medianMs": 1.2592999999978929,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 0.9905660377358491
+      },
+      {
+        "type": "rtf",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 2.209599999998318,
+        "medianMs": 2.209599999998318,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 0.8571428571428571
+      },
+      {
+        "type": "tar",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 8.588499999998021,
+        "medianMs": 8.588499999998021,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 0.7336108220603538
+      },
+      {
+        "type": "tgz",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 7.234700000000885,
+        "medianMs": 7.234700000000885,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 0.7336108220603538
+      },
+      {
+        "type": "tsv",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 1.9714999999996508,
+        "medianMs": 1.9714999999996508,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 1
+      },
+      {
+        "type": "typ",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 2.2206999999980326,
+        "medianMs": 2.2206999999980326,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 0.9813664596273292
+      },
+      {
+        "type": "xlsx",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 2.0695999999989,
+        "medianMs": 2.0695999999989,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 0.8148148148148148
+      },
+      {
+        "type": "yaml",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 0.8754999999982829,
+        "medianMs": 0.8754999999982829,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 1
+      },
+      {
+        "type": "zip",
+        "files": 1,
+        "errors": 0,
+        "totalMs": 8.3012000000017,
+        "medianMs": 8.3012000000017,
+        "ocrCalls": 0,
+        "scored": 1,
+        "meanTokenF1": 0.7524012806830309
+      }
+    ],
+    "archives": [
+      {
+        "type": "7z",
+        "mime": "application/x-7z-compressed",
+        "entries": 2,
+        "units": 2,
+        "ms": 1.6880999999993946,
+        "tokenF1": 0.3157894736842105
+      },
+      {
+        "type": "tar",
+        "mime": "application/x-tar",
+        "entries": 6,
+        "units": 6,
+        "ms": 8.588499999998021,
+        "tokenF1": 0.7336108220603538
+      },
+      {
+        "type": "tgz",
+        "mime": "application/gzip",
+        "entries": 6,
+        "units": 6,
+        "ms": 7.234700000000885,
+        "tokenF1": 0.7336108220603538
+      },
+      {
+        "type": "zip",
+        "mime": "application/zip",
+        "entries": 6,
+        "units": 6,
+        "ms": 8.3012000000017,
+        "tokenF1": 0.7524012806830309
+      },
+      {
+        "type": "gz",
+        "mime": "application/gzip",
+        "entries": 1,
+        "units": 1,
+        "ms": 1.3954999999987194,
+        "tokenF1": 0.9786096256684492
+      }
+    ]
+  },
+  "policy": {
+    "pdf": [
+      {
+        "fixture": "native.pdf",
+        "ocrCalls": 0,
+        "pages": 1
+      },
+      {
+        "fixture": "overlay.pdf",
+        "ocrCalls": 0,
+        "pages": 1
+      },
+      {
+        "fixture": "scan.pdf",
+        "ocrCalls": 1,
+        "pages": 1
+      },
+      {
+        "fixture": "mixed.pdf",
+        "ocrCalls": 1,
+        "pages": 2
+      },
+      {
+        "fixture": "small.pdf",
+        "ocrCalls": 1,
+        "pages": 1
+      }
+    ],
+    "renamed": [
+      {
+        "type": "pdf",
+        "extension": ".txt",
+        "mime": "application/pdf",
+        "metadataKeys": [
+          "title",
+          "createdAt",
+          "modifiedAt",
+          "createdBy",
+          "pages",
+          "format",
+          "outputFormat",
+          "ocrUsed",
+          "additional"
+        ]
+      },
+      {
+        "type": "docx",
+        "extension": ".txt",
+        "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "metadataKeys": [
+          "authors",
+          "createdAt",
+          "modifiedAt",
+          "createdBy",
+          "modifiedBy",
+          "pages",
+          "format",
+          "outputFormat",
+          "ocrUsed",
+          "additional"
+        ]
+      },
+      {
+        "type": "zip",
+        "extension": ".pdf",
+        "mime": "application/zip",
+        "metadataKeys": [
+          "title",
+          "pages",
+          "format",
+          "outputFormat",
+          "ocrUsed",
+          "additional"
+        ]
+      },
+      {
+        "type": "png",
+        "extension": ".pdf",
+        "mime": "image/png",
+        "metadataKeys": []
+      }
+    ],
+    "imageMetadataKeys": [
+      "format",
+      "outputFormat",
+      "ocrUsed",
+      "additional"
+    ]
+  },
+  "embeddingBatch": {
+    "texts": 16,
+    "repeats": 3,
+    "sequentialMedianMs": 2754.3520000000008,
+    "batchMedianMs": 1922.823699999999,
+    "speedup": 1.432451659504718,
+    "maxVectorDifference": 0
+  }
+}

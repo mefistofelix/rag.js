@@ -1,0 +1,698 @@
+{
+  "measuredAt": "2026-10-16T17:11:33.737Z",
+  "platform": {
+    "target": "x86_64-pc-windows-msvc",
+    "arch": "x86_64",
+    "os": "windows",
+    "vendor": "pc",
+    "env": "msvc",
+    "standalone": false
+  },
+  "runtime": {
+    "deno": "2.9.7",
+    "v8": "15.0.245.2-rusty",
+    "typescript": "6.0.3"
+  },
+  "productSha256": "7fe5158d98e3ed668de247c35e3d809d63605c58f0e0c48b3df9a2784e5fdb0b",
+  "experimentSha256": {
+    "tests/indra.js": "9d247c3a5edd3ac9b67348d5e585d187f9a2bce1e7211eb839c614a03908089a",
+    "tests/benchmark_indra_quality.js": "ca96d99008b4e8e0bc7051ede142b6dc339a62c65831459771e454bac961ab89",
+    "tests/fixtures.cs": "03ae81286069721169d2582bf74b0a3c161ad5b1a142d80858c4249d67a6d89f"
+  },
+  "models": {
+    "upstream": "3d773aeedc5d79d1d0a2a04007a9075cd71a59f4",
+    "revision": "ed345c7f158eddbc7dee0c6a7269afb75a94f7e8",
+    "runtime": "onnxruntime-node@1.30.0",
+    "files": {
+      "det.onnx": "46b0050ce4c4692f887a1a9c038480223af1c7a91b3fcced2657d9cf00290dc4",
+      "rec.onnx": "e243be069b357e56a0e867a21d7482e498df42fb19678bfb67a25f48b1f06151",
+      "script.onnx": "5ba37030e817affede0097a7503b6829624104166c6e0b6aacecacf919fc7d11",
+      "rec_cjk.onnx": "4cec840b55e1bb7f375daf30a2975404a867a71ac1a5bc5b1629c4909ce16baa",
+      "orient.onnx": "8d7bfce5d08bcad55955f41ca494a7f9d9d3ed5d5b6da1f6f276d5c509590729",
+      "order.onnx": "23635dd2324b4ccc00c408af961273a2dedd2e4f0386bc54dba678c41bcf6b46",
+      "meta.json": "ff6ec58f91c93a475ae9505ad21c73c3ecda0b378f1d889dd83408e10832d1bb",
+      "LICENSE": "50c88a018a7ee322e89f6b09401b237beb0cd331685879405b3db48993950a5f"
+    }
+  },
+  "results": [
+    {
+      "summary": {
+        "provider": "indra",
+        "cases": 21,
+        "exactCases": 13,
+        "meanCer": 0.2401293850873683,
+        "medianWarmMs": 84.66179999999997,
+        "anchorsFound": 55,
+        "anchorsTotal": 81
+      },
+      "rows": [
+        {
+          "id": "en-clean",
+          "language": "en",
+          "transform": "clean",
+          "imageSha256": "6b55ab10f876956638684fe9cc571b50f24013ee557a98c710402b8d551be0c1",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 87.17964999999998,
+          "firstMs": 118.69179999999994
+        },
+        {
+          "id": "en-skew3",
+          "language": "en",
+          "transform": "skew3",
+          "imageSha256": "ab471dcbe740aaf6818ab48cf1d6e947cbb8fba4c85a43c282b61efb9a375dde",
+          "cerNoWhitespace": 0.3401360544217687,
+          "exactNormalized": false,
+          "anchorsFound": 2,
+          "anchorsTotal": 4,
+          "warmMedianMs": 91.0335,
+          "firstMs": 102.0521
+        },
+        {
+          "id": "en-skew-3",
+          "language": "en",
+          "transform": "skew-3",
+          "imageSha256": "36502c56b37cee52002367727e369839435a4face84aaa01469a06ffd41eeb31",
+          "cerNoWhitespace": 0.3469387755102041,
+          "exactNormalized": false,
+          "anchorsFound": 1,
+          "anchorsTotal": 4,
+          "warmMedianMs": 84.66179999999997,
+          "firstMs": 90.24129999999991
+        },
+        {
+          "id": "en-rotate90",
+          "language": "en",
+          "transform": "rotate90",
+          "imageSha256": "6b6c039955900811f0dea43064434b94ca8bb93acda9acaac3e7cfac4d56428b",
+          "cerNoWhitespace": 0.9251700680272109,
+          "exactNormalized": false,
+          "anchorsFound": 0,
+          "anchorsTotal": 4,
+          "warmMedianMs": 100.18214999999998,
+          "firstMs": 119.26369999999997
+        },
+        {
+          "id": "en-rotate180",
+          "language": "en",
+          "transform": "rotate180",
+          "imageSha256": "ae33f1fde74a2bea7977b863c4799b6173b6e341217b35b9ddd8662af1ddc6cf",
+          "cerNoWhitespace": 0.9115646258503401,
+          "exactNormalized": false,
+          "anchorsFound": 0,
+          "anchorsTotal": 4,
+          "warmMedianMs": 81.66035,
+          "firstMs": 83.50170000000003
+        },
+        {
+          "id": "en-small",
+          "language": "en",
+          "transform": "small",
+          "imageSha256": "9ca21d75ad8abea9b575597275332e79e499c64e3e9dd0ca4cd1f7b2c60f8bc8",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 44.02159999999992,
+          "firstMs": 47.48480000000018
+        },
+        {
+          "id": "en-blur",
+          "language": "en",
+          "transform": "blur",
+          "imageSha256": "5bbaf4687be94ab301d7429584146e2b80f75fbde21d1dea7fc1cbd243a3ae16",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 89.58360000000016,
+          "firstMs": 79.13100000000009
+        },
+        {
+          "id": "en-jpeg",
+          "language": "en",
+          "transform": "jpeg",
+          "imageSha256": "a822b38e52b090e4bb439899a3377f905e1831e858c118f737c2abf916d005e3",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 82.31505000000016,
+          "firstMs": 78.24490000000014
+        },
+        {
+          "id": "en-faded",
+          "language": "en",
+          "transform": "faded",
+          "imageSha256": "ff51e34a032d07b9b41d12971d32abeb3fc4ec0064799059edaa4cded3ab7d9f",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 74.56520000000023,
+          "firstMs": 78.20240000000013
+        },
+        {
+          "id": "it-clean",
+          "language": "it",
+          "transform": "clean",
+          "imageSha256": "b17e8ecb21a7f1fcf96b661af5798ab4432fd21af163850a1020ab3c9569bb52",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 72.22839999999997,
+          "firstMs": 71.17319999999972
+        },
+        {
+          "id": "it-skew3",
+          "language": "it",
+          "transform": "skew3",
+          "imageSha256": "e7acc333508d97646b9fcc03e34f0e33924e595dbd9fab281d7ce079444e61fc",
+          "cerNoWhitespace": 0.4583333333333333,
+          "exactNormalized": false,
+          "anchorsFound": 1,
+          "anchorsTotal": 4,
+          "warmMedianMs": 90.49720000000002,
+          "firstMs": 84.57599999999957
+        },
+        {
+          "id": "it-skew-3",
+          "language": "it",
+          "transform": "skew-3",
+          "imageSha256": "639081d630d84d53db87c8b1b9989e0fa66cda6461d3ba230ba9f29dc40c5a7a",
+          "cerNoWhitespace": 0.48214285714285715,
+          "exactNormalized": false,
+          "anchorsFound": 1,
+          "anchorsTotal": 4,
+          "warmMedianMs": 88.03099999999995,
+          "firstMs": 91.01530000000002
+        },
+        {
+          "id": "it-rotate90",
+          "language": "it",
+          "transform": "rotate90",
+          "imageSha256": "cf0a001c2b4dc1a99c25005ef6d7efae1d111d192439b25f5025b3a92c7acd67",
+          "cerNoWhitespace": 0.9166666666666666,
+          "exactNormalized": false,
+          "anchorsFound": 0,
+          "anchorsTotal": 4,
+          "warmMedianMs": 103.20119999999997,
+          "firstMs": 87.58909999999969
+        },
+        {
+          "id": "it-rotate180",
+          "language": "it",
+          "transform": "rotate180",
+          "imageSha256": "3926f846584dc59c80239dda9a02abc3d8cce223fa2b781979aad3734fffa19a",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 87.88410000000022,
+          "firstMs": 147.2727
+        },
+        {
+          "id": "it-small",
+          "language": "it",
+          "transform": "small",
+          "imageSha256": "d2383fe374cfd835f9277e4bc342173cb39aa48f7814b6336f892bfdb0bb1512",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 46.08490000000029,
+          "firstMs": 48.051000000000386
+        },
+        {
+          "id": "it-blur",
+          "language": "it",
+          "transform": "blur",
+          "imageSha256": "58835e49fbe8d5475d08c3e1a40670ff4b71d2997fa88c59ae5b4dce29cca70d",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 85.17840000000024,
+          "firstMs": 85.07920000000013
+        },
+        {
+          "id": "it-jpeg",
+          "language": "it",
+          "transform": "jpeg",
+          "imageSha256": "e72aac1f60b08d3661cc66173b9512c4726ebaec3202f60016c62f75029bae7c",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 79.57999999999993,
+          "firstMs": 83.10220000000027
+        },
+        {
+          "id": "it-faded",
+          "language": "it",
+          "transform": "faded",
+          "imageSha256": "603a96420e327ea1c398f1f1e304f8b524142c9ba55097ac0cbb1761a25869bb",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 83.97800000000007,
+          "firstMs": 78.70100000000002
+        },
+        {
+          "id": "ja-clean",
+          "language": "ja",
+          "transform": "clean",
+          "imageSha256": "ef76f59d14c2f5c72e2aae93fb4933729f7fa39e534df5ec0916280f4e35f780",
+          "cerNoWhitespace": 0.6617647058823529,
+          "exactNormalized": false,
+          "anchorsFound": 0,
+          "anchorsTotal": 3,
+          "warmMedianMs": 97.51039999999966,
+          "firstMs": 98.49090000000069
+        },
+        {
+          "id": "ru-clean",
+          "language": "ru",
+          "transform": "clean",
+          "imageSha256": "1845c0030ba34391eb4e54a4a885dff77f0c77940559d9d9cae1dcb5f292903f",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 3,
+          "anchorsTotal": 3,
+          "warmMedianMs": 76.4114999999997,
+          "firstMs": 75.1862000000001
+        },
+        {
+          "id": "zh-clean",
+          "language": "zh",
+          "transform": "clean",
+          "imageSha256": "174ccb6120cda3479fb45cf693e46a53ab115ec8c337abbc6e55025eeb7d1448",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 3,
+          "anchorsTotal": 3,
+          "warmMedianMs": 80.61525000000029,
+          "firstMs": 91.5068999999994
+        }
+      ]
+    },
+    {
+      "summary": {
+        "provider": "paddle",
+        "cases": 21,
+        "exactCases": 18,
+        "meanCer": 0.12435212180110139,
+        "medianWarmMs": 284.0944500000005,
+        "anchorsFound": 70,
+        "anchorsTotal": 81
+      },
+      "rows": [
+        {
+          "id": "en-clean",
+          "language": "en",
+          "transform": "clean",
+          "imageSha256": "6b55ab10f876956638684fe9cc571b50f24013ee557a98c710402b8d551be0c1",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 278.95610000000033,
+          "firstMs": 5310.3738
+        },
+        {
+          "id": "en-skew3",
+          "language": "en",
+          "transform": "skew3",
+          "imageSha256": "ab471dcbe740aaf6818ab48cf1d6e947cbb8fba4c85a43c282b61efb9a375dde",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 297.25925000000007,
+          "firstMs": 293.1071000000002
+        },
+        {
+          "id": "en-skew-3",
+          "language": "en",
+          "transform": "skew-3",
+          "imageSha256": "36502c56b37cee52002367727e369839435a4face84aaa01469a06ffd41eeb31",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 284.7741000000001,
+          "firstMs": 292.83529999999973
+        },
+        {
+          "id": "en-rotate90",
+          "language": "en",
+          "transform": "rotate90",
+          "imageSha256": "6b6c039955900811f0dea43064434b94ca8bb93acda9acaac3e7cfac4d56428b",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 275.4147499999999,
+          "firstMs": 273.70600000000013
+        },
+        {
+          "id": "en-rotate180",
+          "language": "en",
+          "transform": "rotate180",
+          "imageSha256": "ae33f1fde74a2bea7977b863c4799b6173b6e341217b35b9ddd8662af1ddc6cf",
+          "cerNoWhitespace": 0.7959183673469388,
+          "exactNormalized": false,
+          "anchorsFound": 0,
+          "anchorsTotal": 4,
+          "warmMedianMs": 268.6374000000005,
+          "firstMs": 274.3953999999994
+        },
+        {
+          "id": "en-small",
+          "language": "en",
+          "transform": "small",
+          "imageSha256": "9ca21d75ad8abea9b575597275332e79e499c64e3e9dd0ca4cd1f7b2c60f8bc8",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 168.47659999999996,
+          "firstMs": 171.6243999999988
+        },
+        {
+          "id": "en-blur",
+          "language": "en",
+          "transform": "blur",
+          "imageSha256": "5bbaf4687be94ab301d7429584146e2b80f75fbde21d1dea7fc1cbd243a3ae16",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 270.3796999999995,
+          "firstMs": 266.6038000000008
+        },
+        {
+          "id": "en-jpeg",
+          "language": "en",
+          "transform": "jpeg",
+          "imageSha256": "a822b38e52b090e4bb439899a3377f905e1831e858c118f737c2abf916d005e3",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 274.6494499999999,
+          "firstMs": 275.46020000000135
+        },
+        {
+          "id": "en-faded",
+          "language": "en",
+          "transform": "faded",
+          "imageSha256": "ff51e34a032d07b9b41d12971d32abeb3fc4ec0064799059edaa4cded3ab7d9f",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 284.0944500000005,
+          "firstMs": 282.6885999999995
+        },
+        {
+          "id": "it-clean",
+          "language": "it",
+          "transform": "clean",
+          "imageSha256": "b17e8ecb21a7f1fcf96b661af5798ab4432fd21af163850a1020ab3c9569bb52",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 318.9878499999995,
+          "firstMs": 318.0668999999998
+        },
+        {
+          "id": "it-skew3",
+          "language": "it",
+          "transform": "skew3",
+          "imageSha256": "e7acc333508d97646b9fcc03e34f0e33924e595dbd9fab281d7ce079444e61fc",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 305.4133499999989,
+          "firstMs": 298.988800000001
+        },
+        {
+          "id": "it-skew-3",
+          "language": "it",
+          "transform": "skew-3",
+          "imageSha256": "639081d630d84d53db87c8b1b9989e0fa66cda6461d3ba230ba9f29dc40c5a7a",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 303.2993000000006,
+          "firstMs": 286.66369999999915
+        },
+        {
+          "id": "it-rotate90",
+          "language": "it",
+          "transform": "rotate90",
+          "imageSha256": "cf0a001c2b4dc1a99c25005ef6d7efae1d111d192439b25f5025b3a92c7acd67",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 309.1213000000016,
+          "firstMs": 297.3257999999987
+        },
+        {
+          "id": "it-rotate180",
+          "language": "it",
+          "transform": "rotate180",
+          "imageSha256": "3926f846584dc59c80239dda9a02abc3d8cce223fa2b781979aad3734fffa19a",
+          "cerNoWhitespace": 0.8154761904761905,
+          "exactNormalized": false,
+          "anchorsFound": 0,
+          "anchorsTotal": 4,
+          "warmMedianMs": 301.0286500000002,
+          "firstMs": 299.54709999999795
+        },
+        {
+          "id": "it-small",
+          "language": "it",
+          "transform": "small",
+          "imageSha256": "d2383fe374cfd835f9277e4bc342173cb39aa48f7814b6336f892bfdb0bb1512",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 206.01584999999977,
+          "firstMs": 198.66859999999724
+        },
+        {
+          "id": "it-blur",
+          "language": "it",
+          "transform": "blur",
+          "imageSha256": "58835e49fbe8d5475d08c3e1a40670ff4b71d2997fa88c59ae5b4dce29cca70d",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 294.25914999999986,
+          "firstMs": 307.1733999999997
+        },
+        {
+          "id": "it-jpeg",
+          "language": "it",
+          "transform": "jpeg",
+          "imageSha256": "e72aac1f60b08d3661cc66173b9512c4726ebaec3202f60016c62f75029bae7c",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 292.66060000000107,
+          "firstMs": 305.0705999999991
+        },
+        {
+          "id": "it-faded",
+          "language": "it",
+          "transform": "faded",
+          "imageSha256": "603a96420e327ea1c398f1f1e304f8b524142c9ba55097ac0cbb1761a25869bb",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 4,
+          "anchorsTotal": 4,
+          "warmMedianMs": 297.43284999999923,
+          "firstMs": 343.6739000000016
+        },
+        {
+          "id": "ja-clean",
+          "language": "ja",
+          "transform": "clean",
+          "imageSha256": "ef76f59d14c2f5c72e2aae93fb4933729f7fa39e534df5ec0916280f4e35f780",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 3,
+          "anchorsTotal": 3,
+          "warmMedianMs": 278.4845999999998,
+          "firstMs": 280.9442999999992
+        },
+        {
+          "id": "ru-clean",
+          "language": "ru",
+          "transform": "clean",
+          "imageSha256": "1845c0030ba34391eb4e54a4a885dff77f0c77940559d9d9cae1dcb5f292903f",
+          "cerNoWhitespace": 1,
+          "exactNormalized": false,
+          "anchorsFound": 0,
+          "anchorsTotal": 3,
+          "warmMedianMs": 239.8719000000001,
+          "firstMs": 242.16749999999956
+        },
+        {
+          "id": "zh-clean",
+          "language": "zh",
+          "transform": "clean",
+          "imageSha256": "174ccb6120cda3479fb45cf693e46a53ab115ec8c337abbc6e55025eeb7d1448",
+          "cerNoWhitespace": 0,
+          "exactNormalized": true,
+          "anchorsFound": 3,
+          "anchorsTotal": 3,
+          "warmMedianMs": 220.76175000000148,
+          "firstMs": 224.58550000000105
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Public synthetic legal paragraphs with exact known text, controlled transforms, and Japanese/Russian/Chinese script controls. Not real-world OCR accuracy or OmniParseBench.",
+    "Normalized CER ignores whitespace, case and punctuation; the same metric is applied to every engine. Exact phrase/identifier retention is a proxy for searchable text, not vector/hybrid retrieval quality.",
+    "No model/preprocessing tuning used these cases. Equal weighting across cases is diagnostic, not an estimated production document distribution.",
+    "Candidate is the actual JS Indra hook; it omits upstream deskew and learned reading order. Paddle uses production PP-OCRv6 small auto profile, not per-language recognizers.",
+    "Warm latency includes image decode, OCR and processing; first call/downloads excluded. No extraction, embedding or DB work in these latency samples."
+  ],
+  "reference": {
+    "indra": "0.3.2",
+    "python": "3.12.15",
+    "onnxruntime": "1.30.0",
+    "scriptSha256": "84b6f8625350554757e6be85a28423e1db294d1776edfb927b34a6464aed8b9b",
+    "exactCases": 17,
+    "meanCer": 0.1626269555441224,
+    "rows": [
+      {
+        "id": "en-clean",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 68.27590000466444
+      },
+      {
+        "id": "en-skew3",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 95.2236000157427
+      },
+      {
+        "id": "en-skew-3",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 82.3017000220716
+      },
+      {
+        "id": "en-rotate90",
+        "cerNoWhitespace": 0.9251700680272109,
+        "warmMedianMs": 74.1651999996975
+      },
+      {
+        "id": "en-rotate180",
+        "cerNoWhitespace": 0.9115646258503401,
+        "warmMedianMs": 60.21590001182631
+      },
+      {
+        "id": "en-small",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 63.92240000423044
+      },
+      {
+        "id": "en-blur",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 67.16659999801777
+      },
+      {
+        "id": "en-jpeg",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 73.50100000621751
+      },
+      {
+        "id": "en-faded",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 75.14559998526238
+      },
+      {
+        "id": "it-clean",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 67.98870000056922
+      },
+      {
+        "id": "it-skew3",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 83.02849999745376
+      },
+      {
+        "id": "it-skew-3",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 87.89640001486987
+      },
+      {
+        "id": "it-rotate90",
+        "cerNoWhitespace": 0.9166666666666666,
+        "warmMedianMs": 106.91159998532385
+      },
+      {
+        "id": "it-rotate180",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 75.9183999907691
+      },
+      {
+        "id": "it-small",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 47.21079999580979
+      },
+      {
+        "id": "it-blur",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 79.69589999993332
+      },
+      {
+        "id": "it-jpeg",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 62.51059999340214
+      },
+      {
+        "id": "it-faded",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 72.07650001510046
+      },
+      {
+        "id": "ja-clean",
+        "cerNoWhitespace": 0.6617647058823529,
+        "warmMedianMs": 81.36490001925267
+      },
+      {
+        "id": "ru-clean",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 65.18979999236763
+      },
+      {
+        "id": "zh-clean",
+        "cerNoWhitespace": 0,
+        "warmMedianMs": 81.76919998368248
+      }
+    ],
+    "note": "Full upstream Python pipeline includes deskew/layout, unlike the actual JS candidate. It is an oracle, not a shipped provider."
+  },
+  "decision": {
+    "default": "paddle",
+    "candidate": "experimental Indra JS CPU",
+    "reason": "Candidate is faster but loses exact text, searchable anchors, inclined-page recognition and Japanese coverage on this diagnostic set. The condition for replacing the general default was not met.",
+    "scope": "The actual JS implementation, not the complete upstream Indra pipeline. No universal engine ranking is claimed."
+  }
+}

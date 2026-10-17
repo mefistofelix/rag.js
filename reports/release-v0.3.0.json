@@ -1,0 +1,331 @@
+{
+  "measuredAt": "2026-10-17T12:29:05.581Z",
+  "version": "0.3.0",
+  "package": "@mefistofelix/rag.js",
+  "license": "MIT",
+  "sourceSha256": "ac499385d86d33b08ff489f28994546c06681050ffc0f829449d7877621c5cd3",
+  "sourceBytes": 102586,
+  "tarball": {
+    "bytes": 42186,
+    "integrity": "sha512-4cXr2gS2R7+PMoY2Ml/pGvVSsiY33iubnvFQwBKlYr7LzRQZN2qpDtHViOGSNTpzu2HaK6wsXPMri3k9GdFD4g==",
+    "sha256": "4765624220c6d484ad8d020a0a6e4957dad2e12d37b57f13c0deed9dbe0fcac7",
+    "files": [
+      "package/LICENSE",
+      "package/README.md",
+      "package/package.json",
+      "package/rag.js"
+    ]
+  },
+  "core": {
+    "deno": {
+      "measuredAt": "2026-10-17T12:24:01.886Z",
+      "platform": {
+        "target": "x86_64-pc-windows-msvc",
+        "arch": "x86_64",
+        "os": "windows",
+        "vendor": "pc",
+        "env": "msvc",
+        "standalone": false
+      },
+      "runtime": {
+        "deno": "2.9.7",
+        "v8": "15.0.245.2-rusty",
+        "typescript": "6.0.3"
+      },
+      "productSha256": "ac499385d86d33b08ff489f28994546c06681050ffc0f829449d7877621c5cd3",
+      "passed": 28,
+      "failed": 0
+    },
+    "bun": {
+      "measuredAt": "2026-10-17T12:24:05.066Z",
+      "platform": {
+        "target": "x86_64-pc-windows-msvc",
+        "arch": "x86_64",
+        "os": "windows",
+        "vendor": "pc",
+        "env": "msvc",
+        "standalone": false
+      },
+      "productSha256": "ac499385d86d33b08ff489f28994546c06681050ffc0f829449d7877621c5cd3",
+      "passed": 28,
+      "failed": 0
+    }
+  },
+  "native": {
+    "deno": {
+      "driver": "turso",
+      "productVersion": "0.3.0",
+      "productSha256": "ac499385d86d33b08ff489f28994546c06681050ffc0f829449d7877621c5cd3",
+      "platform": {
+        "target": "x86_64-pc-windows-msvc",
+        "arch": "x86_64",
+        "os": "windows",
+        "vendor": "pc",
+        "env": "msvc",
+        "standalone": false
+      },
+      "runtime": {
+        "deno": "2.9.7",
+        "v8": "15.0.245.2-rusty",
+        "typescript": "6.0.3"
+      },
+      "timings": {
+        "indexMs": 9865.528,
+        "unchangedMs": 4.469299999998839,
+        "transcribeVideoMs": 1571.6444999999985,
+        "ocrImageMs": 287.59760000000097
+      },
+      "report": {
+        "scanned": 3,
+        "unchanged": 0,
+        "updated": 3,
+        "removed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "embeddingsGenerated": 0,
+        "embeddingsReused": 0,
+        "complete": true,
+        "errors": []
+      },
+      "searchableChannels": [
+        "document",
+        "audio",
+        "video-ocr"
+      ],
+      "transcriptionSegments": 1,
+      "ocrProvider": "xberg-paddle",
+      "elementaryVideo": {
+        "indexed": true,
+        "durationEvidence": "packet-timestamps",
+        "seconds": 12,
+        "searchableOcr": true
+      },
+      "durationLimit": {
+        "skipped": 1,
+        "errors": [
+          "MAX_DURATION"
+        ]
+      },
+      "sharedProviderIsolation": {
+        "blockedNativePdfOcr": true,
+        "concurrentDirectOcrNext": true,
+        "concurrentDirectEmbedding": true,
+        "documentContextPreserved": true
+      }
+    },
+    "bun": {
+      "driver": "turso",
+      "productVersion": "0.3.0",
+      "productSha256": "ac499385d86d33b08ff489f28994546c06681050ffc0f829449d7877621c5cd3",
+      "platform": {
+        "os": "win32",
+        "arch": "x64"
+      },
+      "runtime": {
+        "bun": "1.4.3"
+      },
+      "timings": {
+        "indexMs": 10355.3228,
+        "unchangedMs": 3.4139999999988504,
+        "transcribeVideoMs": 1460.7093000000004,
+        "ocrImageMs": 296.1085000000003
+      },
+      "report": {
+        "scanned": 3,
+        "unchanged": 0,
+        "updated": 3,
+        "removed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "embeddingsGenerated": 0,
+        "embeddingsReused": 0,
+        "complete": true,
+        "errors": []
+      },
+      "searchableChannels": [
+        "document",
+        "audio",
+        "video-ocr"
+      ],
+      "transcriptionSegments": 1,
+      "ocrProvider": "xberg-paddle",
+      "elementaryVideo": {
+        "indexed": true,
+        "durationEvidence": "packet-timestamps",
+        "seconds": 12,
+        "searchableOcr": true
+      },
+      "durationLimit": {
+        "skipped": 1,
+        "errors": [
+          "MAX_DURATION"
+        ]
+      },
+      "sharedProviderIsolation": {
+        "blockedNativePdfOcr": true,
+        "concurrentDirectOcrNext": true,
+        "concurrentDirectEmbedding": true,
+        "documentContextPreserved": true
+      }
+    }
+  },
+  "archives": {
+    "deno": {
+      "driver": "turso",
+      "productVersion": "0.3.0",
+      "productSha256": "ac499385d86d33b08ff489f28994546c06681050ffc0f829449d7877621c5cd3",
+      "platform": {
+        "target": "x86_64-pc-windows-msvc",
+        "arch": "x86_64",
+        "os": "windows",
+        "vendor": "pc",
+        "env": "msvc",
+        "standalone": false
+      },
+      "runtime": {
+        "deno": "2.9.7",
+        "v8": "15.0.245.2-rusty",
+        "typescript": "6.0.3"
+      },
+      "nestedEntryProvenance": true,
+      "duplicateOccurrences": 2,
+      "uniqueChunks": 2,
+      "persisted": true,
+      "entryLimitRejected": true
+    },
+    "bun": {
+      "driver": "turso",
+      "productVersion": "0.3.0",
+      "productSha256": "ac499385d86d33b08ff489f28994546c06681050ffc0f829449d7877621c5cd3",
+      "platform": {
+        "os": "win32",
+        "arch": "x64"
+      },
+      "runtime": {
+        "bun": "1.4.3"
+      },
+      "nestedEntryProvenance": true,
+      "duplicateOccurrences": 2,
+      "uniqueChunks": 2,
+      "persisted": true,
+      "entryLimitRejected": true
+    }
+  },
+  "multilingual": {
+    "deno": {
+      "version": "0.3.0",
+      "runtime": {
+        "deno": "2.9.7",
+        "v8": "15.0.245.2-rusty",
+        "typescript": "6.0.3"
+      },
+      "platform": {
+        "target": "x86_64-pc-windows-msvc",
+        "arch": "x86_64",
+        "os": "windows",
+        "vendor": "pc",
+        "env": "msvc",
+        "standalone": false
+      },
+      "productSha256": "ac499385d86d33b08ff489f28994546c06681050ffc0f829449d7877621c5cd3",
+      "indexed": 3,
+      "unchanged": 3,
+      "fulltext": true,
+      "checks": [
+        {
+          "expected": "library.txt",
+          "vectorRank": 1,
+          "hybridRank": 1,
+          "hybridFusionVerified": true
+        },
+        {
+          "expected": "contract.txt",
+          "vectorRank": 1,
+          "hybridRank": 1,
+          "hybridFusionVerified": true
+        },
+        {
+          "expected": "ocean.txt",
+          "vectorRank": 1,
+          "hybridRank": 2,
+          "hybridFusionVerified": true
+        }
+      ],
+      "embeddingDimensions": 768,
+      "ocrProvider": "xberg-paddle",
+      "transcriptionProvider": "node-av",
+      "transcriptOriginalLanguage": true
+    },
+    "bun": {
+      "version": "0.3.0",
+      "runtime": {
+        "bun": "1.4.3"
+      },
+      "platform": {
+        "os": "win32",
+        "arch": "x64"
+      },
+      "productSha256": "ac499385d86d33b08ff489f28994546c06681050ffc0f829449d7877621c5cd3",
+      "indexed": 3,
+      "unchanged": 3,
+      "fulltext": true,
+      "checks": [
+        {
+          "expected": "library.txt",
+          "vectorRank": 1,
+          "hybridRank": 1,
+          "hybridFusionVerified": true
+        },
+        {
+          "expected": "contract.txt",
+          "vectorRank": 1,
+          "hybridRank": 1,
+          "hybridFusionVerified": true
+        },
+        {
+          "expected": "ocean.txt",
+          "vectorRank": 1,
+          "hybridRank": 2,
+          "hybridFusionVerified": true
+        }
+      ],
+      "embeddingDimensions": 768,
+      "ocrProvider": "xberg-paddle",
+      "transcriptionProvider": "node-av",
+      "transcriptOriginalLanguage": true
+    }
+  },
+  "packagedConsumers": [
+    {
+      "version": "0.3.0",
+      "runtime": {
+        "deno": "2.9.7",
+        "v8": "15.0.245.2-rusty",
+        "typescript": "6.0.3"
+      },
+      "productSha256": "ac499385d86d33b08ff489f28994546c06681050ffc0f829449d7877621c5cd3",
+      "updated": 1,
+      "unchanged": 0,
+      "bareImport": true,
+      "fulltext": true
+    },
+    {
+      "version": "0.3.0",
+      "runtime": {
+        "bun": "1.4.3"
+      },
+      "productSha256": "ac499385d86d33b08ff489f28994546c06681050ffc0f829449d7877621c5cd3",
+      "updated": 0,
+      "unchanged": 1,
+      "bareImport": true,
+      "fulltext": true
+    }
+  ],
+  "crossRuntimePersistence": true,
+  "limitations": [
+    "Execution verified on Windows x64 only; other target platforms remain unexecuted.",
+    "CPU native inference; no new GPU performance claim.",
+    "Three multilingual vector queries and independent RRF checks are smoke tests, not full-corpus relevance evaluation.",
+    "The private 2.5 GB corpus and experimental OCR/embedding providers were not rerun for this release."
+  ]
+}

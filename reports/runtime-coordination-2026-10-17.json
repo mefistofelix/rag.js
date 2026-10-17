@@ -1,0 +1,230 @@
+{
+  "measuredAt": "2026-10-17T01:35:51.269Z",
+  "runtime": {
+    "deno": "2.9.7",
+    "v8": "15.0.245.2-rusty",
+    "typescript": "6.0.3"
+  },
+  "platform": {
+    "target": "x86_64-pc-windows-msvc",
+    "arch": "x86_64",
+    "os": "windows",
+    "vendor": "pc",
+    "env": "msvc",
+    "standalone": false
+  },
+  "turso": "0.8.3",
+  "modules": [
+    {
+      "name": "before",
+      "bytes": 102306,
+      "sha256": "f5cab88607a16020f81fa6c355b69faf03fed4242ebaf578c200622ac1dcc651",
+      "orchestrationBytes": 40406,
+      "methodBytes": {
+        "init": 3819,
+        "_operation": 558,
+        "_selection": 110,
+        "_filename": 79,
+        "_pathKey": 85,
+        "_sourceMatches": 311,
+        "_memberships": 168,
+        "_matches": 411,
+        "_scope": 258,
+        "_documents": 444,
+        "addFolder": 934,
+        "listFolders": 189,
+        "removeFolder": 724,
+        "_wake": 42,
+        "_notify": 72,
+        "_enqueue": 1053,
+        "_state": 159,
+        "_boost": 152,
+        "_release": 122,
+        "_scan": 1151,
+        "_prepare": 181,
+        "_reconcile": 4158,
+        "_awaitTargets": 1261,
+        "_request": 184,
+        "index": 465,
+        "reindex": 536,
+        "_idle": 308,
+        "_extractLoop": 2098,
+        "_update": 7314,
+        "search": 4746,
+        "listDocuments": 754,
+        "_direct": 260,
+        "embed": 419,
+        "transcribe": 216,
+        "ocr": 419,
+        "_meta": 559,
+        "addUserMeta": 310,
+        "updateUserMeta": 106,
+        "removeUserMeta": 76,
+        "linkUserMeta": 111,
+        "unlinkUserMeta": 115,
+        "listUserMeta": 139,
+        "status": 1345,
+        "gc": 489,
+        "watch": 2241,
+        "close": 736
+      },
+      "adapterSha256": "0cf444cdc9c91f8035261247c4f8b74084ef6a48cbc9fe0fa9609361fe2da556",
+      "providersSha256": "821f36677fee9c11dccf4635e97e643feac9bb0553bd729bbd2f5c0e9f2cd92e",
+      "revisionPolicySha256": "2d60945381671de3dd7058a8def4aa07566b2d0b5eac7323331089e9e3adecde"
+    },
+    {
+      "name": "after",
+      "bytes": 101634,
+      "sha256": "ea485cce819cb72a95de1bb05b8f696a2cc352ebcde13bba4958fa89fa0f7b10",
+      "orchestrationBytes": 39770,
+      "methodBytes": {
+        "init": 3755,
+        "_operation": 558,
+        "_selection": 110,
+        "_filename": 79,
+        "_pathKey": 85,
+        "_sourceMatches": 311,
+        "_memberships": 168,
+        "_matches": 411,
+        "_scope": 258,
+        "_documents": 444,
+        "addFolder": 934,
+        "listFolders": 189,
+        "removeFolder": 738,
+        "_wake": 42,
+        "_enqueue": 1225,
+        "_state": 235,
+        "_scan": 1151,
+        "_prepare": 181,
+        "_reconcile": 3839,
+        "_awaitTargets": 1309,
+        "_request": 314,
+        "index": 457,
+        "reindex": 536,
+        "_idle": 308,
+        "_extractLoop": 2064,
+        "_update": 7314,
+        "search": 4450,
+        "listDocuments": 754,
+        "_direct": 260,
+        "embed": 419,
+        "transcribe": 216,
+        "ocr": 419,
+        "_meta": 559,
+        "addUserMeta": 310,
+        "updateUserMeta": 106,
+        "removeUserMeta": 76,
+        "linkUserMeta": 111,
+        "unlinkUserMeta": 115,
+        "listUserMeta": 139,
+        "status": 1345,
+        "gc": 489,
+        "watch": 2252,
+        "close": 716
+      },
+      "adapterSha256": "0cf444cdc9c91f8035261247c4f8b74084ef6a48cbc9fe0fa9609361fe2da556",
+      "providersSha256": "821f36677fee9c11dccf4635e97e643feac9bb0553bd729bbd2f5c0e9f2cd92e",
+      "revisionPolicySha256": "2d60945381671de3dd7058a8def4aa07566b2d0b5eac7323331089e9e3adecde"
+    }
+  ],
+  "conditions": "Generated identical text files; one serialized worker; native Turso; no OCR/ASR/embeddings; outcome getter and state lookup instrumented equally. One run per size/variant. Timings are not a general speedup estimate.",
+  "rows": [
+    {
+      "variant": "before",
+      "documents": 128,
+      "indexMs": 731.6282,
+      "coordination": {
+        "stateLookups": 26938,
+        "outcomeReads": 7823
+      },
+      "assertions": {
+        "allDocumentsPublished": true,
+        "fulltextSearch": true,
+        "everyPathCited": true,
+        "extractionAndChunkDedup": true
+      }
+    },
+    {
+      "variant": "after",
+      "documents": 128,
+      "indexMs": 618.2724000000002,
+      "coordination": {
+        "stateLookups": 6799,
+        "outcomeReads": 478
+      },
+      "assertions": {
+        "allDocumentsPublished": true,
+        "fulltextSearch": true,
+        "everyPathCited": true,
+        "extractionAndChunkDedup": true
+      }
+    },
+    {
+      "variant": "after",
+      "documents": 512,
+      "indexMs": 2546.5203,
+      "coordination": {
+        "stateLookups": 99156,
+        "outcomeReads": 1910
+      },
+      "assertions": {
+        "allDocumentsPublished": true,
+        "fulltextSearch": true,
+        "everyPathCited": true,
+        "extractionAndChunkDedup": true
+      }
+    },
+    {
+      "variant": "before",
+      "documents": 512,
+      "indexMs": 2603.610100000001,
+      "coordination": {
+        "stateLookups": 410449,
+        "outcomeReads": 122110
+      },
+      "assertions": {
+        "allDocumentsPublished": true,
+        "fulltextSearch": true,
+        "everyPathCited": true,
+        "extractionAndChunkDedup": true
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "documents": 128,
+      "outcomeReadReduction": 0.9388981209254762,
+      "stateLookupReduction": 0.747605612888856
+    },
+    {
+      "documents": 512,
+      "outcomeReadReduction": 0.9843583654082385,
+      "stateLookupReduction": 0.7584206564031097
+    }
+  ],
+  "core": {
+    "measuredAt": "2026-10-17T01:34:58.981Z",
+    "platform": {
+      "target": "x86_64-pc-windows-msvc",
+      "arch": "x86_64",
+      "os": "windows",
+      "vendor": "pc",
+      "env": "msvc",
+      "standalone": false
+    },
+    "runtime": {
+      "deno": "2.9.7",
+      "v8": "15.0.245.2-rusty",
+      "typescript": "6.0.3"
+    },
+    "productSha256": "ea485cce819cb72a95de1bb05b8f696a2cc352ebcde13bba4958fa89fa0f7b10",
+    "passed": 27,
+    "failed": 0
+  },
+  "unchangedAdapterProvidersAndRevisionPolicy": true,
+  "notRerun": [
+    "native OCR/ASR experiments",
+    "full private corpus",
+    "experimental providers"
+  ]
+}

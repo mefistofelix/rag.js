@@ -1,0 +1,386 @@
+{
+  "measuredAt": "2026-10-16T17:06:44.685Z",
+  "platform": {
+    "target": "x86_64-pc-windows-msvc",
+    "arch": "x86_64",
+    "os": "windows",
+    "vendor": "pc",
+    "env": "msvc",
+    "standalone": false
+  },
+  "runtime": {
+    "deno": "2.9.7",
+    "v8": "15.0.245.2-rusty",
+    "typescript": "6.0.3"
+  },
+  "productSha256": "7fe5158d98e3ed668de247c35e3d809d63605c58f0e0c48b3df9a2784e5fdb0b",
+  "dependencies": {
+    "ort": "1.30.0",
+    "sharp": "0.35.3",
+    "xberg": "1.3.10",
+    "turso": "0.8.3"
+  },
+  "indra": {
+    "upstream": "3d773aeedc5d79d1d0a2a04007a9075cd71a59f4",
+    "revision": "ed345c7f158eddbc7dee0c6a7269afb75a94f7e8",
+    "runtime": "onnxruntime-node@1.30.0",
+    "files": {
+      "det.onnx": "46b0050ce4c4692f887a1a9c038480223af1c7a91b3fcced2657d9cf00290dc4",
+      "rec.onnx": "e243be069b357e56a0e867a21d7482e498df42fb19678bfb67a25f48b1f06151",
+      "script.onnx": "5ba37030e817affede0097a7503b6829624104166c6e0b6aacecacf919fc7d11",
+      "rec_cjk.onnx": "4cec840b55e1bb7f375daf30a2975404a867a71ac1a5bc5b1629c4909ce16baa",
+      "orient.onnx": "8d7bfce5d08bcad55955f41ca494a7f9d9d3ed5d5b6da1f6f276d5c509590729",
+      "order.onnx": "23635dd2324b4ccc00c408af961273a2dedd2e4f0386bc54dba678c41bcf6b46",
+      "meta.json": "ff6ec58f91c93a475ae9505ad21c73c3ecda0b378f1d889dd83408e10832d1bb",
+      "LICENSE": "50c88a018a7ee322e89f6b09401b237beb0cd331685879405b3db48993950a5f"
+    }
+  },
+  "reference": {
+    "python": "3.12.15",
+    "indra": "0.3.2",
+    "onnxruntime": "1.30.0",
+    "setupMs": 207.4706999992486,
+    "fixtures": [
+      {
+        "id": "en",
+        "coldMs": 80.64550001290627,
+        "warmMedianMs": 70.7473999937065,
+        "cerNoWhitespace": 0,
+        "sameTextAsJs": true
+      },
+      {
+        "id": "it",
+        "coldMs": 85.48030001111329,
+        "warmMedianMs": 73.97490000585094,
+        "cerNoWhitespace": 0,
+        "sameTextAsJs": true
+      },
+      {
+        "id": "it-accents",
+        "coldMs": 72.54600001033396,
+        "warmMedianMs": 67.45069997850806,
+        "cerNoWhitespace": 0,
+        "sameTextAsJs": true
+      },
+      {
+        "id": "fr",
+        "coldMs": 77.63970000087284,
+        "warmMedianMs": 61.10779999289662,
+        "cerNoWhitespace": 0,
+        "sameTextAsJs": true
+      },
+      {
+        "id": "de",
+        "coldMs": 61.64700002409518,
+        "warmMedianMs": 68.42389999656007,
+        "cerNoWhitespace": 0,
+        "sameTextAsJs": true
+      },
+      {
+        "id": "es",
+        "coldMs": 70.90220000827685,
+        "warmMedianMs": 78.45329999690875,
+        "cerNoWhitespace": 0,
+        "sameTextAsJs": true
+      },
+      {
+        "id": "ru",
+        "coldMs": 79.32629997958429,
+        "warmMedianMs": 64.80409999494441,
+        "cerNoWhitespace": 0,
+        "sameTextAsJs": true
+      },
+      {
+        "id": "zh",
+        "coldMs": 97.93550000176765,
+        "warmMedianMs": 78.24509998317808,
+        "cerNoWhitespace": 0,
+        "sameTextAsJs": true
+      },
+      {
+        "id": "ar",
+        "coldMs": 54.754900018451735,
+        "warmMedianMs": 82.37330001429655,
+        "cerNoWhitespace": 1,
+        "sameTextAsJs": true
+      },
+      {
+        "id": "mixed-latin",
+        "coldMs": 59.5311000070069,
+        "warmMedianMs": 61.99729998479597,
+        "cerNoWhitespace": 0,
+        "sameTextAsJs": true
+      }
+    ]
+  },
+  "experimentSha256": {
+    "tests/indra.js": "9d247c3a5edd3ac9b67348d5e585d187f9a2bce1e7211eb839c614a03908089a",
+    "tests/benchmark_indra.js": "2b2e4217e7b4e6a754951c5d299a5cb139e8139e371cba50877b199be4186ce7",
+    "tests/indra_reference.py": "f56eaf3ed767e1a75fafb2934a25c1e9f258ebe8526dc8ab8636c7b45ff23a78"
+  },
+  "availableBackends": [
+    {
+      "name": "cpu",
+      "bundled": true
+    },
+    {
+      "name": "dml",
+      "bundled": true
+    },
+    {
+      "name": "webgpu",
+      "bundled": true
+    }
+  ],
+  "notes": [
+    "Public synthetic clean-print pages only; not OmniParseBench or the private 2.51GB corpus.",
+    "Indra JS omits upstream deskew and learned layout/table/math assembly; these timings do not compare equivalent complete document pipelines.",
+    "Warm OCR includes image decode, orientation, detection, script routing, recognition and JS processing. Setup/downloads are separate.",
+    "Ingestion includes extraction, OCR, chunking, native FTS storage; embeddings disabled equally in every profile.",
+    "Paddle uses the production unified auto profile, including the unsupported-script negative controls; Indra routes Chinese per line but does not detect language.",
+    "DirectML requested successfully; ORT may assign unsupported/shape nodes to CPU. Not a claim of all-GPU execution."
+  ],
+  "results": [
+    {
+      "provider": "cpu",
+      "setupMs": 368.9721,
+      "ingestionMs": 694.9449000000004,
+      "documents": 3,
+      "retrievalPaths": 3,
+      "pdfRouting": {
+        "textPdfSkipsOcr": true,
+        "scannedPdfUsesHook": true
+      },
+      "controls": {
+        "rotation270Cer": 0,
+        "rotation90Cer": 0.9411764705882353,
+        "rotation90Applied": 0
+      },
+      "fixtures": [
+        {
+          "id": "en",
+          "coldMs": 135.01419999999996,
+          "warmMedianMs": 81.73799999999983,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "it",
+          "coldMs": 97.37249999999995,
+          "warmMedianMs": 89.3436999999999,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "it-accents",
+          "coldMs": 94.57370000000003,
+          "warmMedianMs": 77.82140000000027,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "fr",
+          "coldMs": 86.88819999999987,
+          "warmMedianMs": 78.99119999999994,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "de",
+          "coldMs": 98.06790000000001,
+          "warmMedianMs": 80.80169999999998,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "es",
+          "coldMs": 92.2795000000001,
+          "warmMedianMs": 75.88179999999988,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "ru",
+          "coldMs": 83.78559999999993,
+          "warmMedianMs": 74.65229999999974,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "zh",
+          "coldMs": 97.97900000000004,
+          "warmMedianMs": 87.52250000000004,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "ar",
+          "coldMs": 94.98979999999983,
+          "warmMedianMs": 75.99440000000004,
+          "cerNoWhitespace": 1
+        },
+        {
+          "id": "mixed-latin",
+          "coldMs": 85.54370000000017,
+          "warmMedianMs": 76.2538999999997,
+          "cerNoWhitespace": 0
+        }
+      ]
+    },
+    {
+      "provider": "dml",
+      "setupMs": 728.7755,
+      "ingestionMs": 723.9935000000005,
+      "documents": 3,
+      "retrievalPaths": 3,
+      "pdfRouting": {
+        "textPdfSkipsOcr": true,
+        "scannedPdfUsesHook": true
+      },
+      "controls": {
+        "rotation270Cer": 0,
+        "rotation90Cer": 0.9411764705882353,
+        "rotation90Applied": 0
+      },
+      "fixtures": [
+        {
+          "id": "en",
+          "coldMs": 419.8796,
+          "warmMedianMs": 65.77700000000004,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "it",
+          "coldMs": 100.64550000000008,
+          "warmMedianMs": 96.30310000000009,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "it-accents",
+          "coldMs": 133.5063,
+          "warmMedianMs": 140.44970000000012,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "fr",
+          "coldMs": 82.19960000000015,
+          "warmMedianMs": 112.39550000000008,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "de",
+          "coldMs": 80.55310000000009,
+          "warmMedianMs": 88.92239999999993,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "es",
+          "coldMs": 74.29549999999995,
+          "warmMedianMs": 100.2509,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "ru",
+          "coldMs": 73.07999999999993,
+          "warmMedianMs": 123.15920000000006,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "zh",
+          "coldMs": 105.23249999999985,
+          "warmMedianMs": 105.58339999999953,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "ar",
+          "coldMs": 73.65099999999984,
+          "warmMedianMs": 105.1555999999996,
+          "cerNoWhitespace": 1
+        },
+        {
+          "id": "mixed-latin",
+          "coldMs": 74.9085,
+          "warmMedianMs": 108.08190000000013,
+          "cerNoWhitespace": 0
+        }
+      ]
+    },
+    {
+      "provider": "paddle",
+      "setupMs": 42.50880000000001,
+      "ingestionMs": 1215.5144,
+      "documents": 3,
+      "retrievalPaths": 3,
+      "controls": {},
+      "fixtures": [
+        {
+          "id": "en",
+          "coldMs": 5549.6077000000005,
+          "warmMedianMs": 246.78850000000057,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "it",
+          "coldMs": 280.4540999999999,
+          "warmMedianMs": 270.3590000000004,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "it-accents",
+          "coldMs": 268.34639999999945,
+          "warmMedianMs": 279.0661,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "fr",
+          "coldMs": 282.2349000000004,
+          "warmMedianMs": 274.1266000000014,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "de",
+          "coldMs": 286.6152000000002,
+          "warmMedianMs": 289.4274999999998,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "es",
+          "coldMs": 258.65689999999995,
+          "warmMedianMs": 265.16029999999955,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "ru",
+          "coldMs": 269.52730000000065,
+          "warmMedianMs": 252.42909999999938,
+          "cerNoWhitespace": 1
+        },
+        {
+          "id": "zh",
+          "coldMs": 220.875,
+          "warmMedianMs": 225.4318000000003,
+          "cerNoWhitespace": 0
+        },
+        {
+          "id": "ar",
+          "coldMs": 235.28830000000016,
+          "warmMedianMs": 234.52289999999994,
+          "cerNoWhitespace": 1
+        },
+        {
+          "id": "mixed-latin",
+          "coldMs": 263.0601999999999,
+          "warmMedianMs": 259.46810000000005,
+          "cerNoWhitespace": 0
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "coreContracts": {
+      "passed": 22,
+      "failed": 0
+    },
+    "native": {
+      "indexed": 3,
+      "channels": [
+        "document",
+        "audio",
+        "video-ocr"
+      ],
+      "elementaryVideo": true
+    }
+  }
+}

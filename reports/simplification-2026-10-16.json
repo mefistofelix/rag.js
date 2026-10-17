@@ -1,0 +1,304 @@
+{
+  "productVersion": "0.2.0",
+  "measuredAt": "2026-10-16T17:58:27.492Z",
+  "runtime": {
+    "deno": "2.9.7",
+    "v8": "15.0.245.2-rusty",
+    "typescript": "6.0.3"
+  },
+  "platform": {
+    "target": "x86_64-pc-windows-msvc",
+    "arch": "x86_64",
+    "os": "windows",
+    "vendor": "pc",
+    "env": "msvc",
+    "standalone": false
+  },
+  "size": {
+    "unit": "UTF-8 source bytes",
+    "before": 109496,
+    "after": 106463,
+    "saved": 3033,
+    "reductionPercent": 2.769964199605468,
+    "targetBytes": 20000,
+    "targetReached": false
+  },
+  "baselineSha256": "7fe5158d98e3ed668de247c35e3d809d63605c58f0e0c48b3df9a2784e5fdb0b",
+  "productSha256": "e000c84e037c9ed58937ebac83160c03eb22c483152da72473b2ae2295f47f30",
+  "compatibility": {
+    "matchingExportsAndPublicSignatures": true,
+    "nativeStoreRoundTrips": 2,
+    "exactHitScoresIdsAndCitationsPreserved": true,
+    "unchangedExtractionAndEmbeddingReuse": true,
+    "sharedMetadataUpdatedWithoutReextraction": true
+  },
+  "changes": [
+    "One runtime state record per document replaces four independent maps for revisions, priority, retries and outcomes.",
+    "One file-revision check surrounds extraction and publication.",
+    "Storage owns shared transaction boundaries and batched row insertion; no schema or public API change.",
+    "Native resource disposal replaces nested cleanup blocks in media processing.",
+    "Hook dispatch is shared with explicit built-in functions; public lifecycle checks and throws remain explicit.",
+    "The embedding descriptor is computed per provider, rather than rebuilt and hashed for every chunk."
+  ],
+  "dependencies": {
+    "turso": "0.8.3",
+    "xberg": "1.3.10",
+    "nodeAv": "6.1.1"
+  },
+  "checks": {
+    "core": {
+      "passed": 22,
+      "failed": 0
+    },
+    "native": [
+      {
+        "provider": "xberg-paddle",
+        "searchableChannels": [
+          "document",
+          "audio",
+          "video-ocr"
+        ],
+        "durationLimit": {
+          "skipped": 1,
+          "errors": [
+            "MAX_DURATION"
+          ]
+        },
+        "elementaryVideo": {
+          "indexed": true,
+          "durationEvidence": "packet-timestamps",
+          "seconds": 12,
+          "searchableOcr": true
+        }
+      }
+    ],
+    "archives": [
+      {
+        "nestedEntryProvenance": true,
+        "persisted": true,
+        "entryLimitRejected": true
+      }
+    ],
+    "pdfOcrRouting": [
+      {
+        "fixture": "native.pdf",
+        "ocrCalls": 0
+      },
+      {
+        "fixture": "overlay.pdf",
+        "ocrCalls": 0
+      },
+      {
+        "fixture": "scan.pdf",
+        "ocrCalls": 1
+      },
+      {
+        "fixture": "mixed.pdf",
+        "ocrCalls": 1
+      },
+      {
+        "fixture": "small.pdf",
+        "ocrCalls": 1
+      }
+    ],
+    "storage": [
+      {
+        "documents": 100,
+        "indexMs": 1085.6738,
+        "unchangedMs": 71.05790000000002,
+        "oneChanged": {
+          "ms": 23.2963000000002,
+          "extractionCalls": 1,
+          "embeddingInputs": 1
+        },
+        "independentCosineQueries": 3,
+        "search": [
+          {
+            "mode": "fulltext",
+            "n": 12,
+            "medianMs": 4.064300000000003,
+            "p95Ms": 14.900699999999915,
+            "minMs": 3.7871999999999844,
+            "maxMs": 14.900699999999915
+          },
+          {
+            "mode": "vector",
+            "n": 12,
+            "medianMs": 4.877799999999979,
+            "p95Ms": 5.1784000000000106,
+            "minMs": 4.720700000000079,
+            "maxMs": 5.1784000000000106
+          },
+          {
+            "mode": "hybrid",
+            "n": 12,
+            "medianMs": 5.742400000000089,
+            "p95Ms": 7.374499999999898,
+            "minMs": 5.394200000000183,
+            "maxMs": 7.374499999999898
+          }
+        ]
+      },
+      {
+        "documents": 1000,
+        "indexMs": 10918.8769,
+        "unchangedMs": 752.8297000000002,
+        "oneChanged": {
+          "ms": 12.9354000000003,
+          "extractionCalls": 1,
+          "embeddingInputs": 1
+        },
+        "independentCosineQueries": 3,
+        "search": [
+          {
+            "mode": "fulltext",
+            "n": 12,
+            "medianMs": 20.155000000000655,
+            "p95Ms": 24.853299999998853,
+            "minMs": 17.359699999999066,
+            "maxMs": 24.853299999998853
+          },
+          {
+            "mode": "vector",
+            "n": 12,
+            "medianMs": 19.417100000000573,
+            "p95Ms": 23.878500000000713,
+            "minMs": 18.70179999999891,
+            "maxMs": 23.878500000000713
+          },
+          {
+            "mode": "hybrid",
+            "n": 12,
+            "medianMs": 23.54190000000017,
+            "p95Ms": 42.869299999998475,
+            "minMs": 21.95980000000054,
+            "maxMs": 42.869299999998475
+          }
+        ]
+      }
+    ],
+    "multilingualQuality": {
+      "documents": 16,
+      "queries": 24,
+      "earlierMetricsSourceSha256": "34f932409d0a53394e3c1c5355e935926b0e0f96f85d8cfc0f56d6f514e447d9",
+      "metricsAndLanguageBreakdownsMatchEarlierFixture": true,
+      "rows": [
+        {
+          "mode": "fulltext",
+          "metrics": {
+            "hit1": 0.25,
+            "hit5": 0.4583333333333333,
+            "reciprocalRank": 0.3263888888888889,
+            "recall5": 0.25,
+            "ndcg5": 0.23642297582601193
+          },
+          "byLanguage": {
+            "it": {
+              "n": 8,
+              "hit1": 0.25,
+              "hit5": 0.625,
+              "mrr5": 0.38541666666666663
+            },
+            "en": {
+              "n": 8,
+              "hit1": 0.5,
+              "hit5": 0.75,
+              "mrr5": 0.59375
+            },
+            "ru": {
+              "n": 4,
+              "hit1": 0,
+              "hit5": 0,
+              "mrr5": 0
+            },
+            "zh": {
+              "n": 4,
+              "hit1": 0,
+              "hit5": 0,
+              "mrr5": 0
+            }
+          }
+        },
+        {
+          "mode": "vector",
+          "metrics": {
+            "hit1": 1,
+            "hit5": 1,
+            "reciprocalRank": 1,
+            "recall5": 1,
+            "ndcg5": 0.9837294697074715
+          },
+          "byLanguage": {
+            "it": {
+              "n": 8,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "en": {
+              "n": 8,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "ru": {
+              "n": 4,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "zh": {
+              "n": 4,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            }
+          }
+        },
+        {
+          "mode": "hybrid",
+          "metrics": {
+            "hit1": 0.8333333333333334,
+            "hit5": 0.9583333333333334,
+            "reciprocalRank": 0.8784722222222222,
+            "recall5": 0.7708333333333334,
+            "ndcg5": 0.7515732210384013
+          },
+          "byLanguage": {
+            "it": {
+              "n": 8,
+              "hit1": 0.625,
+              "hit5": 0.875,
+              "mrr5": 0.71875
+            },
+            "en": {
+              "n": 8,
+              "hit1": 0.875,
+              "hit5": 1,
+              "mrr5": 0.9166666666666666
+            },
+            "ru": {
+              "n": 4,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            },
+            "zh": {
+              "n": 4,
+              "hit1": 1,
+              "hit5": 1,
+              "mrr5": 1
+            }
+          }
+        }
+      ]
+    }
+  },
+  "limits": [
+    "Windows x64 execution only; no new Linux or macOS execution evidence.",
+    "This pass preserves existing features and existing documented limitations; it does not implement previously deferred features.",
+    "The private 2.51 GB corpus and optional experimental providers were not rebenchmarked.",
+    "The 20 KB source target is not reached. This is a modest simplification pass, not evidence that the remaining design is irreducible.",
+    "Storage timings are verification measurements, not a paired performance comparison with the previous source."
+  ]
+}
